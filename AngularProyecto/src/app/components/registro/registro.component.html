@@ -1,0 +1,54 @@
+<div class="contenedor" id="registrocont">
+    <h3>Únete a nuestra plataforma</h3><br>
+    
+    <form id="formreg">
+        <div class="otroMiniCont">
+            <div>
+                <label>Nombre</label><br/>
+                <input type="text" placeholder="Ej: Marcela" required>
+            </div><br>
+            <div>
+                <label>Apellidos</label><br/>
+                <input type="text" placeholder="Ej: Aguirre López" required>
+            </div><br>
+
+            <div>
+                <label>Rut</label><br/>
+                <input type="text" placeholder="Ej: 12.345.678-9" required>
+            </div><br>
+
+            <div>
+                <label>Correo Electrónico</label><br/>
+                <input type="email" placeholder="Ej: marcela.A@mail.com" required>
+            </div><br>
+            <div>
+                <label>Número de teléfono</label><br/>
+                <input type="text" placeholder="Ej: 56012345678">
+            </div><br>
+        </div>
+        
+        <div class="otroMiniCont" id="reg2">
+            <div>
+                <label>Contraseña</label><br/>
+                <input type="password" placeholder="********" required>
+            </div><br>
+
+            <div>
+                <label>Confirmar contraseña</label><br/>
+                <input type="password" placeholder="********" required>
+            </div><br>
+            
+            <label>¿Con cuáles de nuestros productos cuéntas?</label><br/>
+            <select name="nombre">
+				<option value="opcion">Seleccione una opción</option>
+				<option value="Producto 1">Producto 1</option>
+                <option value="Producto 2">Producto 2</option>
+                <option value="Producto 3">Producto 3</option>
+			</select>
+               
+        </div><br>
+    
+    </form>
+    <button class="boton_personalizado" id="ccbut" type="submit" (click)="crearcuenta()">Crear Cuenta</button>
+    <button class="boton_personalizado" id="vabut" type="submit" (click)="gotoinicio()" >Volver atrás</button>
+</div>

@@ -1,0 +1,41 @@
+
+<div class="contenedor">
+    <!--Contenido de Reporte-->
+    <h2>Busqueda de Reclamos</h2>
+    <div>
+    <form>
+        <p>
+     
+        <select name="nombre">
+            <option value="opcion">Seleccione una opción</option>
+            <option value="porRut">Busqueda N° Reclamo</option>
+            <option value="porNumReclamo">Busqueda...</option>
+        </select>
+        <input type="text" name="numeroR" placeholder="Ingrese N° Reclamo o ...">
+        </p>	
+    </form>
+    </div>
+    <div>
+
+        <p>
+        <table>
+        <thead>
+        <tr>
+        <th></th><th></th>
+        </tr>
+        </thead>
+        <tr>
+        <td>1</td><td>Reclamo numero: "Traer con la funcion"</td><br>
+        
+        <td><input type="submit" value="Estado"/></td>
+        </tr>
+        <tr>
+        <td>2</td><td>Reclamo numero: "Traer con la funcion"</td><br>
+        
+        <td><input type="submit" value="Estado"/></td>
+        </tr>
+        </table>
+        </div>
+        <p>
+            <button class="boton_personalizado" id="vabut" type="submit" [routerLink]="['/main-ejecutivo']">Volver atrás</button>
+      </div>

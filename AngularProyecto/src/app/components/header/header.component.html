@@ -1,0 +1,31 @@
+<header>
+    <!--Menu-->
+    <div class="ancho">
+    <div class="logo">
+    <p><a [routerLink]="['/bienvenido']">Reclamos<br>DAJKYM</a></p>
+    </div>
+    <nav>
+        <ul>
+            <li><a [routerLink]="['/bienvenido']" [routerLinkActive]="['active']" title="Inicio">Inicio</a></li>
+            <li><a [routerLink]="['/recuperarc']" [routerLinkActive]="['active']" title="Informacion">Información</a></li>
+            <li><a [routerLink]="['/registro']" [routerLinkActive]="['active']" title="Contacto">Contacto</a></li>
+            <li> <i class="fa fa-user-circle fa-3x" aria-hidden="true"></i>
+
+                <ul>
+                    <li><a [routerLink]="['/main-user']"  title="Inicio">Mi cuenta</a></li><br>
+                    <li><a [routerLink]="['/editarc']"  title="Inicio">Editar datos</a></li><br>
+                    <li><a [routerLink]="['/bienvenido']"  title="Inicio">Cerrar Sesion </a></li><br>
+                
+                </ul>         
+            </li>
+        </ul>
+
+
+    </nav>
+
+              
+        
+
+    
+    </div>
+    </header>

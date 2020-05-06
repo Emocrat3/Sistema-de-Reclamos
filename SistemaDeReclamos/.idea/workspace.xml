@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="30e47489-f1ae-42af-88c8-633e7491090b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mssql-jdbc-8.2.2.jre8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/API/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/API/ReclamoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/API/RespuestaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/API/UsuarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/DAO/AdminDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/DAO/Conexion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/DAO/ReclamosDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/DAO/RespuestaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/DAO/SLADAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/DAO/SinConexionException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/DAO/UsuarioDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/DAO/extraerFechaTopeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/DTO/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/DTO/Reclamos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/DTO/Respuesta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/DTO/Usuarios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/Servicios/Fecha.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Reclamos/SistemaDeReclamos/SistemaDeReclamosApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/Reclamos/SistemaDeReclamos/SistemaDeReclamosApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\Usuario\Desktop\SistemaDeReclamos\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1b8TRqMKXBkzG8rddw8xAi7K2WX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Nueva carpeta/SistemaDeReclamos/pom.xml" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\CATALINA\Dropbox\Proyecto\Proyecto final\JAVA\SistemaDeReclamos\src\main\java\com\Reclamos\SistemaDeReclamos\DAO" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="30e47489-f1ae-42af-88c8-633e7491090b" name="Default Changelist" comment="" />
+      <created>1588012715770</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588012715770</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="22" key="#Project_Structure" timestamp="1588184942699">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1588184942699" />
+    <state x="2056" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1588269849344">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2056" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1588269849344" />
+    <state x="487" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1588444297602">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="2051" y="67" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1588291259321" />
+    <state x="487" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1588444297602" />
+    <state x="2056" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588262710334">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2056" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1588262710334" />
+    <state x="413" y="111" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1588209691668">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1366.728@0.0.1366.728" timestamp="1588209691668" />
+    <state x="251" y="0" key="CommitChangelistDialog2" timestamp="1588737930393">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="251" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588737930393" />
+    <state x="462" y="118" key="FileChooserDialogImpl" timestamp="1588530549918">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="2015" y="169" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1588272786981" />
+    <state x="462" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1588530549918" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1588195079236">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588195079236" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1588195079235">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588195079235" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1588195079235">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588195079235" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1588195079236">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588195079236" />
+    <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1588182689543">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="213" y="19" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1588182689543" />
+    <state x="84" y="0" key="SettingsEditor" timestamp="1588198225213">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="84" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1588198225213" />
+    <state x="377" y="186" key="com.intellij.ide.util.TipDialog" timestamp="1588737808487">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="377" y="186" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588737808487" />
+    <state x="65" y="0" key="new project wizard" timestamp="1588460263325">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1588460263325" />
+    <state x="425" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1588442550368">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="1963" y="0" key="refactoring.ChangeSignatureDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1588263716114" />
+    <state x="425" y="0" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1588442550368" />
+  </component>
+</project>

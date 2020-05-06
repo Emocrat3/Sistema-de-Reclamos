@@ -1,0 +1,18 @@
+<div class="contenedor"> 
+    <h1>Iniciar Sesion</h1><br>
+    <p>¡Bienvenido!</p>
+    <p>Por favor ingresar sus datos correctamente</p><br><br>
+
+    <p>
+        <label for="email"><Strong>Correo Electronico</Strong></label><br>
+        <input type="text" id="email" name="email" [(ngModel)]="email" class="login" placeholder="Ingrese su correo electronico"/><br><br>
+        <Strong><label for="pass">Contraseña</label></Strong><br>
+        <input type="password" id="pass" name="pass" [(ngModel)]="pass" class="login" placeholder="Escriba su contraseña"/>
+    </p>
+    <button class="boton_personalizado" (click)="validarUser()">Iniciar Sesion</button>
+    
+    <ul><a class="registro" [routerLink]="['/registro']">¿No estas registrado? Registrate aqui!</a></ul>
+    
+    <ul><a class="recuperar" [routerLink]="['/recuperarc']">¿Olvido su contraseña?</a></ul>
+</div>
+

@@ -1,0 +1,13 @@
+<div class="contenedor" id="cont2"> 
+    <h1>Bienvenido nombre</h1>
+    <h2>¿Que quieres ver hoy?</h2>
+    <br>
+    
+    <div class="minicontenedor" ><button [routerLink]="['/respuesta-de-reclamo']"><Strong>Solicitudes de Reclamos</Strong></button></div>
+    <div class="minicontenedor" ><button [routerLink]="['/busquedareclamoejecutivo']"><Strong>Búsqueda de reclamos</Strong></button></div>
+    <div class="minicontenedor" ><button [routerLink]="['/editar-cuenta-ejecutivo']"><Strong>Editar Datos de Cuenta</Strong></button></div>
+    <div class="minicontenedor"><button (click)="alertaReporte()"><Strong>Reportar Problemas</Strong></button></div>
+    
+    <button class="boton_personalizado" id="botonrightadmin" onclick="validar()"><a [routerLink]="['/bienvenido']">Cerrar Sesion</a></button>
+</div>
+       

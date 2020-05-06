@@ -1,0 +1,53 @@
+//Importar los modulos del router de angular
+
+import {ModuleWithProviders } from '@angular/core';
+import {Routes, RouterModule } from '@angular/router';
+
+// Importar componentes a los cuales les quiero hacer una pagina exclusiva
+import {BienvenidoComponent} from './components/bienvenido/bienvenido.component';
+import {BusquedaReclamoComponent} from './components/busqueda-reclamo/busqueda-reclamo.component';
+import {CrearCuentaEjecutivoComponent} from './components/crearCuentaEjecutivo/crear-cuenta-ejecutivo.component';
+import {EditarcComponent} from './components/editarc/editarc.component';
+import {LoginComponent} from './components/login/login.component';
+import {MainEjecutivoComponent} from './components/main-ejecutivo/main-ejecutivo.component';
+import {MainUserComponent} from './components/main-user/main-user.component';
+import {NuevaContrasenaComponent} from './components/nueva-contrasena/nueva-contrasena.component';
+import {RecuperarcComponent} from './components/recuperarc/recuperarc.component';
+import {RegistroComponent} from './components/registro/registro.component';
+import {ReporteComponent} from './components/reporte/reporte.component';
+import {RespuestaDeReclamoComponent} from './components/respuesta-de-reclamo/respuesta-de-reclamo.component';
+import { ErrorComponent } from './components/error/error.component';
+import { EditarCuentaEjecutivoComponent } from './components/editar-cuenta-ejecutivo/editar-cuenta-ejecutivo.component';
+import { LoginEjecutivoComponent } from './components/login-ejecutivo/login-ejecutivo.component';
+import { EditarReclamoComponent } from './components/editar-reclamo/editar-reclamo.component';
+import { BusquedareclamoejecutivoComponent } from './components/busquedareclamoejecutivo/busquedareclamoejecutivo.component';
+
+// Array de rutas (Configuracion de todas las rutas al crear)
+
+const appRoutes: Routes = [
+    {path:'', component:BienvenidoComponent},
+    {path:'bienvenido', component:BienvenidoComponent},
+    {path:'login', component:LoginComponent},
+    {path:'registro', component:RegistroComponent},
+    {path:'recuperarc', component:RecuperarcComponent},
+    {path:'crearCuentaEjecutivo', component:CrearCuentaEjecutivoComponent},
+
+    {path:'nueva-contrasena', component:NuevaContrasenaComponent},
+    {path:'editarc', component:EditarcComponent},
+    {path:'main-user', component:MainUserComponent},
+    {path:'main-ejecutivo', component:MainEjecutivoComponent},
+    {path:'reporte', component:ReporteComponent},
+    {path:'respuesta-de-reclamo', component:RespuestaDeReclamoComponent},
+    {path:'busqueda-reclamo', component:BusquedaReclamoComponent},
+    {path:'editar-cuenta-ejecutivo', component:EditarCuentaEjecutivoComponent},
+    {path:'login-ejecutivo', component:LoginEjecutivoComponent},
+    {path:'editar-reclamo', component:EditarReclamoComponent},
+    {path:'busquedareclamoejecutivo', component:BusquedareclamoejecutivoComponent},
+    {path:'**', component:ErrorComponent}
+
+
+];
+
+// Exportar el modulo de rutas
+export const appRoutingProviders: any[] = [];
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

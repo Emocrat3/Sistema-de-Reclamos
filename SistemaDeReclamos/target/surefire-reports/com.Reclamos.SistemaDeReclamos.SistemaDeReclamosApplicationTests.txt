@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.Reclamos.SistemaDeReclamos.SistemaDeReclamosApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 43.058 s - in com.Reclamos.SistemaDeReclamos.SistemaDeReclamosApplicationTests

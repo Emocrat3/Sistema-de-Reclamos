@@ -1,0 +1,44 @@
+<div class="contenedor" id="contrep">
+    <!--Contenido de Reporte-->
+    <h2>♥ Te escuchamos...</h2><br>
+    <div class="minicontenedor" id="contrep1">
+        <div>
+            <form>
+                <p>
+                    <label for="nombre">¿En qué podemos ayudarte?</label> <br/>
+                    <select id="opti" name="nombre">
+                        <option value="opcion">Seleccione una opción</option>
+                        <option value="caida">Caida del servicio</option>
+                        <option value="velocidad">Poca velocidad</option>
+                        <option value="fallo">Fallo del programa</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </p>
+                
+                <p>
+                    <label for="inquietud">Detalle su inquietud:</label> <br/>
+                    <textarea id="cuadrotexto" name="inquietud" placeholder="Ingresa un breve resumen..."></textarea> 
+                </p>
+                <p>
+                    <label for="fecha">Indique la fecha que comenzó el problema.</label>
+                </p>
+                <div id="fecha"><input type="date"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="minicontenedor" id="contrep2">
+        <p>
+            <label for="telefono">Numero telefonico:</label> <br/>
+            <input id="telnum" type="text" name="telefono" placeholder="+56 9 32134124">
+        </p>
+        <p>
+            <label for="email">Email:</label> <br/>
+            <input id="mailin" type="text" name="telefono" placeholder="reclamos@gmail.com">
+        </p>
+        <input class="boton_personalizado" id="butrep1" type="submit" value="Confirmar"/>
+        <input class="boton_personalizado" id="butrep2" type="submit" value="Editar"/><br>
+        <input class="boton_personalizado" id="butrep3" type="submit" value="Enviar Reclamo" [routerLink]="['/main-user']"/><br>
+        <input class="boton_personalizado"  id="butrep4" type="submit" value="volver atras" [routerLink]="['/main-user']"/>
+    </div>
+</div>

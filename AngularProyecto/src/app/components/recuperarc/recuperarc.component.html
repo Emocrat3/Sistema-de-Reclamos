@@ -1,0 +1,14 @@
+<div class="contenedor"> 
+    <h1>Recuperar Contraseña</h1>
+    <p>Enviaremos muy pronto un código a tu correo<br>
+    electrónico para restablecer la contraseña.</p>
+    
+         <p>
+             <input type="text" id="email" name="email" class="login" placeholder="Ingrese su correo electronico"/><br></p>
+             <p><input type="password" id="code" name="code" class="code" placeholder="Ingrese el codigo que recibio"/></p>
+        <button class="boton_personalizado" onclick="validar()"><a [routerLink]="['/nueva-contrasena']">Siguiente</a></button> 
+         <input type="submit" name="Volver atras" value="Volver atras" [routerLink]="['/login']"/>
+     <br>
+    <ul>    
+    <a class="registro" href="https://gmail.com">Enviar enlace nuevamente</a></ul> 
+    </div>
