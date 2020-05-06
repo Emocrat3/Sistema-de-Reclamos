@@ -17,7 +17,8 @@ ngOnInit(){
   this.obtenerReclamos();
 }
   obtenerReclamos() {
-    this.reclamosService.obtenerReclamos().subscribe(reclamos => this.reclamos = reclamos); 
+    this.reclamosService.obtenerReclamos()
+    .subscribe(reclamos => this.reclamos = reclamos); 
   }
 
 }

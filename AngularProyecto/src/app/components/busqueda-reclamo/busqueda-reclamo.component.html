@@ -13,11 +13,6 @@
         <input type="text" name="numeroR" placeholder="Ingrese N° Reclamo o ...">
         </p>	
     </form>
-    <ul>
-        <li *ngFor="let r of reclamos">
-            <span>{{r.num_reclamo}}, {{r.tipo_problema}}, {{r.fecha}}</span>
-        </li>
-    </ul>
     </div>
     <div>
 
@@ -29,14 +24,9 @@
         </tr>
         </thead>
         <tr>
-        <td>1</td><td>Reclamo numero: "Traer con la funcion"</td><br>
-        <td><input type="submit" value="Editar" [routerLink]="['/editar-reclamo']"/></td>
-        <td><input type="submit" value="Estado"/></td>
-        </tr>
-        <tr>
-        <td>2</td><td>Reclamo numero: "Traer con la funcion"</td><br>
-        <td><input type="submit" value="Editar" [routerLink]="['/editar-reclamo']"/></td>
-        <td><input type="submit" value="Estado"/></td>
+        <li *ngFor="let r of reclamos"><span>{{r.num_reclamo}}, {{r.tipo_problema}}
+             <input type="submit" value="Editar" [routerLink]="['/editar-reclamo']"/>
+            <input type="submit" value="Estado"/></span></li><br>
         </tr>
         </table>
         </div>

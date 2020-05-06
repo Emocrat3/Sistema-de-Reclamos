@@ -9,7 +9,7 @@ import { Reclamos } from 'src/models/Reclamos';
 export class ReclamosService {
 
 
-  private URL = 'localhost:8080/api'
+  private URL = 'http://localhost:8080/api'
 
   constructor(private http: HttpClient) { }
 
