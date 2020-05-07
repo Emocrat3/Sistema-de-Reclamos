@@ -31,6 +31,7 @@ import { LoginEjecutivoComponent } from './components/login-ejecutivo/login-ejec
 import { EditarReclamoComponent } from './components/editar-reclamo/editar-reclamo.component';
 import { FormsModule } from '@angular/forms';
 import { BusquedareclamoejecutivoComponent } from './components/busquedareclamoejecutivo/busquedareclamoejecutivo.component';
+import { DetalleReclamoComponent } from './components/detalle-reclamo/detalle-reclamo.component';
 
 
 
@@ -58,7 +59,8 @@ import { BusquedareclamoejecutivoComponent } from './components/busquedareclamoe
     ErrorComponent,
     LoginEjecutivoComponent,
     EditarReclamoComponent,
-    BusquedareclamoejecutivoComponent
+    BusquedareclamoejecutivoComponent,
+    DetalleReclamoComponent
     
     
   ],

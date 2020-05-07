@@ -18,4 +18,8 @@ export class ReclamosService {
     const suffix = '/reclamos/usuario'
     return this.http.get<Reclamos[]>(this.URL+suffix);
   }
+  obtenerReclamoPorID(num_reclamo: number): Observable<Reclamos> {
+    const suffix = '/reclamos/usuario/'
+    return this.http.get<Reclamos>(this.URL+suffix+num_reclamo);
+  }
 }

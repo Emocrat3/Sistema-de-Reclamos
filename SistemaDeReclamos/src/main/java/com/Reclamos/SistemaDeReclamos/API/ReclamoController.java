@@ -32,7 +32,7 @@ public class ReclamoController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/reclamos/usuario/{num_reclamo}")
-    public Reclamos obtenerReclamoPorID(@PathVariable("num_reclamo") int num_reclamo){
+    public Reclamos obtenerReclamosPorID(@PathVariable("num_reclamo") int num_reclamo){
         return ReclamosDAO.obtenerReclamosPorID(num_reclamo);
     }
     @RequestMapping(method = RequestMethod.PUT, value = "/editarReclamo/")

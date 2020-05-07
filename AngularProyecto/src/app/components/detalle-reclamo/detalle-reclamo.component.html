@@ -1,0 +1,11 @@
+<div class="contenedor">
+    <div *ngIf="reclamos">
+    <h3>Detalles Reclamo {{reclamos.num_reclamo}}</h3>
+    <hr>
+    <span>Rut del usuario: {{reclamos.rut_usuario}}</span><br>
+    <span>Tipo de problema: {{reclamos.tipo_problema}}</span><br>
+    <span>Texto del reclamo: {{reclamos.texto_reclamo}}</span><br>
+    <span>Fecha: {{reclamos.fecha}}</span><br>
+
+</div>
+<button mat-raised-button class="primary" (click)="volver()">Volver Atras</button></div>

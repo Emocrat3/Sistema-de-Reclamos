@@ -21,6 +21,7 @@ import { EditarCuentaEjecutivoComponent } from './components/editar-cuenta-ejecu
 import { LoginEjecutivoComponent } from './components/login-ejecutivo/login-ejecutivo.component';
 import { EditarReclamoComponent } from './components/editar-reclamo/editar-reclamo.component';
 import { BusquedareclamoejecutivoComponent } from './components/busquedareclamoejecutivo/busquedareclamoejecutivo.component';
+import { DetalleReclamoComponent } from './components/detalle-reclamo/detalle-reclamo.component';
 
 // Array de rutas (Configuracion de todas las rutas al crear)
 
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
     {path:'login-ejecutivo', component:LoginEjecutivoComponent},
     {path:'editar-reclamo', component:EditarReclamoComponent},
     {path:'busquedareclamoejecutivo', component:BusquedareclamoejecutivoComponent},
+    {path:'detalle/:num_reclamo', component:DetalleReclamoComponent},
     {path:'**', component:ErrorComponent}
 
 
