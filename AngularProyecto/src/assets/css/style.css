@@ -132,8 +132,11 @@ nav ul ul {
     width: 40%;
     height: 400px;
     text-align: center
-    
-    
+      
+}
+
+.obtenerReclamosCss table{
+    text-align: center;
 }
 
 
