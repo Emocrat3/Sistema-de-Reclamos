@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Reclamos } from 'src/models/Reclamos';
 import { ReclamosService } from 'src/app/services/reclamos-service.service';
 import { Router, NavigationEnd } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-buscando-reclamos',

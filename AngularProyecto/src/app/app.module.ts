@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routing, appRoutingProviders } from './app.routing';
 import {HttpClientModule} from '@angular/common/http';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -33,8 +34,10 @@ import { FormsModule } from '@angular/forms';
 import { BusquedareclamoejecutivoComponent } from './components/busquedareclamoejecutivo/busquedareclamoejecutivo.component';
 import { DetalleReclamoComponent } from './components/detalle-reclamo/detalle-reclamo.component';
 import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscando-reclamos.component';
-
-
+import { MatInputModule} from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -68,9 +71,15 @@ import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscan
     BrowserModule,
     routing, 
     FormsModule,
-    HttpClientModule
-    
-
+    HttpClientModule,
+    MatFormFieldModule,
+    MatTableModule
+  ],
+  exports:[
+    MatButtonModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
