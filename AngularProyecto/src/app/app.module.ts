@@ -7,7 +7,6 @@ import { MatTableModule } from '@angular/material/table';
 
 
 
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ContenedorComponent } from './components/contenedor/contenedor.component';
@@ -34,10 +33,7 @@ import { FormsModule } from '@angular/forms';
 import { BusquedareclamoejecutivoComponent } from './components/busquedareclamoejecutivo/busquedareclamoejecutivo.component';
 import { DetalleReclamoComponent } from './components/detalle-reclamo/detalle-reclamo.component';
 import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscando-reclamos.component';
-import { MatInputModule} from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -74,12 +70,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     HttpClientModule,
     MatFormFieldModule,
     MatTableModule
-  ],
-  exports:[
-    MatButtonModule,
-    MatToolbarModule,
-    MatInputModule,
-    MatIconModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
