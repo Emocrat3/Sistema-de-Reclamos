@@ -11,6 +11,9 @@ export class ReclamosService {
 
   private URL = 'http://localhost:8080/api'
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   constructor(private http: HttpClient) { }
 
   
@@ -21,5 +24,13 @@ export class ReclamosService {
   obtenerReclamoPorID(num_reclamo: number): Observable<Reclamos> {
     const suffix = '/reclamos/usuario/'
     return this.http.get<Reclamos>(this.URL+suffix+num_reclamo);
+  }
+  editarReclamos(recl: Reclamos) {
+    const suffix = '/editarReclamo/'
+    return this.http.put<Reclamos>(this.URL+suffix, recl, this.httpOptions);
+  }
+
+  borrarReclamo(num_reclamo: number) {
+    return this.http.delete(this.URL+num_reclamo, this.httpOptions);
   }
 }

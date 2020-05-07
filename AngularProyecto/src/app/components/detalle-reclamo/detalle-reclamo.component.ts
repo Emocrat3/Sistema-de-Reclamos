@@ -34,4 +34,9 @@ export class DetalleReclamoComponent implements OnInit{
     this.ubicacion.back();
   }
 
+  guardar(num_reclamo:number, rut_usuario:number, tipo_problema:string, texto_reclamo:string, fecha: string){
+    this.reclamosService.editarReclamos({num_reclamo, rut_usuario,tipo_problema, texto_reclamo, fecha} as Reclamos)
+      .subscribe(_=>this.volver());
+  }
+
 }

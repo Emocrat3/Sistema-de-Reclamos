@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppMaterialModule } from './app-material/app-material.module';
 import { routing, appRoutingProviders } from './app.routing';
 import {HttpClientModule} from '@angular/common/http';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatTableModule } from '@angular/material/table';
-
+import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
@@ -29,10 +29,10 @@ import { ErrorComponent } from './components/error/error.component';
 import { EditarCuentaEjecutivoComponent } from './components/editar-cuenta-ejecutivo/editar-cuenta-ejecutivo.component';
 import { LoginEjecutivoComponent } from './components/login-ejecutivo/login-ejecutivo.component';
 import { EditarReclamoComponent } from './components/editar-reclamo/editar-reclamo.component';
-import { FormsModule } from '@angular/forms';
 import { BusquedareclamoejecutivoComponent } from './components/busquedareclamoejecutivo/busquedareclamoejecutivo.component';
 import { DetalleReclamoComponent } from './components/detalle-reclamo/detalle-reclamo.component';
 import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscando-reclamos.component';
+
 
 
 @NgModule({
@@ -65,11 +65,12 @@ import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscan
   ],
   imports: [
     BrowserModule,
-    routing, 
-    FormsModule,
+    routing,  
     HttpClientModule,
-    MatFormFieldModule,
-    MatTableModule
+    AppMaterialModule,
+    FormsModule,
+    BrowserAnimationsModule
+
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

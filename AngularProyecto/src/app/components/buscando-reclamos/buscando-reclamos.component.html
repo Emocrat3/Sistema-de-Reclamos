@@ -1,35 +1,36 @@
+<div class="contenedor">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <table mat-table [dataSource]="aeropuertos">
+  <table mat-table [dataSource]="reclamos">
     
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef>Identificador</th>
-      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    <ng-container matColumnDef="num_reclamo">
+      <th mat-header-cell *matHeaderCellDef>Numero de Reclamo</th>
+      <td mat-cell *matCellDef="let element">{{element.num_reclamo}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="nombre">
-      <th mat-header-cell *matHeaderCellDef>Nombre aeropuerto</th>
-      <td mat-cell *matCellDef="let element">{{element.nombre}}</td>
+    <ng-container matColumnDef="rut_usuario">
+      <th mat-header-cell *matHeaderCellDef>Rut del Usuario</th>
+      <td mat-cell *matCellDef="let element">{{element.rut_usuario}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="ciudad">
-      <th mat-header-cell *matHeaderCellDef>Ciudad</th>
-      <td mat-cell *matCellDef="let element">{{element.ciudad}}</td>
+    <ng-container matColumnDef="tipo_problema">
+      <th mat-header-cell *matHeaderCellDef>Tipo de Problema</th>
+      <td mat-cell *matCellDef="let element">{{element.tipo_problema}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="pais">
-      <th mat-header-cell *matHeaderCellDef>Pais</th>
-      <td mat-cell *matCellDef="let element">{{element.pais}}</td>
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let element">{{element.fecha}}</td>
     </ng-container>
 
     <ng-container matColumnDef="detalle">
-      <th mat-header-cell *matHeaderCellDef>Informacion</th>
-      <td mat-cell *matCellDef="let element"> <a routerLink="/detalle/{{element.id}}">detalle</a></td>
+      <th mat-header-cell *matHeaderCellDef>Detalle de Reclamo</th>
+      <td mat-cell *matCellDef="let element"> <a routerLink="/detalle/{{element.num_reclamo}}">detalle</a></td>
     </ng-container>
 
     <ng-container matColumnDef="borrar">
       <th mat-header-cell *matHeaderCellDef>Borrar</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-icon-button color="warn" class="material-icons md-24" (click)="borrar(element.id)">
+        <button mat-icon-button color="warn" class="material-icons md-24" (click)="borrar(element.num_reclamo)">
           <mat-icon>delete</mat-icon>
         </button></td>
     </ng-container>
@@ -39,3 +40,4 @@
   </table>
 <br>
 <button mat-raised-button color="primary" routerLink="/agregar">Agregar</button> 
+</div>

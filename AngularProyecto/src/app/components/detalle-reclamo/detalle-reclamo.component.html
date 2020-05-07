@@ -1,11 +1,28 @@
-<div class="contenedor">
-    <div *ngIf="reclamos">
+<div class="contenedor" *ngIf="reclamos">
+   
     <h3>Detalles Reclamo {{reclamos.num_reclamo}}</h3>
     <hr>
-    <span>Rut del usuario: {{reclamos.rut_usuario}}</span><br>
-    <span>Tipo de problema: {{reclamos.tipo_problema}}</span><br>
-    <span>Texto del reclamo: {{reclamos.texto_reclamo}}</span><br>
-    <span>Fecha: {{reclamos.fecha}}</span><br>
+    <mat-form-field style="width: 100%;" >
+        <mat-label>Numero de reclamo</mat-label>
+        <input matInput #num_reclamo value="{{reclamos.num_reclamo}}" disabled="true">
+    </mat-form-field>
+    <mat-form-field style="width: 100%;">
+        <mat-label>RUT del Usuario</mat-label>
+        <input matInput #rut_usuario value="{{reclamos.rut_usuario}}" disabled="true">
+    </mat-form-field>
+    <mat-form-field style="width: 100%;">
+        <mat-label>Tipo problema</mat-label>
+        <input matInput #tipo_problema value="{{reclamos.tipo_problema}}">
+    </mat-form-field>
+    <mat-form-field style="width: 100%;">
+        <mat-label>Texto del Reclamo</mat-label>
+        <input matInput #texto_reclamo value="{{reclamos.texto_reclamo}}">
+    </mat-form-field>
+    <mat-form-field style="width: 100%;">
+        <mat-label>Fecha del reclamo</mat-label>
+        <input matInput #fecha value="{{reclamos.fecha}}">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="volver()" style="margin: 1em;">Volver Atras</button>
+    <button mat-raised-button color="warn" (click)="guardar(num_reclamo.value, rut_usuario.value, tipo_problema.value, texto_reclamo.value, fecha.value)">Guardar</button>
 
 </div>
-<button mat-raised-button class="primary" (click)="volver()">Volver Atras</button></div>
