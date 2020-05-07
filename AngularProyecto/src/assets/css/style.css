@@ -144,6 +144,34 @@ nav ul ul {
     margin-left: 2.5em;
     
 }
+
+.contenedor .scroll {
+    position: relative;
+    height: 400px;
+    overflow: auto;
+    }
+.contenedor .wrapper {
+    display: block;
+    }
+
+.contenedor .theadd tr th{
+    padding: 20px;
+    border-collapse: collapse;
+    background-color: #FFD185;
+    border-bottom: solid 5px #042C42;
+    color: #042C42;
+    border-radius: 2px;
+}
+
+.contenedor .tbodyy tr td{
+   
+    border-collapse: collapse;
+    padding: 20px;
+}
+.contenedor .tbodyy tr:hover{
+background-color: #969FAA;
+
+}
 #reg2{
     margin-left: 3em;   
 }

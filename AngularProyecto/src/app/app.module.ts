@@ -32,6 +32,7 @@ import { EditarReclamoComponent } from './components/editar-reclamo/editar-recla
 import { FormsModule } from '@angular/forms';
 import { BusquedareclamoejecutivoComponent } from './components/busquedareclamoejecutivo/busquedareclamoejecutivo.component';
 import { DetalleReclamoComponent } from './components/detalle-reclamo/detalle-reclamo.component';
+import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscando-reclamos.component';
 
 
 
@@ -60,9 +61,8 @@ import { DetalleReclamoComponent } from './components/detalle-reclamo/detalle-re
     LoginEjecutivoComponent,
     EditarReclamoComponent,
     BusquedareclamoejecutivoComponent,
-    DetalleReclamoComponent
-    
-    
+    DetalleReclamoComponent,
+    BuscandoReclamosComponent 
   ],
   imports: [
     BrowserModule,

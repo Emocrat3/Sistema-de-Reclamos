@@ -1,0 +1,25 @@
+<div class="contenedor">
+    <div class="scroll wrapper">
+    <table class="tablareclamos" cellspacing="0"
+  width="100%">
+  <thead class="theadd">
+    <tr>
+      <th class="th-sm">NUMERO DE RECLAMO
+      </th>
+      <th class="th-sm">TIPO DE RECLAMO
+      </th>
+      <th class="th-sm">FECHA DE RECLAMO
+      </th>
+    </tr>
+  </thead>
+  <tbody class="tbodyy">
+    <tr *ngFor="let r of reclamos" routerLink="/detalle/{{r.num_reclamo}}">
+      <td >{{r.num_reclamo}}</td>
+      <td >{{r.tipo_problema}}</td>
+      <td >{{r.fecha}}</td>
+
+    </tr>
+</tbody>
+ </table> 
+</div>
+</div>

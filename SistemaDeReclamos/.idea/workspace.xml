@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/app.routing.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/busqueda-reclamo/busqueda-reclamo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/busqueda-reclamo/busqueda-reclamo.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/busqueda-reclamo/busqueda-reclamo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/busqueda-reclamo/busqueda-reclamo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/assets/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

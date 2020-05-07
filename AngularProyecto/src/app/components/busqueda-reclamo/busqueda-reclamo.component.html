@@ -15,32 +15,9 @@
     </form>
     </div>
     <div>
-          <ul>
-            <li *ngFor="let r of reclamos">
-              <a routerLink="/detalle/{{r.num_reclamo}}"><span>{{r.num_reclamo}},{{r.tipo_problema}}</span></a>
-            </li>
-          </ul>
-        
-          <table>
-            
-            <ng-container matColumnDef="num_reclamo">
-              <th mat-header-cell *matHeaderCellDef>Identificador</th>
-              <td mat-cell *matCellDef="let element">{{element.num_reclamo}}</td>
-            </ng-container>
-        
-            <ng-container matColumnDef="tipo_problema">
-              <th mat-header-cell *matHeaderCellDef>Tipo del problema</th>
-              <td mat-cell *matCellDef="let element">{{element.tipo_problema}}</td>
-            </ng-container>
-        
-            <ng-container matColumnDef="texto_reclamo">
-              <th mat-header-cell *matHeaderCellDef>Texto del reclamo</th>
-              <td mat-cell *matCellDef="let element">{{element.texto_reclamo}}</td>
-            </ng-container>
-        
 
-          </table>
         </div>
         <p>
+            <button class="boton_personalizado" id="vabut" type="submit" onclick="gotoinicio()" [routerLink]="['/buscando-reclamos']">Buscar</button>
             <button class="boton_personalizado" id="vabut" type="submit" onclick="gotoinicio()" [routerLink]="['/main-user']">Volver atrás</button>
       </div>
