@@ -1,7 +1,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 *{
     margin: 0;
-    padding: 0;
+    padding: 1;
 }
 html{
     width: 1000px;
@@ -241,7 +241,7 @@ nav i:hover{
 }
 .boton_personalizado{
     margin: 2em 0em 2em 0em;
-    height: 25px;
+    height: 33px;
     width: 100px;
     text-align: center;
     background-color: #FFD185;

@@ -20,8 +20,8 @@ export class UsuariosService {
     return this.http.post<Usuarios>(this.URL+suffix, usuarios, this.httpOptions);
   }
 
-
-
-  
-
+  loginUsuario(usuarios: Usuarios): Observable<Usuarios> {
+    const suffix = '/loginUsuario/'
+    return this.http.post<Usuarios>(this.URL+suffix, usuarios, this.httpOptions);
+  }
 }

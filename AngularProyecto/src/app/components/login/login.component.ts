@@ -1,30 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { UsuariosService } from 'src/app/services/usuarios-service.service'
+import { Usuarios } from 'src/models/Usuarios';
+import { Location, NgIf } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css',]
 })
 export class LoginComponent implements OnInit {
 
-  pass: string;
-  email: string;
-
-  constructor(private router: Router) { }
+  constructor(private usuariosService: UsuariosService,
+    private ubicacion: Location) { }
 
   ngOnInit(): void {
 
   }
 
-  validarUser(){
-    var nombre = this.email;
-    var pass = this.pass;
-    if(nombre == "userprueba@gmail.com" && pass == "123456"){
-        this.router.navigateByUrl("main-user")
-                 }else {
-                 alert("Usuario y/o contraseña invalidos");
-}
-    return;
+  loginUsuario(correo: string,contraseña: string): boolean{
+    if(!correo){
+      alert("Campo correo vacio");
+      return;
+    }
+    if(!contraseña){
+      alert("Campo contraseña");
+      return;
+    }
+
+    this.usuariosService.loginUsuario({correo, contraseña} as Usuarios)
+      .subscribe(_=> this.volver());
+
+  }
+
+  volver(): void{
+    this.ubicacion.back();
   }
 }

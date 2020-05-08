@@ -1,15 +1,24 @@
 <div class="contenedor"> 
     <h1>Iniciar Sesion</h1><br>
     <p>¡Bienvenido!</p>
-    <p>Ingrese su datos para acceder a portal de ejecutivo</p><br><br>
+    <p>Por favor ingresar sus datos correctamente</p><br><br>
 
     <p>
-        <label for="email"><Strong>Correo Electronico</Strong></label><br>
-        <input type="text" id="email" name="email" [(ngModel)]="email" class="login" placeholder="Ingrese su correo electronico"/><br><br>
-        <Strong><label for="pass">Contraseña</label></Strong><br>
-        <input type="password" id="pass" name="pass" [(ngModel)]="pass" class="login" placeholder="Escriba su contraseña"/>
+        <mat-form-field>
+            <mat-label>INGRESE SU RUT</mat-label>
+            <input matInput #rut>
+        </mat-form-field><br> 
+        <mat-form-field>
+            <mat-label>CORREO ELECTRONICO </mat-label>
+            <input matInput #correo>
+        </mat-form-field><br>
+        <mat-form-field>
+            <mat-label>CONTRASEÑA </mat-label>
+            <input matInput type="password" #contrasena>
+        </mat-form-field><br> 
     </p>
-    <button class="boton_personalizado" (click)="validarUser()" >Iniciar Sesion</button>
+    <button class="boton_personalizado" (click)="loginUsuario(rut.value ,correo.value, contrasena.value)">Iniciar Sesion</button>
+    
+    <ul><a class="registro" [routerLink]="['/registro']">¿No estas registrado? Registrate aqui!</a></ul>
     
     <ul><a class="recuperar" [routerLink]="['/recuperarc']">¿Olvido su contraseña?</a></ul>
-</div>

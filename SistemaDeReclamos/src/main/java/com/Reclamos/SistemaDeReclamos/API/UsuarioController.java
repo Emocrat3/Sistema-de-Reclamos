@@ -34,9 +34,9 @@ public class UsuarioController {
         return UsuarioDAO.darBajaUsuario(usuarios);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/loginUsuario/{correo}/{contraseña}")
-    public void loginUsuario(@PathVariable("correo") String correo, @PathVariable("contraseña") String contraseña) throws Exception {
-       Usuarios usuariosLogin = UsuarioDAO.loginUsuario(correo,contraseña);
+    @RequestMapping(method = RequestMethod.POST, value = "/loginUsuario/")
+    public void loginUsuario(@RequestBody Usuarios usuarios) throws Exception {
+       Usuarios usuariosLogin = UsuarioDAO.loginUsuario(usuarios.getCorreo(), usuarios.getContraseña());
 
        if (usuariosLogin == null){
            System.out.println("Acceso denegado a USUARIO");

@@ -67,7 +67,7 @@
             <input matInput #permiso>             
         </div><br>
         <button class="boton_personalizado" id="ccbut" type="submit" (click)="registrarUsuario(nombre.value, apellido.value, rut.value, direccion.value, producto.value, correo.value, telefono.value, contrasena.value, contrasena1.value, permiso.value)">Crear Cuenta</button>
-        <button class="boton_personalizado" id="vabut" type="submit"  >Volver atrás</button>
+        <button class="boton_personalizado" id="vabut" type="submit"  [routerLink]="['/login']">Volver atrás</button>
     </form>
 
 </div>
