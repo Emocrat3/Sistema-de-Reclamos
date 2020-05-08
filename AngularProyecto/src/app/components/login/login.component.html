@@ -13,7 +13,8 @@
             <input matInput type="password" #contrasena>
         </mat-form-field><br>   
     </p>
-    <button class="boton_personalizado" (click)="loginUsuario(correo.value, contrasena.value)">Iniciar Sesion</button>
+    <button class="boton_personalizado" (click)="loginUsuario(correo.value, contrasena.value)">Iniciar Sesion</button><br>
+    <button class="boton_personalizado" [routerLink]="['/bienvenido']">Volver atras</button>
     
     <ul><a class="registro" [routerLink]="['/registro']">¿No estas registrado? Registrate aqui!</a></ul>
     

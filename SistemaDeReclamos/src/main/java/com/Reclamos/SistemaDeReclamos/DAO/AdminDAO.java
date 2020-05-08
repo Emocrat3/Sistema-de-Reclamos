@@ -76,25 +76,25 @@ public class AdminDAO {
         return null;
     }
 
-    static public Usuarios loginAdmin(String correo, String contraseña, String rut) {
+    static public Admin loginAdmin(String correo, String contraseña, int rut) {
         try {
             Connection conn = Conexion.obtenerConexion();
             PreparedStatement ps = conn.prepareStatement("select * from Usuario where correo = ? and contraseña = ? and rut = ?");
             ps.setString(1, correo);
             ps.setString(2, contraseña);
-            ps.setString(3, rut);
+            ps.setInt(3, rut);
             ResultSet rs = ps.executeQuery();
             rs.next();
-            int numRut = rs.getInt(1);
-            String nombreU = rs.getString(2);
-            String apellidoU = rs.getString(3);
-            int numTelefono = rs.getInt(4);
-            String correoElectronico = rs.getString(5);
-            String direccionU = rs.getString(6);
-            String contraseñaU = rs.getString(7);
-            String productoU = rs.getString(8);
-            String permisoU = rs.getString(9);
-            return new Usuarios(numRut,nombreU,apellidoU,numTelefono,correoElectronico,direccionU, contraseñaU, productoU,permisoU);
+            int numRut = rs.getInt("rut");
+            String nombreU = rs.getString("nombre");
+            String apellidoU = rs.getString("apellido");
+            int numTelefono = rs.getInt("telefono");
+            String correoElectronico = rs.getString("correo");
+            String direccionU = rs.getString("direccion");
+            String contraseñaU = rs.getString("contraseña");
+            String cargo = rs.getString("cargo");
+            String permisoU = rs.getString("permiso");
+            return new Admin(numRut,nombreU,apellidoU,numTelefono,correoElectronico,direccionU, contraseñaU, permisoU,cargo);
         } catch (SQLException | SinConexionException e) {
             e.printStackTrace();
         }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/services/admin-service.service'
+import { Location, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
+import { Admin } from 'src/models/Admin';
 
 @Component({
   selector: 'app-login-ejecutivo',
@@ -8,22 +11,32 @@ import { Router } from '@angular/router';
 })
 export class LoginEjecutivoComponent implements OnInit {
 
-  pass: string;
-  email: string;
-
-  constructor(private router: Router) { }
+  constructor(private adminService: AdminService,
+    private ubicacion: Location) { }
 
   ngOnInit(): void {
+
   }
-  validarUser(){
-    var nombre = this.email;
-    var pass = this.pass;
-      if(nombre == "admin12345" && pass == "123456"){
-          this.router.navigateByUrl("main-ejecutivo")
-      }else {
-                 alert("Usuario y/o contraseña invalidos");
-}
-    return;
+
+  loginAdmin(correo: string, contraseña: string, rut: number): boolean{
+    if(!rut){
+      alert("Campo rut vacio");
+      return;
+    }
+    if(!correo){
+      alert("Campo correo vacio");
+      return;
+    }
+    if(!contraseña){
+      alert("Campo contraseña");
+      return;
+    }
+
+    this.adminService.loginAdmin({correo, contraseña, rut} as Admin)
+      .subscribe(_=> this.volver());
+  }
+  volver(): void{
+    this.ubicacion.back();
+  }
 }
 
-}

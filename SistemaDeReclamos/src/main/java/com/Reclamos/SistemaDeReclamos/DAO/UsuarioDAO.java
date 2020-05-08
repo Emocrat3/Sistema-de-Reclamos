@@ -93,7 +93,7 @@ public class UsuarioDAO {
                 String contraseñaU = rs.getString(7);
                 String productoU = rs.getString(8);
                 String permisoU = rs.getString(9);
-                return new Usuarios(numRut,nombreU,apellidoU,numTelefono,correoElectronico,direccionU, contraseñaU, productoU,permisoU);
+                return new Usuarios(numRut,nombreU,apellidoU,numTelefono,correoElectronico,direccionU, contraseñaU,productoU,permisoU);
         } catch (SQLException | SinConexionException e) {
             e.printStackTrace();
         }

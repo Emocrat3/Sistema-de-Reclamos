@@ -7,6 +7,7 @@ export interface Admin {
     direccion: string; 
     contraseña: string;
     producto: string;
-    permiso: string;
     cargo: string;
+    permiso: string;
+   
 }

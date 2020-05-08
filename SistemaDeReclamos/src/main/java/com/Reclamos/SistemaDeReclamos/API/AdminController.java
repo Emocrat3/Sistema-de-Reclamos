@@ -13,6 +13,7 @@ import java.sql.SQLException;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin (origins = "http://localhost:4200")
 public class AdminController {
     @RequestMapping(method = RequestMethod.POST, value = "/registrarEjecutivo")
     public void registrarAdmin(@RequestBody Admin admin) throws Exception {
@@ -34,9 +35,9 @@ public class AdminController {
         return AdminDAO.darBajaAdmin(rut,permiso);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/loginAdmin/{correo}/{contraseña}/{rut}")
-    public void loginAdmin(@PathVariable("correo") String correo, @PathVariable("contraseña") String contraseña,@PathVariable("rut") String rut) throws Exception {
-        Usuarios adminLogin = AdminDAO.loginAdmin(correo,contraseña,rut);
+    @RequestMapping(method = RequestMethod.POST, value = "/loginAdmin/")
+    public void loginAdmin(@RequestBody Admin admin) throws Exception {
+        Admin adminLogin = AdminDAO.loginAdmin(admin.getCorreo(), admin.getContraseña(), admin.getRut());
 
         if (adminLogin == null){
             System.out.println("Acceso denegado a EJECUTIVO");
