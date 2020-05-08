@@ -25,6 +25,12 @@ export class ReclamosService {
     const suffix = '/reclamos/usuario/'
     return this.http.get<Reclamos>(this.URL+suffix+num_reclamo);
   }
+
+  insertarReclamo(recl: Reclamos) {
+    const suffix = '/insertarReclamo/Usuario'
+    return this.http.post<Reclamos>(this.URL+suffix, recl, this.httpOptions);
+  }
+
   editarReclamos(recl: Reclamos) {
     const suffix = '/editarReclamo/'
     return this.http.put<Reclamos>(this.URL+suffix, recl, this.httpOptions);

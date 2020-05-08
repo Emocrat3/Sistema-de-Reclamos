@@ -15,9 +15,50 @@
     </form>
     </div>
     <div>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <table mat-table [dataSource]="reclamos" style="width: 100%; height: 250px;">
+    
+    <ng-container matColumnDef="num_reclamo">
+      <th mat-header-cell *matHeaderCellDef>Numero de Reclamo</th>
+      <td mat-cell *matCellDef="let element">{{element.num_reclamo}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="rut_usuario">
+      <th mat-header-cell *matHeaderCellDef>Rut del Usuario</th>
+      <td mat-cell *matCellDef="let element">{{element.rut_usuario}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipo_problema">
+      <th mat-header-cell *matHeaderCellDef>Tipo de Problema</th>
+      <td mat-cell *matCellDef="let element">{{element.tipo_problema}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let element">{{element.fecha}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="detalle">
+      <th mat-header-cell *matHeaderCellDef>Detalle de Reclamo</th>
+      <td mat-cell *matCellDef="let element"> <a routerLink="/detalle/{{element.num_reclamo}}">detalle</a></td>
+    </ng-container>
+
+    <ng-container matColumnDef="borrar">
+      <th mat-header-cell *matHeaderCellDef>Borrar</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" class="material-icons md-24" (click)="borrar(element.num_reclamo)">
+          <mat-icon>delete</mat-icon>
+        </button></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  <br>
+  <button style="margin-right: 10px;" class= "botones" mat-raised-button color="primary" [routerLink]="['/reporte']">Agregar</button> 
+  <button style="margin-right: 10px;" class= "botones" mat-raised-button color="primary" [routerLink]="['/reporte']">Buscar</button> 
+  <button class= "botones" mat-raised-button color="warn" [routerLink]="['/main-user']">Volver atras</button> 
 
         </div>
-        <p>
-            <button class="boton_personalizado" id="vabut" type="submit" onclick="gotoinicio()" [routerLink]="['/buscando-reclamos']">Buscar</button>
-            <button class="boton_personalizado" id="vabut" type="submit" onclick="gotoinicio()" [routerLink]="['/main-user']">Volver atrás</button>
       </div>

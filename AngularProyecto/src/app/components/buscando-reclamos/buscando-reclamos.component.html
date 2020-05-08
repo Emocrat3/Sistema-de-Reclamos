@@ -1,4 +1,16 @@
 <div class="contenedor">
+  <h2>Busqueda de Reclamos</h2>
+  <form>
+      <p>
+   
+      <select name="nombre">
+          <option value="opcion">Seleccione una opción</option>
+          <option value="porRut">Busqueda N° Reclamo</option>
+          <option value="porNumReclamo">Busqueda...</option>
+      </select>
+      <input type="text" name="numeroR" placeholder="Ingrese N° Reclamo o ...">
+      </p>	
+  </form>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <table mat-table [dataSource]="reclamos">
     
@@ -40,4 +52,5 @@
   </table>
 <br>
 <button mat-raised-button color="primary" routerLink="/agregar">Agregar</button> 
+<button mat-raised-button color="warn" [routerLink]="['/busqueda-reclamo']">Volver atras</button> 
 </div>

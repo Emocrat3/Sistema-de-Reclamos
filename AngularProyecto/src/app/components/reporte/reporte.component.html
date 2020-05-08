@@ -6,23 +6,48 @@
             <form>
                 <p>
                     <label for="nombre">¿En qué podemos ayudarte?</label> <br/>
-                    <select id="opti" name="nombre">
-                        <option value="opcion">Seleccione una opción</option>
-                        <option value="caida">Caida del servicio</option>
-                        <option value="velocidad">Poca velocidad</option>
-                        <option value="fallo">Fallo del programa</option>
-                        <option value="otro">Otro</option>
-                    </select>
+                    <mat-form-field>
+                        <mat-label>RUT usuario </mat-label>
+                        <input matInput #rut_usuario>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <mat-label>TIPO DEL PROBLEMA</mat-label>
+                        <select matNativeControl required #tipo_problema>
+                          <option label="--Elije alguna opcion--"></option>
+                          <option value="caida">Caida del servicio</option>
+                          <option value="velocidad">Poca velocidad</option>
+                          <option value="fallo">Fallo del programa</option>
+                          <option value="otro">Otro</option>
+                        </select>
+                      </mat-form-field>
                 </p>
                 
                 <p>
                     <label for="inquietud">Detalle su inquietud:</label> <br/>
-                    <textarea id="cuadrotexto" name="inquietud" placeholder="Ingresa un breve resumen..."></textarea> 
+                    <mat-form-field>
+                        <textarea matInput
+                                  cdkTextareaAutosize
+                                  #autosize="cdkTextareaAutosize"
+                                  cdkAutosizeMinRows="1"
+                                  cdkAutosizeMaxRows="2"
+                                  #texto_reclamo></textarea>
+                    </mat-form-field>
                 </p>
                 <p>
                     <label for="fecha">Indique la fecha que comenzó el problema.</label>
                 </p>
-                <div id="fecha"><input type="date"></div>
+                <mat-form-field>
+                    <textarea matInput placeholder="YYYY/MM/DD"  
+                            matInput
+                            cdkTextareaAutosize
+                            #autosize="cdkTextareaAutosize"
+                            cdkAutosizeMinRows="1"
+                            cdkAutosizeMaxRows="2"
+                            #fecha></textarea>
+                </mat-form-field>
+
             </form>
         </div>
     </div>
@@ -38,7 +63,7 @@
         </p>
         <input class="boton_personalizado" id="butrep1" type="submit" value="Confirmar"/>
         <input class="boton_personalizado" id="butrep2" type="submit" value="Editar"/><br>
-        <input class="boton_personalizado" id="butrep3" type="submit" value="Enviar Reclamo" [routerLink]="['/main-user']"/><br>
+        <input class="boton_personalizado" (click)="insertarReclamo(rut_usuario.value, tipo_problema.value, texto_reclamo.value, fecha.value)" id="butrep3" type="submit" value="Enviar Reclamo" [routerLink]="['/main-user']"/><br>
         <input class="boton_personalizado"  id="butrep4" type="submit" value="volver atras" [routerLink]="['/main-user']"/>
     </div>
 </div>
