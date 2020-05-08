@@ -11,10 +11,6 @@ import java.sql.SQLException;
 public class UsuarioDAO {
     static private Connection conn = null;
 
-    static Usuarios findByEmailUsuarioAndPassUsuario(String emailUsuario, String passUsuario) {
-        return null;
-    }
-
     static public int registrarUsuario(Usuarios usuarios) throws SinConexionException, SQLException {
         if (conn == null) {
             conn = Conexion.obtenerConexion();

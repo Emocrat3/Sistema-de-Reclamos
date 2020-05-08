@@ -176,7 +176,7 @@ nav ul ul {
 .otroMiniCont {
     display: inline-block;
     vertical-align: top;
-    margin: 1em 0em 0em 1em;
+    margin: 1em 3em 0em 1em;
     width: 30%;
     height: 180px;
     border-radius: 15px;
@@ -185,7 +185,7 @@ nav ul ul {
 
 
 #registrocont{
-    padding-top: 2em;
+    padding-top: 1em;
     text-align: left;
     display: inline
 }
@@ -254,7 +254,7 @@ nav i:hover{
 }
 #ccbut, #vabut {
     width: 86px;
-    margin: 10em 0em 0em 4em;
+    margin: 7em 0em 0em 20em;
 }
 #butrep1, #butrep2, #butrep3, #butrep4{
     margin: 1em 0px 5px 0em

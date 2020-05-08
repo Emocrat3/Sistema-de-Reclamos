@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin (origins = "http://localhost:4200")
 public class UsuarioController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/registrarUsuario")
