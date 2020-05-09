@@ -12,8 +12,20 @@ export class UsuariosService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+  httpClient: any;
+  baseUrl: any;
 
   constructor(private http: HttpClient) {}
+
+  obtenerUsuarios(): Observable<Usuarios[]>{
+    const suffix = '/reclamos/usuario'
+    return this.http.get<Usuarios[]>(this.URL+suffix);
+  }
+
+  obtenerUsuariosPorID(rut: number): Observable<Usuarios> {
+    const suffix = '/reclamos/usuario/'
+    return this.http.get<Usuarios>(this.URL+suffix+rut);
+  }
 
   registrarUsuario(usuarios: Usuarios) {
     const suffix = '/registrarUsuario'
@@ -24,4 +36,11 @@ export class UsuariosService {
     const suffix = '/loginUsuario/'
     return this.http.post<Usuarios>(this.URL+suffix, usuarios, this.httpOptions);
   }
+
+  darBajaUsuario(rut: number) {
+    const suffix = '/editarCuentaUsuario/'
+    return this.http.delete(this.URL+suffix+rut, this.httpOptions);
+  }
+
 }
+

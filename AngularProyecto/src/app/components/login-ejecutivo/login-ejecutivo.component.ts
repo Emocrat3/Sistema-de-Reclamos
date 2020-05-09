@@ -31,7 +31,7 @@ export class LoginEjecutivoComponent implements OnInit {
       alert("Campo contraseña");
       return;
     }
-
+    
     this.adminService.loginAdmin({correo, contraseña, rut} as Admin)
       .subscribe(_=> this.volver());
   }

@@ -1,4 +1,3 @@
-
 <div class="contenedor">
     <!--Contenido de Reporte-->
     <h2>Busqueda de Reclamos</h2>
@@ -8,34 +7,57 @@
      
         <select name="nombre">
             <option value="opcion">Seleccione una opción</option>
-            <option value="porRut">Busqueda N° Reclamo</option>
-            <option value="porNumReclamo">Busqueda...</option>
+            <option value="porNumReclamo">Busqueda N° Reclamo</option>
+            <option value="porRut">Busqueda por RUT</option>
         </select>
         <input type="text" name="numeroR" placeholder="Ingrese N° Reclamo o ...">
         </p>	
     </form>
     </div>
     <div>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <table mat-table [dataSource]="reclamos" style="width: 100%; height: 250px;">
+    
+    <ng-container matColumnDef="num_reclamo">
+      <th mat-header-cell *matHeaderCellDef>Numero de Reclamo</th>
+      <td mat-cell *matCellDef="let element">{{element.num_reclamo}}</td>
+    </ng-container>
 
-        <p>
-        <table>
-        <thead>
-        <tr>
-        <th></th><th></th>
-        </tr>
-        </thead>
-        <tr>
-        <td>1</td><td>Reclamo numero: "Traer con la funcion"</td><br>
-        
-        <td><input type="submit" value="Estado"/></td>
-        </tr>
-        <tr>
-        <td>2</td><td>Reclamo numero: "Traer con la funcion"</td><br>
-        
-        <td><input type="submit" value="Estado"/></td>
-        </tr>
-        </table>
+    <ng-container matColumnDef="rut_usuario">
+      <th mat-header-cell *matHeaderCellDef>Rut del Usuario</th>
+      <td mat-cell *matCellDef="let element">{{element.rut_usuario}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipo_problema">
+      <th mat-header-cell *matHeaderCellDef>Tipo de Problema</th>
+      <td mat-cell *matCellDef="let element">{{element.tipo_problema}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let element">{{element.fecha}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="detalle">
+      <th mat-header-cell *matHeaderCellDef>Detalle de Reclamo</th>
+      <td mat-cell *matCellDef="let element"> <a routerLink="/detalleAdmin/{{element.num_reclamo}}">detalle</a></td>
+    </ng-container>
+
+    <ng-container matColumnDef="responder">
+      <th mat-header-cell *matHeaderCellDef>Responder Reclamo</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="black" class="material-icons" (click)="responderReclamo(element.num_reclamo)" routerLink="/respuesta/{{element.num_reclamo}}" >
+          <mat-icon>comment</mat-icon>
+        </button></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  <br>
+  <button style="margin-right: 10px;" class= "botones" mat-raised-button color="primary" [routerLink]="['/reporte']">Buscar</button> 
+  <button class= "botones" mat-raised-button color="warn" [routerLink]="['/main-ejecutivo']">Volver atras</button> 
+
         </div>
-        <p>
-            <button class="boton_personalizado" id="vabut" type="submit" [routerLink]="['/main-ejecutivo']">Volver atrás</button>
       </div>

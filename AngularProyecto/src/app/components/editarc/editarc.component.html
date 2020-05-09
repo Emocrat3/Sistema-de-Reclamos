@@ -1,59 +1,44 @@
-<div class="contenedor">
+<div class="contenedor" >
     <h3>Edita tu cuenta</h3>
     
     <br>
     
-    <form>
+    <form style="width: 80%;">
+        <mat-form-field style="width: 84%; padding-right: 10px;" >
+            <mat-label>Rut</mat-label>
+            <input matInput #num_reclamo  disabled="true">
+        </mat-form-field>
         <div>
-            <label>Nombres:</label>
-            <input type="text" placeholder="Ej: Marcela" required>
+            <mat-form-field style="width: 40%;padding-right: 30px;">
+                <mat-label>Nombres</mat-label>
+                <input matInput #rut_usuario  disabled="true">
+            </mat-form-field>
+            <mat-form-field style="width: 40%;">
+                <mat-label>Apellidos</mat-label>
+                <input matInput #rut_usuario  disabled="true">
+            </mat-form-field>
         </div>
-    <br>
-    
-    
+        <div >
+        <mat-form-field style="width: 40%;padding-right: 30px;">
+            <mat-label>Correo Electronico</mat-label>
+            <input matInput #tipo_problema >
+        </mat-form-field>
+        <mat-form-field style="width: 40%;">
+            <mat-label>Numero de telefono</mat-label>
+            <input matInput #texto_reclamo >
+        </mat-form-field>
+        </div>
         <div>
-            <label>Apellidos:</label>
-            <input type="text" placeholder="Ej: Aguirre López" required>
+        <mat-form-field style="width: 40%;padding-right: 30px;">
+            <mat-label>Contraseña</mat-label>
+            <input matInput #fecha >
+        </mat-form-field>
+        <mat-form-field style="width: 40%;">
+            <mat-label>Confirmar Contraseña</mat-label>
+            <input matInput #fecha >
+        </mat-form-field>
         </div>
-    <br>
-    
-        <div>
-            <label>Rut:</label>
-            <input type="text" placeholder="Ej: 12.345.678-9" required>
-        </div>
-    <br>
-    
-    
-        <div>
-            <label>Correo Electrónico:</label>
-            <input type="email" placeholder="Ej: marcela.A@mail.com" required>
-        </div>
-    <br>
-    
-    
-        <div>
-            <label>Número de teléfono:</label>
-            <input type="text" placeholder="Ej: 56012345678">
-        </div>
-    <br>
-    
-    
-        <div>
-            <label>Contraseña:</label>
-            <input type="password" placeholder="********" required>
-        </div>
-    <br>
-    
-    
-        <div>
-            <label>Confirmar contraseña:</label>
-            <input type="password" placeholder="********" required>
-        </div>
-        
-    <br>
-    
-                <input type="submit" value="Guardar" [routerLink]="['/main-user']">
     </form>
-    
+       <input type="submit" value="Guardar" [routerLink]="['/main-user']" style="margin-right: 20px;">
        <input type="submit" value="Volver atras" [routerLink]="['/main-user']">
     </div>

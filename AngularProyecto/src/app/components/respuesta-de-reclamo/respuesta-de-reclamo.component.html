@@ -1,24 +1,34 @@
-<div class="contenedor">
+<div class="contenedor" *ngIf="respuesta">
 
     <!--Contenido de Reporte-->
     <h2>Reclamo N°...</h2>
     <div class="contenedor1">
     <h3>Estado reclamo: Pendiente/No pendiente.</h3>
-    
-
-        <form>
-        <p>
-        Sr/Sra: "Devolver funcion con el nombre" <br>
-        R.U.T: "Devolver funcion con el rut" <br>
-        Fecha: "Devolver funcion con la fecha" <br>
-        Tipo de Reclamo: "Devolver funcion con el tipo de reclamo" <br>
-        Descripcion reclamo: "Devolver funcion con la descripcion del reclamo"<br>
-        <textarea name="inquietud" placeholder="Type here your message..."></textarea> <br>
-        <input type="submit" value="Responder"/>
-        <input type="submit" value="Volver atras" [routerLink]="['/main-ejecutivo']"/>
-        </p>
         
-
-    </form>
+            <h3>Detalles Reclamo {{respuesta.num_reclamo}}</h3>
+            <hr>
+            <mat-form-field style="width: 100%;" >
+                <mat-label>Numero de reclamo</mat-label>
+                <input matInput #num_reclamo value="{{respuesta.num_reclamo}}" disabled="true">
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+                <mat-label>RUT del ADMIN</mat-label>
+                <input matInput #rut_admin value="{{respuesta.rut_admin}}" >
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+                <mat-label>RESPUESTA DEL ADMIN</mat-label>
+                <input matInput #texto_respuesta value="{{respuesta.texto_respuesta}}">
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+                <mat-label>Fecha de Respuesta YYYY/MM/DD</mat-label>
+                <input matInput #fecha_respuesta value="{{respuesta.fecha_respuesta}}">
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+                <mat-label>SLA Respuesta</mat-label>
+                <input matInput #SLA_respuesta value="{{respuesta.SLA_respuesta}}">
+            </mat-form-field>
+        <textarea name="inquietud" placeholder="Type here your message..."></textarea> <br>
+        <button mat-raised-button color="primary" (click)="volver()" style="margin: 1em;">Volver Atras</button>
+        <button mat-raised-button color="warn" (click)="guardar(num_reclamo.value, rut_admin.value, texto_respuesta.value, fecha_respuesta.value, SLA_respuesta.value)">Guardar</button>
         
         </div>

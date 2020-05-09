@@ -36,7 +36,7 @@ export class ReclamosService {
     return this.http.put<Reclamos>(this.URL+suffix, recl, this.httpOptions);
   }
 
-  borrarReclamo(num_reclamo: number) {
-    return this.http.delete(this.URL+num_reclamo, this.httpOptions);
+  responderReclamo(num_reclamo: number) {
+    return this.http.post(this.URL+num_reclamo, this.httpOptions);
   }
 }

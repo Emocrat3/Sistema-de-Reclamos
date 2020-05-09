@@ -11,7 +11,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class BusquedaReclamoComponent implements OnInit, OnDestroy {
 
 reclamos: Reclamos[];
-displayedColumns: string[] = ['num_reclamo','rut_usuario','tipo_problema','fecha','detalle', 'borrar'];
+displayedColumns: string[] = ['num_reclamo','rut_usuario','tipo_problema','fecha','detalle'];
 mySubscripcion: any;
   constructor(private router: Router, private reclamosService: ReclamosService) { 
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -44,11 +44,6 @@ ngOnInit(){
   obtenerReclamos() {
     this.reclamosService.obtenerReclamos()
     .subscribe(reclamos => this.reclamos = reclamos); 
-  }
-
-  borrar(num_reclamo: number){
-    this.reclamosService.borrarReclamo(num_reclamo)
-      .subscribe(_=>this.obtenerReclamos());
   }
 }
 

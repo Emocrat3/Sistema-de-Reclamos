@@ -23,7 +23,7 @@ import { EditarReclamoComponent } from './components/editar-reclamo/editar-recla
 import { BusquedareclamoejecutivoComponent } from './components/busquedareclamoejecutivo/busquedareclamoejecutivo.component';
 import { DetalleReclamoComponent } from './components/detalle-reclamo/detalle-reclamo.component';
 import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscando-reclamos.component';
-
+import { DetalleAdminReclamoComponent } from './components/detalle-admin-reclamo/detalle-admin-reclamo.component';
 // Array de rutas (Configuracion de todas las rutas al crear)
 
 const appRoutes: Routes = [
@@ -39,13 +39,14 @@ const appRoutes: Routes = [
     {path:'main-user', component:MainUserComponent},
     {path:'main-ejecutivo', component:MainEjecutivoComponent},
     {path:'reporte', component:ReporteComponent},
-    {path:'respuesta-de-reclamo', component:RespuestaDeReclamoComponent},
+    {path:'respuesta/:num_reclamo', component:RespuestaDeReclamoComponent},
     {path:'busqueda-reclamo', component:BusquedaReclamoComponent},
     {path:'editar-cuenta-ejecutivo', component:EditarCuentaEjecutivoComponent},
     {path:'login-ejecutivo', component:LoginEjecutivoComponent},
     {path:'editar-reclamo', component:EditarReclamoComponent},
     {path:'busquedareclamoejecutivo', component:BusquedareclamoejecutivoComponent},
     {path:'detalle/:num_reclamo', component:DetalleReclamoComponent},
+    {path:'detalleAdmin/:num_reclamo', component:DetalleAdminReclamoComponent},
     {path:'buscando-reclamos' , component:BuscandoReclamosComponent},
     {path:'**', component:ErrorComponent}
 

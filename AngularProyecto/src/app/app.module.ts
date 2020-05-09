@@ -32,6 +32,7 @@ import { EditarReclamoComponent } from './components/editar-reclamo/editar-recla
 import { BusquedareclamoejecutivoComponent } from './components/busquedareclamoejecutivo/busquedareclamoejecutivo.component';
 import { DetalleReclamoComponent } from './components/detalle-reclamo/detalle-reclamo.component';
 import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscando-reclamos.component';
+import { DetalleAdminReclamoComponent } from './components/detalle-admin-reclamo/detalle-admin-reclamo.component';
 
 
 
@@ -61,7 +62,8 @@ import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscan
     EditarReclamoComponent,
     BusquedareclamoejecutivoComponent,
     DetalleReclamoComponent,
-    BuscandoReclamosComponent 
+    BuscandoReclamosComponent,
+    DetalleAdminReclamoComponent 
   ],
   imports: [
     BrowserModule,
