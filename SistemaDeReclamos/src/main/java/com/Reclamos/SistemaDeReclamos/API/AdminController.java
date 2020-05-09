@@ -36,13 +36,12 @@ public class AdminController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/loginAdmin/")
-    public void loginAdmin(@RequestBody Admin admin) throws Exception {
-        Admin adminLogin = AdminDAO.loginAdmin(admin.getCorreo(), admin.getContraseña(), admin.getRut());
-
-        if (adminLogin == null){
-            System.out.println("Acceso denegado a EJECUTIVO");
-        }else{
+    public void loginAdmin(@RequestBody Usuarios admin) throws Exception {
+        Usuarios adminLogin = AdminDAO.loginAdmin(admin.getCorreo(), admin.getContraseña(), admin.getRut());
+        if (adminLogin != null){
             System.out.println("Acceso aprobado a EJECUTIVO");
+        }else{
+            System.out.println("Acceso denegado a EJECUTIVO");
         }
     }
 }

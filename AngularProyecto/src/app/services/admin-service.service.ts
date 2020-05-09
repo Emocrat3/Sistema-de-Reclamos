@@ -13,6 +13,7 @@ export class AdminService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   constructor(private http: HttpClient) { }
+
   loginAdmin(admin: Admin): Observable<Admin> {
     const suffix = '/loginAdmin/'
     return this.http.post<Admin>(this.URL+suffix, admin, this.httpOptions);
