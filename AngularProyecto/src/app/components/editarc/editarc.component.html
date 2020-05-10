@@ -1,44 +1,44 @@
 <div class="contenedor" >
-    <h3>Edita tu cuenta</h3>
+    <h3>Edita tu cuenta </h3>
     
     <br>
     
-    <form style="width: 80%;">
+    <form style="width: 80%;" >
         <mat-form-field style="width: 84%; padding-right: 10px;" >
             <mat-label>Rut</mat-label>
-            <input matInput #num_reclamo  disabled="true">
+            <input matInput #rut  disabled="true" >
         </mat-form-field>
         <div>
             <mat-form-field style="width: 40%;padding-right: 30px;">
                 <mat-label>Nombres</mat-label>
-                <input matInput #rut_usuario  disabled="true">
+                <input matInput #nombre  disabled="true">
             </mat-form-field>
             <mat-form-field style="width: 40%;">
                 <mat-label>Apellidos</mat-label>
-                <input matInput #rut_usuario  disabled="true">
+                <input matInput #apellido  disabled="true">
             </mat-form-field>
         </div>
         <div >
         <mat-form-field style="width: 40%;padding-right: 30px;">
             <mat-label>Correo Electronico</mat-label>
-            <input matInput #tipo_problema >
+            <input matInput  #correo>
         </mat-form-field>
         <mat-form-field style="width: 40%;">
             <mat-label>Numero de telefono</mat-label>
-            <input matInput #texto_reclamo >
+            <input matInput #telefono >
         </mat-form-field>
         </div>
         <div>
         <mat-form-field style="width: 40%;padding-right: 30px;">
             <mat-label>Contraseña</mat-label>
-            <input matInput #fecha >
+            <input matInput #contrasena >
         </mat-form-field>
         <mat-form-field style="width: 40%;">
             <mat-label>Confirmar Contraseña</mat-label>
-            <input matInput #fecha >
+            <input matInput #confirmarc >
         </mat-form-field>
         </div>
     </form>
-       <input type="submit" value="Guardar" [routerLink]="['/main-user']" style="margin-right: 20px;">
+    <button mat-raised-button color="warn" (click)="guardar(rut.value, nombre.value, apellido.value, correo.value, telefono.value)">Guardar</button>
        <input type="submit" value="Volver atras" [routerLink]="['/main-user']">
     </div>

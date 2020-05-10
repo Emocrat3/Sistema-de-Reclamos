@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ReclamosService } from 'src/app/services/reclamos-service.service';
 import { Reclamos } from 'src/models/Reclamos';
 import { Router, NavigationEnd } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-busqueda-reclamo',
@@ -13,7 +14,9 @@ export class BusquedaReclamoComponent implements OnInit, OnDestroy {
 reclamos: Reclamos[];
 displayedColumns: string[] = ['num_reclamo','rut_usuario','tipo_problema','fecha','detalle'];
 mySubscripcion: any;
-  constructor(private router: Router, private reclamosService: ReclamosService) { 
+  constructor(private router: Router,
+     private reclamosService: ReclamosService,
+       private ubicacion: Location) { 
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
 
       return false;
@@ -32,6 +35,7 @@ mySubscripcion: any;
     });
 
   }
+  filtroReclamos='';
   ngOnDestroy(): void {
     if (this.mySubscripcion) {
       this.mySubscripcion.unsubscribe();
@@ -44,6 +48,11 @@ ngOnInit(){
   obtenerReclamos() {
     this.reclamosService.obtenerReclamos()
     .subscribe(reclamos => this.reclamos = reclamos); 
+  }
+
+
+  volver(){
+    this.ubicacion.back();
   }
 }
 

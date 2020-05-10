@@ -40,7 +40,10 @@ export class UsuariosService {
       return true;
     }
   }
-
+  editarCuenta(usuario: Usuarios) {
+    const suffix = '/editarc/'
+    return this.http.put<Usuarios>(this.URL+suffix, usuario, this.httpOptions);
+  }
   darBajaUsuario(rut: number) {
     const suffix = '/editarCuentaUsuario/'
     return this.http.delete(this.URL+suffix+rut, this.httpOptions);

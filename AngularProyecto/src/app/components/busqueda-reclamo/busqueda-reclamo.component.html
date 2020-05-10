@@ -10,7 +10,7 @@
             <option value="porRut">Busqueda N° Reclamo</option>
             <option value="porNumReclamo">Busqueda...</option>
         </select>
-        <input type="text" name="numeroR" placeholder="Ingrese N° Reclamo o ...">
+        <input type="text" name="filtroReclamos" placeholder="Ingrese N° Reclamo o ..." >
         </p>	
     </form>
     </div>
@@ -20,7 +20,7 @@
     
     <ng-container matColumnDef="num_reclamo">
       <th mat-header-cell *matHeaderCellDef>Numero de Reclamo</th>
-      <td mat-cell *matCellDef="let element">{{element.num_reclamo}}</td>
+      <td mat-cell *matCellDef="let element" #num_reclamo>{{element.num_reclamo}}</td>
     </ng-container>
 
     <ng-container matColumnDef="rut_usuario">
@@ -49,7 +49,7 @@
   </table>
   <br>
   <button style="margin-right: 10px;" class= "botones" mat-raised-button color="primary" [routerLink]="['/reporte']">Agregar</button> 
-  <button style="margin-right: 10px;" class= "botones" mat-raised-button color="primary" [routerLink]="['/reporte']">Buscar</button> 
+  <button style="margin-right: 10px;" class= "botones" mat-raised-button color="primary" >Buscar</button> 
   <button class= "botones" mat-raised-button color="warn" [routerLink]="['/main-user']">Volver atras</button> 
 
         </div>
