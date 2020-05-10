@@ -76,12 +76,10 @@ public class UsuarioDAO {
         return u;
     }
 
-    static public Usuarios loginUsuario(String correo, String contraseña) {
+    static public Usuarios loginUsuario(Usuarios u) {
         try {
             Connection conn = Conexion.obtenerConexion();
-            PreparedStatement ps = conn.prepareStatement("select * from Usuario where correo = ? and contraseña = ?");
-            ps.setString(1, correo);
-            ps.setString(2, contraseña);
+            PreparedStatement ps = conn.prepareStatement("select * from Usuario where correo = '" + u.getCorreo() + "' and contraseña = '" + u.getContraseña() + "'");
             ResultSet rs = ps.executeQuery();
                 rs.next();
                 int numRut = rs.getInt(1);
@@ -94,6 +92,7 @@ public class UsuarioDAO {
                 String productoU = rs.getString(8);
                 String permisoU = rs.getString(9);
                 return new Usuarios(numRut,nombreU,apellidoU,numTelefono,correoElectronico,direccionU, contraseñaU,productoU,permisoU);
+
         } catch (SQLException | SinConexionException e) {
             e.printStackTrace();
         }

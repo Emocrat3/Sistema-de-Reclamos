@@ -31,14 +31,14 @@ import { AuthGuard } from './guards/auth.guard';
 const appRoutes: Routes = [
     {path:'', component:BienvenidoComponent},
     {path:'bienvenido', component:BienvenidoComponent},
-    {path:'login', component:LoginComponent, canActivate: [AuthGuard]},
+    {path:'login', component:LoginComponent},
     {path:'registro', component:RegistroComponent},
     {path:'recuperarc', component:RecuperarcComponent},
     {path:'crearCuentaEjecutivo', component:CrearCuentaEjecutivoComponent},
 
     {path:'nueva-contrasena', component:NuevaContrasenaComponent},
     {path:'editarc', component:EditarcComponent, canActivate: [AuthGuard]},
-    {path:'main-user', component:MainUserComponent},
+    {path:'main-user', component:MainUserComponent, canActivate: [AuthGuard]},
     {path:'main-ejecutivo', component:MainEjecutivoComponent},
     {path:'reporte', component:ReporteComponent, canActivate: [AuthGuard]},
     {path:'respuesta/:num_reclamo', component:RespuestaDeReclamoComponent},
@@ -47,7 +47,7 @@ const appRoutes: Routes = [
     {path:'login-ejecutivo', component:LoginEjecutivoComponent},
     {path:'editar-reclamo', component:EditarReclamoComponent, canActivate: [AuthGuard]},
     {path:'busquedareclamoejecutivo', component:BusquedareclamoejecutivoComponent},
-    {path:'detalle/:num_reclamo', component:DetalleReclamoComponent, canActivate: [AuthGuard]},
+    {path:'detalle/:num_reclamo', component:DetalleReclamoComponent},
     {path:'detalleAdmin/:num_reclamo', component:DetalleAdminReclamoComponent},
     {path:'buscando-reclamos' , component:BuscandoReclamosComponent},
     {path:'**', component:ErrorComponent}

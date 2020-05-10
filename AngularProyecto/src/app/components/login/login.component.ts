@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UsuariosService } from 'src/app/services/usuarios-service.service'
 import { Usuarios } from 'src/models/Usuarios';
-import { Location, NgIf } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 
 @Component({
@@ -10,9 +9,8 @@ import { RouterLink, Router } from '@angular/router';
   styleUrls: ['./login.component.css',]
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private usuariosService: UsuariosService,
-    private ubicacion: Location, public router: Router) { }
+  @Input() usuario : Usuarios;
+  constructor(private usuariosService: UsuariosService,public router: Router) { }
 
   ngOnInit(): void {
 
@@ -29,9 +27,9 @@ export class LoginComponent implements OnInit {
       this.usuariosService.loginUsuario({correo, contraseña} as Usuarios).subscribe(userResponse => { 
         localStorage.setItem("usuario", JSON.stringify(userResponse));
 
-        let usuarioDatos = JSON.parse(localStorage.getItem("usuario"));
+        JSON.parse(localStorage.getItem("usuario"));
 
-        this.router.navigate(["userperfil", usuarioDatos.id_Usuario]);
+        this.router.navigate(["main-user"]);
 
         console.log(localStorage.getItem("usuario"));
       

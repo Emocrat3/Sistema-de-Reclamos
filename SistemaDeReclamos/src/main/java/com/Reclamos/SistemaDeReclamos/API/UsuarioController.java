@@ -3,8 +3,6 @@ package com.Reclamos.SistemaDeReclamos.API;
 import com.Reclamos.SistemaDeReclamos.DAO.SinConexionException;
 import com.Reclamos.SistemaDeReclamos.DAO.UsuarioDAO;
 import com.Reclamos.SistemaDeReclamos.DTO.Usuarios;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -35,13 +33,7 @@ public class UsuarioController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/loginUsuario/")
-    public void loginUsuario(@RequestBody Usuarios usuarios) throws Exception {
-       Usuarios usuariosLogin = UsuarioDAO.loginUsuario(usuarios.getCorreo(), usuarios.getContraseña());
-
-       if (usuariosLogin == null){
-           System.out.println("Acceso denegado a USUARIO");
-       }else{
-           System.out.println("Acceso aprobado a USUARIO");
-       }
+    public Usuarios loginUsuario(@RequestBody Usuarios usuarios) throws Exception {
+        return UsuarioDAO.loginUsuario(usuarios);
     }
 }

@@ -18,16 +18,6 @@ export class UsuariosService {
 
   constructor(private http: HttpClient) {}
 
-  obtenerUsuarios(): Observable<Usuarios[]>{
-    const suffix = '/reclamos/usuario'
-    return this.http.get<Usuarios[]>(this.URL+suffix);
-  }
-
-  obtenerUsuariosPorID(rut: number): Observable<Usuarios> {
-    const suffix = '/reclamos/usuario/'
-    return this.http.get<Usuarios>(this.URL+suffix+rut);
-  }
-
   registrarUsuario(usuarios: Usuarios) {
     const suffix = '/registrarUsuario'
     return this.http.post<Usuarios>(this.URL+suffix, usuarios, this.httpOptions);
