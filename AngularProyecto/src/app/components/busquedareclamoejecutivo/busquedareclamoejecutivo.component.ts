@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Reclamos } from 'src/models/Reclamos';
 import { ReclamosService } from 'src/app/services/reclamos-service.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-busquedareclamoejecutivo',
   templateUrl: './busquedareclamoejecutivo.component.html',
@@ -12,7 +12,7 @@ export class BusquedareclamoejecutivoComponent implements OnInit {
   reclamos: Reclamos[];
   displayedColumns: string[] = ['num_reclamo','rut_usuario','tipo_problema','fecha','detalle', 'responder'];
   mySubscripcion: any;
-    constructor(private router: Router, private reclamosService: ReclamosService) { 
+    constructor(private ubicacion: Location,private router: Router, private reclamosService: ReclamosService) { 
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
   
         return false;
@@ -49,4 +49,8 @@ export class BusquedareclamoejecutivoComponent implements OnInit {
       this.reclamosService.responderReclamo(num_reclamo)
         .subscribe(_=>this.obtenerReclamos());
     }
+    volver(){
+      this.ubicacion.back();
+    }
+   
 }

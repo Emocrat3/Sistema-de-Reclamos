@@ -26,7 +26,7 @@ export class AdminService {
    }
 
    obtenerAdminPorId(rut:number): Observable<Admin>{
-    const suffix = '/editar-cuenta-ejecutivo/'
+    const suffix = '/editarAdmin/'
     return this.http.get<Admin>(this.URL+suffix+rut)
   }
 

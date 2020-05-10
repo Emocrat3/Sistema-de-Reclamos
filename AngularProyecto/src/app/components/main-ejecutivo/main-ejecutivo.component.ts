@@ -28,6 +28,7 @@ export class MainEjecutivoComponent implements OnInit {
   volver(){
     this.ubicacion.back();
   }
+  
   alertaReporte(){
     alert("Problema reportado con exito");
     
