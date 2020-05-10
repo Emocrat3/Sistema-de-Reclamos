@@ -3,7 +3,6 @@ package com.Reclamos.SistemaDeReclamos.API;
 import com.Reclamos.SistemaDeReclamos.DAO.AdminDAO;
 import com.Reclamos.SistemaDeReclamos.DAO.SinConexionException;
 
-import com.Reclamos.SistemaDeReclamos.DAO.UsuarioDAO;
 import com.Reclamos.SistemaDeReclamos.DTO.Admin;
 
 import com.Reclamos.SistemaDeReclamos.DTO.Usuarios;
@@ -36,12 +35,8 @@ public class AdminController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/loginAdmin/")
-    public void loginAdmin(@RequestBody Usuarios admin) throws Exception {
-        Usuarios adminLogin = AdminDAO.loginAdmin(admin.getCorreo(), admin.getContraseña(), admin.getRut());
-        if (adminLogin != null){
-            System.out.println("Acceso aprobado a EJECUTIVO");
-        }else{
-            System.out.println("Acceso denegado a EJECUTIVO");
-        }
+    public Admin loginAdmin(@RequestBody Usuarios admin) throws Exception {
+        return AdminDAO.loginAdmin(admin);
+
     }
 }

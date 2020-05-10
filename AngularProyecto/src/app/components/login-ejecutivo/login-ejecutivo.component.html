@@ -5,8 +5,8 @@
 
     <p>
         <mat-form-field>
-            <mat-label>INGRESE SU RUT</mat-label>
-            <input matInput #rut>
+            <mat-label>Permiso</mat-label>
+            <input matInput #permiso disabled="true" value="Ejecutivo">
         </mat-form-field><br> 
         <mat-form-field>
             <mat-label>CORREO ELECTRONICO </mat-label>
@@ -17,7 +17,7 @@
             <input matInput type="password" #contrasena>
         </mat-form-field><br> 
     </p>
-    <button class="boton_personalizado" (click)="loginAdmin(correo.value, contrasena.value, rut.value)">Iniciar Sesion</button>
+    <button class="boton_personalizado" (click)="loginAdmin(correo.value, contrasena.value, permiso.value)">Iniciar Sesion</button>
     <button class="boton_personalizado" [routerLink]="['/bienvenido']">Volver atras</button>
     <ul><a class="registro" [routerLink]="['/registro']">¿No estas registrado? Registrate aqui!</a></ul>
     

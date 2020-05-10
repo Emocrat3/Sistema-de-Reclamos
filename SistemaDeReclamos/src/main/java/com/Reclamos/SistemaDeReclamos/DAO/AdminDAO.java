@@ -76,13 +76,10 @@ public class AdminDAO {
         return null;
     }
 
-    static public Admin loginAdmin(String correo, String contraseña, int rut) {
+    static public Admin loginAdmin(Usuarios a) {
         try {
             Connection conn = Conexion.obtenerConexion();
-            PreparedStatement ps = conn.prepareStatement("select * from Usuario where correo = ? and contraseña = ? and rut = ?");
-            ps.setString(1, correo);
-            ps.setString(2, contraseña);
-            ps.setInt(3, rut);
+            PreparedStatement ps = conn.prepareStatement("select * from Usuario where correo = '" + a.getCorreo() + "' and contraseña = '" + a.getContraseña() + "' and permiso ='" + a.getPermiso() + "' ");
             ResultSet rs = ps.executeQuery();
                 rs.next();
                 int numRut = rs.getInt("rut");

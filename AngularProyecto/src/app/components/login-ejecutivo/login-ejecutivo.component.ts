@@ -11,32 +11,35 @@ import { Admin } from 'src/models/Admin';
 })
 export class LoginEjecutivoComponent implements OnInit {
 
+
   constructor(private adminService: AdminService,
-    private ubicacion: Location) { }
+    private ubicacion: Location, public router: Router) { }
 
   ngOnInit(): void {
 
   }
 
-  loginAdmin(correo: string, contraseña: string, rut: number): boolean{
-    if(!rut){
-      alert("Campo rut vacio");
-      return;
-    }
-    if(!correo){
+  loginAdmin(correo: string,contraseña: string, permiso: string){
+    if(!correo.trim()){
       alert("Campo correo vacio");
-      return;
     }
-    if(!contraseña){
-      alert("Campo contraseña");
-      return;
+    else if(!contraseña.trim()){
+      alert("Campo contraseña vacio");
+    }else if(!permiso.trim()){
+      alert("Campo permiso vacio");
     }
-    
-    this.adminService.loginAdmin({correo, contraseña, rut} as Admin)
-      .subscribe(_=> this.volver());
+    else{
+      this.adminService.loginAdmin({correo, contraseña, permiso} as Admin).subscribe(userResponse => { 
+        localStorage.setItem("usuario", JSON.stringify(userResponse));
+
+        JSON.parse(localStorage.getItem("usuario"));
+
+        this.router.navigate(["main-ejecutivo"]);
+
+        console.log(localStorage.getItem("usuario"));
+      
+    })
+   }
   }
-  volver(): void{
-    this.ubicacion.back();
-  }
-}
+ }
 
