@@ -17,6 +17,11 @@ public class UsuarioController {
         UsuarioDAO.registrarUsuario(usuarios);
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/editarc/{rut}")
+    public Usuarios obtenerUsuarioPorId(@PathVariable("rut") int rut) throws SinConexionException, SQLException{
+        return UsuarioDAO.obtenerUsuariosPorID(rut);
+    }
+
     @RequestMapping(method = RequestMethod.PUT, value = "/editarCuentaUsuario/")
     public Usuarios editarCuentaUsuario(@RequestBody Usuarios usuarios) throws SinConexionException, SQLException {
         return UsuarioDAO.editarCuentaUsuario(usuarios);

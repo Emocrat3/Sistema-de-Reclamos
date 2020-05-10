@@ -15,7 +15,8 @@ export class EditarcComponent implements OnInit, OnDestroy {
  
   constructor( private router: Router,
      private usuariosService: UsuariosService, 
-     private ubicacion: Location
+     private ubicacion: Location,
+     private ruta: ActivatedRoute
      ){
 
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -45,6 +46,13 @@ export class EditarcComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.obtenerDatosUsuario();
+
+  }
+
+  obtenerDatosUsuario(){
+    const rut = +this.ruta.snapshot.paramMap.get('rut');
+    this.usuariosService.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuario= usuario);
   }
 
   borrar(rut: number){

@@ -37,7 +37,7 @@ const appRoutes: Routes = [
     {path:'crearCuentaEjecutivo', component:CrearCuentaEjecutivoComponent},
 
     {path:'nueva-contrasena', component:NuevaContrasenaComponent},
-    {path:'editarc', component:EditarcComponent, canActivate: [AuthGuard]},
+    {path:'editarc/:rut', component:EditarcComponent, canActivate: [AuthGuard]},
     {path:'main-user', component:MainUserComponent, canActivate: [AuthGuard]},
     {path:'main-ejecutivo', component:MainEjecutivoComponent, canActivate: [AuthGuard]},
     {path:'reporte', component:ReporteComponent, canActivate: [AuthGuard]},

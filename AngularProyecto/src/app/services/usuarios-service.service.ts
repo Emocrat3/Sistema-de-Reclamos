@@ -22,6 +22,10 @@ export class UsuariosService {
     const suffix = '/registrarUsuario'
     return this.http.post<Usuarios>(this.URL+suffix, usuarios, this.httpOptions);
   }
+  obtenerUsuarioPorId(rut:number): Observable<Usuarios>{
+    const suffix = '/editarc/'
+    return this.http.get<Usuarios>(this.URL+suffix+rut)
+  }
 
   loginUsuario(usuario: Usuarios): Observable<Usuarios> {
     const suffix = '/loginUsuario/'

@@ -1,5 +1,6 @@
 package com.Reclamos.SistemaDeReclamos.DAO;
 
+import com.Reclamos.SistemaDeReclamos.DTO.Reclamos;
 import com.Reclamos.SistemaDeReclamos.DTO.Usuarios;
 
 
@@ -29,6 +30,28 @@ public class UsuarioDAO {
         ps.setString(9, permiso);
         int resultado = ps.executeUpdate();
         return resultado;
+    }
+
+    static public Usuarios obtenerUsuariosPorID(int rut) {
+        try {
+            Connection conn = Conexion.obtenerConexion();
+            PreparedStatement ps = conn.prepareStatement("Select * from Usuario where rut = " + rut);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            int numRut = rs.getInt(1);
+            String nombreU = rs.getString(2);
+            String apellidoU = rs.getString(3);
+            int numTelefono = rs.getInt(4);
+            String correoElectronico = rs.getString(5);
+            String direccionU = rs.getString(6);
+            String contraseñaU = rs.getString(7);
+            String productoU = rs.getString(8);
+            String permisoU = rs.getString(9);
+            return new Usuarios(numRut,nombreU,apellidoU,numTelefono,correoElectronico,direccionU, contraseñaU,productoU,permisoU);
+        } catch (SQLException | SinConexionException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     static public Usuarios editarCuentaUsuario(Usuarios u) throws SinConexionException, SQLException {
