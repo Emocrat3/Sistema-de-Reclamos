@@ -27,9 +27,8 @@ export class LoginComponent implements OnInit {
       this.usuariosService.loginUsuario({correo, contraseña} as Usuarios).subscribe(userResponse => { 
         localStorage.setItem("usuario", JSON.stringify(userResponse));
 
-        JSON.parse(localStorage.getItem("usuario"));
-
-        this.router.navigate(["main-user"]);
+        let usuarioDatos = JSON.parse(localStorage.getItem("usuario"));
+        this.router.navigate(["main-user", usuarioDatos.rut]);
 
         console.log(localStorage.getItem("usuario"));
       

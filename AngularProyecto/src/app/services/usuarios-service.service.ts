@@ -52,6 +52,5 @@ export class UsuariosService {
     const suffix = '/editarCuentaUsuario/'
     return this.http.delete(this.URL+suffix+rut, this.httpOptions);
   }
-
 }
 

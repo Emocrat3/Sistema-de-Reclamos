@@ -1,6 +1,6 @@
 <div class="contenedor" id="contrep">
     <!--Contenido de Reporte-->
-    <h2>♥ Te escuchamos...</h2><br>
+    <h2>♥ Hola {{usuario.nombre}} te escuchamos ♥</h2><br>
     <div class="minicontenedor" id="contrep1">
         <div>
             <form>
@@ -8,7 +8,7 @@
                     <label for="nombre">¿En qué podemos ayudarte?</label> <br/>
                     <mat-form-field>
                         <mat-label>RUT usuario </mat-label>
-                        <input matInput #rut_usuario>
+                        <input matInput #rut_usuario value="{{usuario.rut}}" disabled="true">
                     </mat-form-field>
                 </p>
                 <p>
@@ -53,17 +53,20 @@
     </div>
 
     <div class="minicontenedor" id="contrep2">
-        <p>
-            <label for="telefono">Numero telefonico:</label> <br/>
-            <input id="telnum" type="text" name="telefono" placeholder="+56 9 32134124">
-        </p>
-        <p>
-            <label for="email">Email:</label> <br/>
-            <input id="mailin" type="text" name="telefono" placeholder="reclamos@gmail.com">
-        </p>
+            <div >
+                <mat-form-field style="width: 80%;">
+                    <mat-label>CORREO</mat-label>
+                    <input matInput  #correo value="{{usuario.correo}}">
+                </mat-form-field>
+                
+                <mat-form-field style="width: 80%;" >
+                    <mat-label >TELEFONO</mat-label>
+                    <input matInput #telefono value="{{usuario.telefono}}" >
+                </mat-form-field>
+                </div>
         <input class="boton_personalizado" id="butrep1" type="submit" value="Confirmar"/>
         <input class="boton_personalizado" id="butrep2" type="submit" value="Editar"/><br>
         <input class="boton_personalizado" (click)="insertarReclamo(rut_usuario.value, tipo_problema.value, texto_reclamo.value, fecha.value)" id="butrep3" type="submit" value="Enviar Reclamo"/><br>
-        <input class="boton_personalizado"  id="butrep4" type="submit" value="volver atras" [routerLink]="['/main-user']"/>
+        <input class="boton_personalizado"  id="butrep4" type="submit" value="volver atras" (click)="volver()"/>
     </div>
 </div>

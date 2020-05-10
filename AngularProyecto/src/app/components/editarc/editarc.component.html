@@ -23,6 +23,7 @@
             <mat-label>CORREO</mat-label>
             <input matInput  #correo value="{{usuario.correo}}">
         </mat-form-field>
+        
         <mat-form-field style="width: 40%;" >
             <mat-label >TELEFONO</mat-label>
             <input matInput #telefono value="{{usuario.telefono}}">
@@ -39,6 +40,6 @@
         </mat-form-field>
         </div>
     </form>
-    <button mat-raised-button color="warn" (click)="guardar(rut.value, nombre.value, apellido.value, correo.value, telefono.value)">Guardar</button>
-       <input type="submit" value="Volver atras" [routerLink]="['/main-user']">
+    <button mat-raised-button color="warn" (click)="guardar(rut.value, nombre.value, apellido.value, correo.value, telefono.value, contrasena.value)">Guardar</button>
+       <input type="submit" value="Volver atras" (click)="volver()">
     </div>

@@ -38,9 +38,9 @@ const appRoutes: Routes = [
 
     {path:'nueva-contrasena', component:NuevaContrasenaComponent},
     {path:'editarc/:rut', component:EditarcComponent, canActivate: [AuthGuard]},
-    {path:'main-user', component:MainUserComponent, canActivate: [AuthGuard]},
+    {path:'main-user/:rut', component:MainUserComponent, canActivate: [AuthGuard]},
     {path:'main-ejecutivo', component:MainEjecutivoComponent, canActivate: [AuthGuard]},
-    {path:'reporte', component:ReporteComponent, canActivate: [AuthGuard]},
+    {path:'reporte/:rut', component:ReporteComponent, canActivate: [AuthGuard]},
     {path:'respuesta/:num_reclamo', component:RespuestaDeReclamoComponent, canActivate: [AuthGuard]},
     {path:'busqueda-reclamo', component:BusquedaReclamoComponent, canActivate: [AuthGuard]},
     {path:'editar-cuenta-ejecutivo', component:EditarCuentaEjecutivoComponent, canActivate: [AuthGuard]},

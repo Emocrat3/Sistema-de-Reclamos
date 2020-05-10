@@ -1,11 +1,11 @@
-<div class="contenedor" id="cont1" > 
-    <h1>Bienvenido nombre </h1>
+<div class="contenedor" id="cont1"  > 
+    <h1>Bienvenido {{usuario.nombre}} </h1>
     <h2>¿En que te ayudamos hoy?</h2>
     <br>
     
-    <div class="minicontenedor" ><button [routerLink]="['/reporte']"><Strong>Accede al portal de Reclamos</Strong></button></div>
-    <div class="minicontenedor" ><button [routerLink]="['/editarc/']"><Strong >Editar Datos de Cuenta</Strong></button></div>
-    <div class="minicontenedor" ><button [routerLink]="['/busqueda-reclamo']"><Strong>Rastreo de Reclamos</Strong></button></div><br>
+    <div class="minicontenedor" ><button ><Strong><a routerLink="/reporte/{{usuario.rut}}" style="text-decoration: none; color: black;">Accede al portal de Reclamos</a></Strong></button></div>
+    <div class="minicontenedor" ><button ><Strong ><a routerLink="/editarc/{{usuario.rut}}" style="text-decoration: none;color: black; ">Editar Datos de Cuenta</a></Strong></button></div>
+    <div class="minicontenedor" ><button><Strong><a routerLink="/detalle/{{usuario.rut}}" style="text-decoration: none;color: black;">Rastreo de Reclamos</a></Strong></button></div><br>
     
     <button class="boton_personalizado" id="botonrightuser"  [routerLink]="['/bienvenido']">Cerrar Sesion</button>
 
