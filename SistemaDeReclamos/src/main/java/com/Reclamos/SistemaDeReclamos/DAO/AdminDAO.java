@@ -48,6 +48,28 @@ public class AdminDAO {
         return resultado;
     }
 
+    static public Usuarios obtenerAdminPorID(int rut) {
+        try {
+            Connection conn = Conexion.obtenerConexion();
+            PreparedStatement ps = conn.prepareStatement("Select * from Usuario where rut = " + rut);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            int numRut = rs.getInt(1);
+            String nombreU = rs.getString(2);
+            String apellidoU = rs.getString(3);
+            int numTelefono = rs.getInt(4);
+            String correoElectronico = rs.getString(5);
+            String direccionU = rs.getString(6);
+            String contraseñaU = rs.getString(7);
+            String productoU = rs.getString(8);
+            String permisoU = rs.getString(9);
+            return new Usuarios(numRut,nombreU,apellidoU,numTelefono,correoElectronico,direccionU, contraseñaU,productoU,permisoU);
+        } catch (SQLException | SinConexionException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     static public Admin editarContraseñaAdmin(Admin admin) throws SinConexionException, SQLException {
         try {
             Connection conn = Conexion.obtenerConexion();

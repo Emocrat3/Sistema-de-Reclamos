@@ -50,5 +50,9 @@ export class ReporteComponent implements OnInit {
     this.ubicacion.back();
   }
 
+  confirmar(){
+    alert("Se confirmaron los datos donde se estara enviaran detalles del reclamo")
+  }
+
 
 }

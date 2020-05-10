@@ -3,12 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="30e47489-f1ae-42af-88c8-633e7491090b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/app.routing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/editarc/editarc.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/editarc/editarc.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/editarc/editarc.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/editarc/editarc.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/main-user/main-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/main-user/main-user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/main-user/main-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/main-user/main-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/services/usuarios-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/services/usuarios-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/editar-cuenta-ejecutivo/editar-cuenta-ejecutivo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/editar-cuenta-ejecutivo/editar-cuenta-ejecutivo.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/editar-cuenta-ejecutivo/editar-cuenta-ejecutivo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/editar-cuenta-ejecutivo/editar-cuenta-ejecutivo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/main-ejecutivo/main-ejecutivo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/main-ejecutivo/main-ejecutivo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/reporte/reporte.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/reporte/reporte.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/reporte/reporte.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/reporte/reporte.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/services/admin-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/services/admin-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/assets/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

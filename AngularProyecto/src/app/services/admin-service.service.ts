@@ -25,11 +25,24 @@ export class AdminService {
     return null;
    }
 
+   obtenerAdminPorId(rut:number): Observable<Admin>{
+    const suffix = '/editar-cuenta-ejecutivo/'
+    return this.http.get<Admin>(this.URL+suffix+rut)
+  }
+
    public isAuthenticated(): boolean{
     if(localStorage.getItem('usuario') == 'null' || isNullOrUndefined(localStorage.getItem('usuario'))){
       return false;
     }else{
       return true;
     }
+  }
+  editarCuenta(admin: Admin) {
+    const suffix = '/editarAdmin/'
+    return this.http.put<Admin>(this.URL+suffix, admin, this.httpOptions);
+  }
+  darBajaAdmin(rut: number) {
+    const suffix = '/editar-cuenta-ejecutivo/'
+    return this.http.delete(this.URL+suffix+rut, this.httpOptions);
   }
 }

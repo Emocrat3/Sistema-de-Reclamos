@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AdminService } from 'src/app/services/admin-service.service'
 import { Location, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Admin } from 'src/models/Admin';
 })
 export class LoginEjecutivoComponent implements OnInit {
 
-
+  @Input() admin : Admin;
   constructor(private adminService: AdminService,
     private ubicacion: Location, public router: Router) { }
 
@@ -32,11 +32,11 @@ export class LoginEjecutivoComponent implements OnInit {
       this.adminService.loginAdmin({correo, contraseña, permiso} as Admin).subscribe(userResponse => { 
         localStorage.setItem("usuario", JSON.stringify(userResponse));
 
-        JSON.parse(localStorage.getItem("usuario"));
-
-        this.router.navigate(["main-ejecutivo"]);
+        let usuarioDatos = JSON.parse(localStorage.getItem("usuario"));
+        this.router.navigate(["main-ejecutivo", usuarioDatos.rut]);
 
         console.log(localStorage.getItem("usuario"));
+      
       
     })
    }

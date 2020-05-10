@@ -3,6 +3,7 @@ package com.Reclamos.SistemaDeReclamos.API;
 import com.Reclamos.SistemaDeReclamos.DAO.AdminDAO;
 import com.Reclamos.SistemaDeReclamos.DAO.SinConexionException;
 
+import com.Reclamos.SistemaDeReclamos.DAO.UsuarioDAO;
 import com.Reclamos.SistemaDeReclamos.DTO.Admin;
 
 import com.Reclamos.SistemaDeReclamos.DTO.Usuarios;
@@ -17,6 +18,10 @@ public class AdminController {
     @RequestMapping(method = RequestMethod.POST, value = "/registrarEjecutivo")
     public void registrarAdmin(@RequestBody Admin admin) throws Exception {
         AdminDAO.registrarAdmin(admin);
+    }
+    @RequestMapping(method = RequestMethod.GET, value = "/editarAdmin/{rut}")
+    public Usuarios obtenerAdminPorId(@PathVariable("rut") int rut) throws SinConexionException, SQLException{
+        return AdminDAO.obtenerAdminPorID(rut);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/editarCuentaAdmin/")

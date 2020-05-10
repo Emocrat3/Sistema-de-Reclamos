@@ -64,8 +64,8 @@
                     <input matInput #telefono value="{{usuario.telefono}}" >
                 </mat-form-field>
                 </div>
-        <input class="boton_personalizado" id="butrep1" type="submit" value="Confirmar"/>
-        <input class="boton_personalizado" id="butrep2" type="submit" value="Editar"/><br>
+        <input class="boton_personalizado" (click)="confirmar()" id="butrep1" type="submit" value="Confirmar"/>
+      
         <input class="boton_personalizado" (click)="insertarReclamo(rut_usuario.value, tipo_problema.value, texto_reclamo.value, fecha.value)" id="butrep3" type="submit" value="Enviar Reclamo"/><br>
         <input class="boton_personalizado"  id="butrep4" type="submit" value="volver atras" (click)="volver()"/>
     </div>

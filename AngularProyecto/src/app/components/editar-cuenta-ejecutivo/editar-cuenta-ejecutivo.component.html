@@ -1,12 +1,12 @@
 <div class="contenedor"> 
-	<h3>Edita tu cuenta</h3>
+	<h3>Edita tu cuenta {{admin.nombre}}</h3>
 
 <br>
 
 <form style="width: 80%;" >
 	<mat-form-field style="width: 84%; padding-right: 10px;" >
 		<mat-label>Rut</mat-label>
-		<input matInput #rut  disabled="true" >
+		<input matInput #rut value="{{admin.rut}}" disabled="true" >
 	</mat-form-field>
 	<div>
 		<mat-form-field style="width: 40%;padding-right: 30px;">
