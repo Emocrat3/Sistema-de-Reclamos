@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/services/usuarios-service.service'
 import { Usuarios } from 'src/models/Usuarios';
 import { Location, NgIf } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,28 +12,30 @@ import { RouterLink } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(private usuariosService: UsuariosService,
-    private ubicacion: Location) { }
+    private ubicacion: Location, public router: Router) { }
 
   ngOnInit(): void {
 
   }
 
-  loginUsuario(correo: string,contraseña: string): boolean{
-    if(!correo){
+  loginUsuario(correo: string,contraseña: string){
+    if(!correo.trim()){
       alert("Campo correo vacio");
-      return;
     }
-    if(!contraseña){
-      alert("Campo contraseña");
-      return;
+    else if(!contraseña.trim()){
+      alert("Campo contraseña vacio");
     }
+    else{
+      this.usuariosService.loginUsuario({correo, contraseña} as Usuarios).subscribe(userResponse => { 
+        localStorage.setItem("usuario", JSON.stringify(userResponse));
 
-    this.usuariosService.loginUsuario({correo, contraseña} as Usuarios)
-      .subscribe(_=> this.volver());
+        let usuarioDatos = JSON.parse(localStorage.getItem("usuario"));
 
+        this.router.navigate(["userperfil", usuarioDatos.id_Usuario]);
+
+        console.log(localStorage.getItem("usuario"));
+      
+    })
   }
-
-  volver(): void{
-    this.ubicacion.back();
-  }
+ }
 }

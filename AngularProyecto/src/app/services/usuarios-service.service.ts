@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Usuarios } from 'src/models/Usuarios';
 import { Observable } from 'rxjs';
+import { isNullOrUndefined } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +33,22 @@ export class UsuariosService {
     return this.http.post<Usuarios>(this.URL+suffix, usuarios, this.httpOptions);
   }
 
-  loginUsuario(usuarios: Usuarios): Observable<Usuarios> {
+  loginUsuario(usuario: Usuarios): Observable<Usuarios> {
     const suffix = '/loginUsuario/'
-    return this.http.post<Usuarios>(this.URL+suffix, usuarios, this.httpOptions);
+    return this.http.post<Usuarios>(this.URL+suffix, usuario, this.httpOptions);
+  }
+
+  logoutUsuario(){
+   localStorage.removeItem("usuario");
+   return null;
+  }
+
+  public isAuthenticated(): boolean{
+    if(localStorage.getItem('usuario') == 'null' || isNullOrUndefined(localStorage.getItem('usuario'))){
+      return false;
+    }else{
+      return true;
+    }
   }
 
   darBajaUsuario(rut: number) {

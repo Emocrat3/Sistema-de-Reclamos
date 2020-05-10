@@ -27,7 +27,6 @@
                 <mat-label>SLA Respuesta</mat-label>
                 <input matInput #SLA_respuesta value="{{respuesta.SLA_respuesta}}">
             </mat-form-field>
-        <textarea name="inquietud" placeholder="Type here your message..."></textarea> <br>
         <button mat-raised-button color="primary" (click)="volver()" style="margin: 1em;">Volver Atras</button>
         <button mat-raised-button color="warn" (click)="guardar(num_reclamo.value, rut_admin.value, texto_respuesta.value, fecha_respuesta.value, SLA_respuesta.value)">Guardar</button>
         

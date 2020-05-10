@@ -24,28 +24,30 @@ import { BusquedareclamoejecutivoComponent } from './components/busquedareclamoe
 import { DetalleReclamoComponent } from './components/detalle-reclamo/detalle-reclamo.component';
 import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscando-reclamos.component';
 import { DetalleAdminReclamoComponent } from './components/detalle-admin-reclamo/detalle-admin-reclamo.component';
+import { AuthGuard } from './guards/auth.guard';
+
 // Array de rutas (Configuracion de todas las rutas al crear)
 
 const appRoutes: Routes = [
     {path:'', component:BienvenidoComponent},
     {path:'bienvenido', component:BienvenidoComponent},
-    {path:'login', component:LoginComponent},
+    {path:'login', component:LoginComponent, canActivate: [AuthGuard]},
     {path:'registro', component:RegistroComponent},
     {path:'recuperarc', component:RecuperarcComponent},
     {path:'crearCuentaEjecutivo', component:CrearCuentaEjecutivoComponent},
 
     {path:'nueva-contrasena', component:NuevaContrasenaComponent},
-    {path:'editarc', component:EditarcComponent},
+    {path:'editarc', component:EditarcComponent, canActivate: [AuthGuard]},
     {path:'main-user', component:MainUserComponent},
     {path:'main-ejecutivo', component:MainEjecutivoComponent},
-    {path:'reporte', component:ReporteComponent},
+    {path:'reporte', component:ReporteComponent, canActivate: [AuthGuard]},
     {path:'respuesta/:num_reclamo', component:RespuestaDeReclamoComponent},
-    {path:'busqueda-reclamo', component:BusquedaReclamoComponent},
+    {path:'busqueda-reclamo', component:BusquedaReclamoComponent, canActivate: [AuthGuard]},
     {path:'editar-cuenta-ejecutivo', component:EditarCuentaEjecutivoComponent},
     {path:'login-ejecutivo', component:LoginEjecutivoComponent},
-    {path:'editar-reclamo', component:EditarReclamoComponent},
+    {path:'editar-reclamo', component:EditarReclamoComponent, canActivate: [AuthGuard]},
     {path:'busquedareclamoejecutivo', component:BusquedareclamoejecutivoComponent},
-    {path:'detalle/:num_reclamo', component:DetalleReclamoComponent},
+    {path:'detalle/:num_reclamo', component:DetalleReclamoComponent, canActivate: [AuthGuard]},
     {path:'detalleAdmin/:num_reclamo', component:DetalleAdminReclamoComponent},
     {path:'buscando-reclamos' , component:BuscandoReclamosComponent},
     {path:'**', component:ErrorComponent}

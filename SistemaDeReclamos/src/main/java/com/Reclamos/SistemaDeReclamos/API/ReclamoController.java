@@ -26,22 +26,24 @@ public class ReclamoController {
         reclamos.setFecha_tope(fechaTope);
         ReclamosDAO.insertarReclamo(reclamos);
     }
-    @RequestMapping(method = RequestMethod.GET,  value = "/reclamos/usuario")
+
+    @RequestMapping(method = RequestMethod.GET, value = "/reclamos/usuario")
     public List<Reclamos> obtenerReclamos() throws Exception {
         return ReclamosDAO.obtenerReclamos();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/reclamos/usuario/{num_reclamo}")
-    public Reclamos obtenerReclamosPorID(@PathVariable("num_reclamo") int num_reclamo){
+    public Reclamos obtenerReclamosPorID(@PathVariable("num_reclamo") int num_reclamo) {
         return ReclamosDAO.obtenerReclamosPorID(num_reclamo);
     }
+
     @RequestMapping(method = RequestMethod.PUT, value = "/editarReclamo/")
     public Reclamos editarReclamos(@RequestBody Reclamos reclamos) throws SinConexionException, SQLException {
         return ReclamosDAO.editarReclamoPorID(reclamos);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/ADMIN/pendientes/respuesta")
-    public void insertarRespuesta(@RequestBody Respuesta respuesta) throws Exception{
+    public void insertarRespuesta(@RequestBody Respuesta respuesta) throws Exception {
         Fecha fecha = new Fecha();
         String slarespuesta = fecha.compararFechas(respuesta);
         respuesta.setSLA_respuesta(slarespuesta);
