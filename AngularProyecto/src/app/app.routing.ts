@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     {path:'main-ejecutivo/:rut', component:MainEjecutivoComponent, canActivate: [AuthGuard]},
     {path:'reporte/:rut', component:ReporteComponent, canActivate: [AuthGuard]},
     {path:'respuesta/:num_reclamo', component:RespuestaDeReclamoComponent, canActivate: [AuthGuard]},
-    {path:'busqueda-reclamo', component:BusquedaReclamoComponent, canActivate: [AuthGuard]},
+    {path:'busqueda-reclamo/:rut', component:BusquedaReclamoComponent, canActivate: [AuthGuard]},
     {path:'editarEjecutivo/:rut', component:EditarCuentaEjecutivoComponent, canActivate: [AuthGuard]},
     {path:'login-ejecutivo', component:LoginEjecutivoComponent},
     {path:'editar-reclamo', component:EditarReclamoComponent, canActivate: [AuthGuard]},

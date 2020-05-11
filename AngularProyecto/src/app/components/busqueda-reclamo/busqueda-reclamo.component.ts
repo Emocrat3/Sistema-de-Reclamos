@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ReclamosService } from 'src/app/services/reclamos-service.service';
 import { Reclamos } from 'src/models/Reclamos';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-
+import { Usuarios } from 'src/models/Usuarios';
+import { UsuariosService } from 'src/app/services/usuarios-service.service'
 @Component({
   selector: 'app-busqueda-reclamo',
   templateUrl: './busqueda-reclamo.component.html',
@@ -12,11 +13,14 @@ import { Location } from '@angular/common';
 export class BusquedaReclamoComponent implements OnInit, OnDestroy {
 
 reclamos: Reclamos[];
+@Input() usuario: Usuarios;
 displayedColumns: string[] = ['num_reclamo','rut_usuario','tipo_problema','fecha','detalle'];
 mySubscripcion: any;
   constructor(private router: Router,
      private reclamosService: ReclamosService,
-       private ubicacion: Location) { 
+       private ubicacion: Location,
+       private ruta: ActivatedRoute,
+       private usuariosService: UsuariosService) { 
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
 
       return false;
@@ -43,13 +47,17 @@ mySubscripcion: any;
     }
   }
 ngOnInit(){
+  this.obtenerDatosUsuario();
   this.obtenerReclamos();
 }
-  obtenerReclamos() {
-    this.reclamosService.obtenerReclamos()
-    .subscribe(reclamos => this.reclamos = reclamos); 
+obtenerReclamos() {
+  this.reclamosService.obtenerReclamos()
+  .subscribe(reclamos => this.reclamos = reclamos); 
+}
+  obtenerDatosUsuario() {
+    const rut = +this.ruta.snapshot.paramMap.get('rut');
+    this.usuariosService.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuario= usuario);;
   }
-
 
   volver(){
     this.ubicacion.back();

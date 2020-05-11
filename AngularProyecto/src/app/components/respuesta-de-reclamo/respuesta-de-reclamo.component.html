@@ -1,19 +1,19 @@
-<div class="contenedor" >
+<div class="contenedor" *ngIf="reclamos">
 
     <!--Contenido de Reporte-->
-    <h2>Reclamo N°...</h2>
+    <h2>Reclamo N° {{reclamos.num_reclamo}} </h2>
     <div class="contenedor1">
-    <h3>Estado reclamo: Pendiente/No pendiente.</h3>
+    <h3>Estado reclamo: {{reclamos.estado}}</h3>
         
-            <h3>Detalles Reclamo </h3>
+            <h3>Detalles Reclamo: {{reclamos.tipo_problema}} </h3>
             <hr>
             <mat-form-field style="width: 100%;" >
-                <mat-label>Numero de reclamo</mat-label>
-                <input matInput #num_reclamo  disabled="true">
+                <mat-label>NUMERO DE RECLAMO</mat-label>
+                <input matInput #num_reclamo  value = "{{reclamos.num_reclamo}}" disabled="true">
             </mat-form-field>
             <mat-form-field style="width: 100%;">
-                <mat-label>RUT del ADMIN</mat-label>
-                <input matInput #rut_admin  >
+                <mat-label>RUT DEL USUARIO</mat-label>
+                <input matInput disabled="true" value="3" #rut_admin  >
             </mat-form-field>
             <mat-form-field style="width: 100%;">
                 <mat-label>RESPUESTA DEL ADMIN</mat-label>
@@ -25,9 +25,9 @@
             </mat-form-field>
             <mat-form-field style="width: 100%;">
                 <mat-label>SLA Respuesta</mat-label>
-                <input matInput #SLA_respuesta >
+                <input matInput disabled="true" #SLA_respuesta value="{{reclamos.SLA_reclamo}}" >
             </mat-form-field>
         <button mat-raised-button color="primary" (click)="volver()" style="margin: 1em;">Volver Atras</button>
-        <button mat-raised-button color="warn" (click)="guardar(num_reclamo.value, rut_admin.value, texto_respuesta.value, fecha_respuesta.value, SLA_respuesta.value)">Responder</button>
+        <button mat-raised-button color="warn" (click)="responder(num_reclamo.value, rut_admin.value, texto_respuesta.value, fecha_respuesta.value, SLA_respuesta.value)">Responder</button>
         
         </div>

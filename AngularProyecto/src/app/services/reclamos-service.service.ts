@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Reclamos } from 'src/models/Reclamos';
+import { Respuesta } from 'src/models/Respuesta';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,10 @@ export class ReclamosService {
 
   responderReclamo(num_reclamo: number) {
     return this.http.post(this.URL+num_reclamo, this.httpOptions);
+  }
+
+  insertarRespuesta(respuesta : Respuesta) {
+    const suffix = '/ADMIN/pendientes/respuesta'
+    return this.http.post(this.URL+suffix, respuesta, this.httpOptions);
   }
 }

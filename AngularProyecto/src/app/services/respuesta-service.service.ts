@@ -19,8 +19,5 @@ export class RespuestaService {
   constructor(private http: HttpClient) { }
 
   
-  insertarRespuesta(respuesta : Respuesta) {
-    const suffix = '/ADMIN/pendientes/respuesta'
-    return this.http.post(this.URL+suffix+this.respuesta.num_reclamo, this.httpOptions);
-  }
+
 }

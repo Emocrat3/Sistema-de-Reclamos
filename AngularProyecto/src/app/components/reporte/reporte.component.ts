@@ -17,7 +17,8 @@ export class ReporteComponent implements OnInit {
   @Input() usuario: Usuarios;
 
   constructor(private reclamosService: ReclamosService,
-    private ubicacion: Location, private router: Router,
+    private ubicacion: Location, 
+    private router: Router,
     private usuariosService: UsuariosService, 
     private ruta: ActivatedRoute) { }
 
@@ -44,7 +45,8 @@ export class ReporteComponent implements OnInit {
   }
   obtenerDatosUsuario() {
     const rut = +this.ruta.snapshot.paramMap.get('rut');
-    this.usuariosService.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuario= usuario);;
+    this.usuariosService.obtenerUsuarioPorId(rut)
+    .subscribe(usuario => this.usuario= usuario);;
   }
   volver(): void{
     this.ubicacion.back();
