@@ -3,7 +3,7 @@
     <h2>¿Que quieres ver hoy?</h2>
     <br>
     
-    <div class="minicontenedor" ><button [routerLink]="['/respuesta-de-reclamo']"><Strong>Solicitudes de Reclamos</Strong></button></div>
+    
     <div class="minicontenedor" ><button ><Strong><a routerLink="/busquedareclamoejecutivo/{{admin.rut}}" style="text-decoration: none;color: black; ">Búsqueda de reclamos</a></Strong></button></div>
     <div class="minicontenedor" ><button ><Strong><a routerLink="/editarEjecutivo/{{admin.rut}}" style="text-decoration: none;color: black; ">Editar Datos de Cuenta</a></Strong></button></div>
     <div class="minicontenedor"><button (click)="alertaReporte()"><Strong>Reportar Problemas</Strong></button></div>

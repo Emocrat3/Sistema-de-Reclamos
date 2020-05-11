@@ -45,4 +45,9 @@ export class ReclamosService {
     const suffix = '/ADMIN/pendientes/respuesta'
     return this.http.post(this.URL+suffix, respuesta, this.httpOptions);
   }
+
+  obtenerReclamosPorIDAdmin(num_reclamo: number){
+    const suffix = '/filtrarReclamoPorID/admin/'
+    return this.http.get(this.URL+suffix+num_reclamo,this.httpOptions);
+  }
 }

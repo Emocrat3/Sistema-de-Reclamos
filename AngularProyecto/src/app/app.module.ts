@@ -33,7 +33,7 @@ import { BusquedareclamoejecutivoComponent } from './components/busquedareclamoe
 import { DetalleReclamoComponent } from './components/detalle-reclamo/detalle-reclamo.component';
 import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscando-reclamos.component';
 import { DetalleAdminReclamoComponent } from './components/detalle-admin-reclamo/detalle-admin-reclamo.component';
-import { FiltroPipe } from './pipes/filtro.pipe';
+
 
 
 
@@ -65,7 +65,7 @@ import { FiltroPipe } from './pipes/filtro.pipe';
     DetalleReclamoComponent,
     BuscandoReclamosComponent,
     DetalleAdminReclamoComponent,
-    FiltroPipe 
+   
   ],
   imports: [
     BrowserModule,
@@ -73,7 +73,8 @@ import { FiltroPipe } from './pipes/filtro.pipe';
     HttpClientModule,
     AppMaterialModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
 
   ],
   providers: [appRoutingProviders],

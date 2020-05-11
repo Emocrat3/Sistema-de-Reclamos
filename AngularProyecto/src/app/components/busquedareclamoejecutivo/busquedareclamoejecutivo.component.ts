@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
 import { Reclamos } from 'src/models/Reclamos';
 import { ReclamosService } from 'src/app/services/reclamos-service.service';
 import { Location } from '@angular/common';
@@ -10,9 +10,10 @@ import { Location } from '@angular/common';
 })
 export class BusquedareclamoejecutivoComponent implements OnInit {
   reclamos: Reclamos[];
+  @Input() reclamo: Reclamos;
   displayedColumns: string[] = ['num_reclamo','rut_usuario','tipo_problema','fecha','detalle', 'responder'];
   mySubscripcion: any;
-    constructor(private ubicacion: Location,private router: Router, private reclamosService: ReclamosService) { 
+    constructor(private ubicacion: Location,private router: Router, private reclamosService: ReclamosService, private ruta: ActivatedRoute) { 
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
   
         return false;
@@ -52,5 +53,9 @@ export class BusquedareclamoejecutivoComponent implements OnInit {
     volver(){
       this.ubicacion.back();
     }
-   
+
+    buscar(num_reclamo: number){
+      this.reclamosService.obtenerReclamosPorIDAdmin(num_reclamo)
+        .subscribe(_=> this.obtenerReclamos());
+    }
 }

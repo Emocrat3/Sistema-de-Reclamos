@@ -1,4 +1,4 @@
-<div class="contenedor">
+<div class="contenedor" >
     <!--Contenido de Reporte-->
     <h2>Busqueda de Reclamos</h2>
     <div>
@@ -10,7 +10,7 @@
             <option value="porNumReclamo">Busqueda N° Reclamo</option>
             <option value="porRut">Busqueda por RUT</option>
         </select>
-        <input type="text" name="numeroR" placeholder="Ingrese N° Reclamo o ...">
+        <input type="text" name="numeroR" #num_reclamo placeholder="Ingrese N° Reclamo o ...">
         </p>	
     </form>
     </div>
@@ -56,7 +56,7 @@
 
   </table>
   <br>
- 
+  <button class= "botones" mat-raised-button color="primary" style="margin-right: 10px;"(click)="buscar(num_reclamo.value)">Buscar</button> 
   <button class= "botones" mat-raised-button color="warn" (click)="volver()">Volver atras</button> 
   
         </div>

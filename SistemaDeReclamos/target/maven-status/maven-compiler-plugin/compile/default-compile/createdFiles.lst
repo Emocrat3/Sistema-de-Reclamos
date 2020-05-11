@@ -1,3 +1,4 @@
+com\Reclamos\SistemaDeReclamos\API\SendMailController.class
 com\Reclamos\SistemaDeReclamos\DAO\Conexion.class
 com\Reclamos\SistemaDeReclamos\DAO\SLADAO.class
 com\Reclamos\SistemaDeReclamos\DAO\extraerFechaTopeDAO.class
