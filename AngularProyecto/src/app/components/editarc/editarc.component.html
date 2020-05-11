@@ -1,4 +1,4 @@
-<div class="contenedor" >
+<div class="contenedor" *ngIf="usuario">
     <h3>Edita tu cuenta {{usuario.nombre}}</h3>
     
     <br>
@@ -31,15 +31,11 @@
         </div>
         <div>
         <mat-form-field style="width: 40%;padding-right: 30px;">
-            <mat-label>Contraseña</mat-label>
-            <input matInput #contrasena >
-        </mat-form-field>
-        <mat-form-field style="width: 40%;">
-            <mat-label>Confirmar contraseña</mat-label>
-            <input matInput #confirmarc >
+            <mat-label>Direccion</mat-label>
+            <input matInput #direccion value="{{usuario.direccion}}">
         </mat-form-field>
         </div>
     </form>
-    <button mat-raised-button color="warn" (click)="guardar(rut.value, nombre.value, apellido.value, correo.value, telefono.value, contrasena.value)">Guardar</button>
+    <button mat-raised-button color="warn" (click)="guardar(rut.value, nombre.value, apellido.value, correo.value, telefono.value, direccion.value)">Guardar</button>
        <input type="submit" value="Volver atras" (click)="volver()">
     </div>

@@ -33,8 +33,8 @@ export class EditarCuentaEjecutivoComponent implements OnInit {
     this.adminService.darBajaAdmin(rut)
   }
 
-  guardar(rut:number,nombre:string, apellido:string, correo: string, telefono: number, contraseña:string){
-    this.adminService.editarCuenta({rut, nombre, apellido, correo, telefono, contraseña} as Admin)
+  guardar(rut:number, nombre: string, apellido: string, correo: string, telefono: number, direccion: string, cargo: string){
+    this.adminService.editarCuentaAdmin({rut, nombre, apellido, correo,telefono,  direccion,cargo} as Admin)
       .subscribe(_=>this.volver());
   }
 

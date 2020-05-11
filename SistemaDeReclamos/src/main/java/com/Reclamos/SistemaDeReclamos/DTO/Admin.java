@@ -8,7 +8,7 @@ public class Admin extends Usuarios {
                  int telefono, String correo, String direccion,
                  String contraseña, String permiso, String cargo){
 
-        super(rut, nombre, apellido, telefono, correo, contraseña, direccion, contraseña, permiso);
+        super(rut, nombre, apellido, telefono, correo, direccion, contraseña, permiso, cargo);
         this.cargo = cargo;
     }
 

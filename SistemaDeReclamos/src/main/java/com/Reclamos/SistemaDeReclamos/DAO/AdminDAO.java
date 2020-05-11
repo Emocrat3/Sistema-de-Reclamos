@@ -10,16 +10,16 @@ import java.sql.SQLException;
 
 public class AdminDAO {
     static private Connection conn = null;
-    public static Admin editarCuentaAdmin(Admin admin) {
+
+    public static Admin editarCuentaAdmin(Admin admin) throws SinConexionException, SQLException {
         try {
             Connection conn = Conexion.obtenerConexion();
-            PreparedStatement ps = conn.prepareStatement("update Usuario set telefono = ?, correo = ?, direccion = ?, contraseña = ?, cargo = ? where rut = ?");
+            PreparedStatement ps = conn.prepareStatement("update Usuario set telefono = ?, correo = ?, direccion = ?, cargo = ? where rut = ?");
             ps.setInt(1, admin.getTelefono());
             ps.setString(2, admin.getCorreo());
             ps.setString(3, admin.getDireccion());
-            ps.setString(4, admin.getContraseña());
-            ps.setString(5, admin.getCargo());
-            ps.setInt(6, admin.getRut());
+            ps.setString(4, admin.getCargo());
+            ps.setInt(5, admin.getRut());
             ps.executeUpdate();
         } catch (SQLException | SinConexionException e) {
             e.printStackTrace();
@@ -48,22 +48,22 @@ public class AdminDAO {
         return resultado;
     }
 
-    static public Usuarios obtenerAdminPorID(int rut) {
+    static public Admin obtenerAdminPorID(int rut) {
         try {
             Connection conn = Conexion.obtenerConexion();
             PreparedStatement ps = conn.prepareStatement("Select * from Usuario where rut = " + rut);
             ResultSet rs = ps.executeQuery();
             rs.next();
-            int numRut = rs.getInt(1);
-            String nombreU = rs.getString(2);
-            String apellidoU = rs.getString(3);
-            int numTelefono = rs.getInt(4);
-            String correoElectronico = rs.getString(5);
-            String direccionU = rs.getString(6);
-            String contraseñaU = rs.getString(7);
-            String productoU = rs.getString(8);
-            String permisoU = rs.getString(9);
-            return new Usuarios(numRut,nombreU,apellidoU,numTelefono,correoElectronico,direccionU, contraseñaU,productoU,permisoU);
+            int numRut = rs.getInt("rut");
+            String nombreU = rs.getString("nombre");
+            String apellidoU = rs.getString("apellido");
+            int numTelefono = rs.getInt("telefono");
+            String correoElectronico = rs.getString("correo");
+            String direccionU = rs.getString("direccion");
+            String contraseñaU = rs.getString("contraseña");
+            String permisoU = rs.getString("permiso");
+            String cargoU = rs.getString("cargo");
+            return new Admin(numRut,nombreU,apellidoU,numTelefono,correoElectronico,direccionU, contraseñaU,permisoU,cargoU);
         } catch (SQLException | SinConexionException e) {
             e.printStackTrace();
             return null;
@@ -98,7 +98,7 @@ public class AdminDAO {
         return null;
     }
 
-    static public Admin loginAdmin(Usuarios a) {
+    static public Admin loginAdmin(Usuarios a) throws SinConexionException, SQLException {
         try {
             Connection conn = Conexion.obtenerConexion();
             PreparedStatement ps = conn.prepareStatement("select * from Usuario where correo = '" + a.getCorreo() + "' and contraseña = '" + a.getContraseña() + "' and permiso ='" + a.getPermiso() + "' ");
@@ -111,13 +111,13 @@ public class AdminDAO {
                 String correoElectronico = rs.getString("correo");
                 String direccionU = rs.getString("direccion");
                 String contraseñaU = rs.getString("contraseña");
-                String cargo = rs.getString("cargo");
+                String productoU = rs.getString("producto");
                 String permisoU = rs.getString("permiso");
-                return new Admin(numRut,nombreU,apellidoU,numTelefono,correoElectronico,direccionU, contraseñaU, permisoU,cargo);
+                return new Admin(numRut,nombreU,apellidoU,numTelefono,correoElectronico,direccionU, contraseñaU, permisoU,productoU);
         } catch (SQLException | SinConexionException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }
 

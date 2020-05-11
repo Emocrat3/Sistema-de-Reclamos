@@ -1,33 +1,33 @@
-<div class="contenedor" *ngIf="respuesta">
+<div class="contenedor" >
 
     <!--Contenido de Reporte-->
     <h2>Reclamo N°...</h2>
     <div class="contenedor1">
     <h3>Estado reclamo: Pendiente/No pendiente.</h3>
         
-            <h3>Detalles Reclamo {{respuesta.num_reclamo}}</h3>
+            <h3>Detalles Reclamo </h3>
             <hr>
             <mat-form-field style="width: 100%;" >
                 <mat-label>Numero de reclamo</mat-label>
-                <input matInput #num_reclamo value="{{respuesta.num_reclamo}}" disabled="true">
+                <input matInput #num_reclamo  disabled="true">
             </mat-form-field>
             <mat-form-field style="width: 100%;">
                 <mat-label>RUT del ADMIN</mat-label>
-                <input matInput #rut_admin value="{{respuesta.rut_admin}}" >
+                <input matInput #rut_admin  >
             </mat-form-field>
             <mat-form-field style="width: 100%;">
                 <mat-label>RESPUESTA DEL ADMIN</mat-label>
-                <input matInput #texto_respuesta value="{{respuesta.texto_respuesta}}">
+                <input matInput #texto_respuesta >
             </mat-form-field>
             <mat-form-field style="width: 100%;">
                 <mat-label>Fecha de Respuesta YYYY/MM/DD</mat-label>
-                <input matInput #fecha_respuesta value="{{respuesta.fecha_respuesta}}">
+                <input matInput #fecha_respuesta >
             </mat-form-field>
             <mat-form-field style="width: 100%;">
                 <mat-label>SLA Respuesta</mat-label>
-                <input matInput #SLA_respuesta value="{{respuesta.SLA_respuesta}}">
+                <input matInput #SLA_respuesta >
             </mat-form-field>
         <button mat-raised-button color="primary" (click)="volver()" style="margin: 1em;">Volver Atras</button>
-        <button mat-raised-button color="warn" (click)="guardar(num_reclamo.value, rut_admin.value, texto_respuesta.value, fecha_respuesta.value, SLA_respuesta.value)">Guardar</button>
+        <button mat-raised-button color="warn" (click)="guardar(num_reclamo.value, rut_admin.value, texto_respuesta.value, fecha_respuesta.value, SLA_respuesta.value)">Responder</button>
         
         </div>

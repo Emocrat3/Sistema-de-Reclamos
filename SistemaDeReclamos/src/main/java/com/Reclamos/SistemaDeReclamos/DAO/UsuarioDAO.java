@@ -57,13 +57,12 @@ public class UsuarioDAO {
     static public Usuarios editarCuentaUsuario(Usuarios u) throws SinConexionException, SQLException {
         try {
             Connection conn = Conexion.obtenerConexion();
-            PreparedStatement ps = conn.prepareStatement("update Usuario set telefono = ?, correo = ?, direccion = ?, contraseña = ?, producto = ? where rut = ?");
+            PreparedStatement ps = conn.prepareStatement("update Usuario set telefono = ?, correo = ?, direccion = ?, producto = ? where rut = ?");
             ps.setInt(1, u.getTelefono());
             ps.setString(2, u.getCorreo());
             ps.setString(3, u.getDireccion());
-            ps.setString(4, u.getContraseña());
-            ps.setString(5, u.getProducto());
-            ps.setInt(6, u.getRut());
+            ps.setString(4, u.getProducto());
+            ps.setInt(5, u.getRut());
             ps.executeUpdate();
         } catch (SQLException | SinConexionException e) {
             e.printStackTrace();

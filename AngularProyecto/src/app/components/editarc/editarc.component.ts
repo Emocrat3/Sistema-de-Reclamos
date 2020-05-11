@@ -36,8 +36,8 @@ export class EditarcComponent implements OnInit {
     this.usuariosService.darBajaUsuario(rut)
   }
 
-  guardar(rut:number,nombre:string, apellido:string, correo: string, telefono: number, contraseña:string){
-    this.usuariosService.editarCuenta({rut, nombre, apellido, correo, telefono, contraseña} as Usuarios)
+  guardar(rut:number,nombre:string, apellido:string, correo: string, telefono: number, direccion:string){
+    this.usuariosService.editarCuentaUsuario({rut, nombre, apellido, correo, telefono, direccion} as Usuarios)
       .subscribe(_=>this.volver());
   }
 }

@@ -13,8 +13,6 @@ export class UsuariosService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  httpClient: any;
-  baseUrl: any;
 
   constructor(private http: HttpClient) {}
 
@@ -44,8 +42,8 @@ export class UsuariosService {
       return true;
     }
   }
-  editarCuenta(usuario: Usuarios) {
-    const suffix = '/editarc/'
+  editarCuentaUsuario(usuario: Usuarios) {
+    const suffix = '/editarCuentaUsuario/'
     return this.http.put<Usuarios>(this.URL+suffix, usuario, this.httpOptions);
   }
   darBajaUsuario(rut: number) {

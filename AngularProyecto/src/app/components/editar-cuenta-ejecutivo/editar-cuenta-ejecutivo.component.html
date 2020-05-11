@@ -27,29 +27,21 @@
 		<mat-label>Numero de telefono</mat-label>
 		<input matInput #telefono value="{{admin.telefono}}">
 	</mat-form-field>
-	</div>
-	<div>
 	<mat-form-field style="width: 40%;padding-right: 30px;">
-		<mat-label>Contraseña</mat-label>
-		<input matInput #contrasena >
+		<mat-label>Direccion</mat-label>
+		<input matInput #direccion value="{{admin.direccion}}" >
 	</mat-form-field>
+
 	<mat-form-field style="width: 40%;">
-		<mat-label>Confirmar Contraseña</mat-label>
-		<input matInput #confirmarc >
-	</mat-form-field>
-	</div>
-	<mat-form-field>
 		<mat-label>Cargo</mat-label>
-		<select matNativeControl  #cargo value="{{admin.cargo}}">
-		  <option label="--Elije alguna opcion--"></option>
-		  <option value="frontend">Tecnico FrontEnd</option>
-		  <option value="backend">Tecnico BackEnd</option>
-		  <option value="fullstack">Tecnico FullStack</option>
-		</select>
+		<input matInput #cargo disabled="true" value="{{admin.cargo}}" >
 	</mat-form-field>
+
+	</div>
+	<button mat-raised-button style="margin-right: 10px;" color="warn" (click)="guardar(rut.value, nombre.value, apellido.value, correo.value, telefono.value,direccion.value, cargo.value)">Guardar</button>
+	<button class= "botones" mat-raised-button color="warn" (click)="volver()">Volver atras</button> 
 </form>
 
-<button mat-raised-button color="warn" (click)="guardar(rut.value, nombre.value, apellido.value, correo.value, telefono.value, contrasena.value)">Guardar</button>
-<button class= "botones" mat-raised-button color="warn" (click)="volver()">Volver atras</button> 
+
     </div>
 

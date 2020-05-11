@@ -37,8 +37,8 @@ export class AdminService {
       return true;
     }
   }
-  editarCuenta(admin: Admin) {
-    const suffix = '/editarAdmin/'
+  editarCuentaAdmin(admin: Admin) {
+    const suffix = '/editarCuentaAdmin/'
     return this.http.put<Admin>(this.URL+suffix, admin, this.httpOptions);
   }
   darBajaAdmin(rut: number) {
