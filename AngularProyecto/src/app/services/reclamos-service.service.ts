@@ -8,6 +8,7 @@ import { Respuesta } from 'src/models/Respuesta';
   providedIn: 'root'
 })
 export class ReclamosService {
+  [x: string]: any;
 
 
   private URL = 'http://localhost:8080/api'
@@ -46,8 +47,8 @@ export class ReclamosService {
     return this.http.post(this.URL+suffix, respuesta, this.httpOptions);
   }
 
-  obtenerReclamosPorIDAdmin(num_reclamo: number){
+  obtenerReclamoPorIDAdmin(num_reclamo: number): Observable<Reclamos>{
     const suffix = '/filtrarReclamoPorID/admin/'
-    return this.http.get(this.URL+suffix+num_reclamo,this.httpOptions);
+    return this.http.get<Reclamos>(this.URL+suffix+num_reclamo);
   }
 }

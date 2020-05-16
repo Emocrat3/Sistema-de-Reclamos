@@ -37,6 +37,11 @@ public class ReclamoController {
         return ReclamosDAO.obtenerReclamosPorID(num_reclamo);
     }
 
+    @RequestMapping(method = RequestMethod.POST,  value = "/ADMIN/pendientes/tipo")
+    public List<Reclamos> obtenerReclamosAdminTipo(@RequestBody String tipo) throws Exception {
+        return ReclamosDAO.obtenerReclamosAdminFiltro(tipo);
+    }
+
     @RequestMapping(method = RequestMethod.PUT, value = "/editarReclamo/")
     public Reclamos editarReclamos(@RequestBody Reclamos reclamos) throws SinConexionException, SQLException {
         return ReclamosDAO.editarReclamoPorID(reclamos);

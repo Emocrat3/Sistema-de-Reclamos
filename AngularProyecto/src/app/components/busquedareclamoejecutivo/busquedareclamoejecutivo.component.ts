@@ -55,7 +55,7 @@ export class BusquedareclamoejecutivoComponent implements OnInit {
     }
 
     buscar(num_reclamo: number){
-      this.reclamosService.obtenerReclamosPorIDAdmin(num_reclamo)
+      this.reclamosService.obtenerReclamoPorIDAdmin(num_reclamo)
         .subscribe(_=> this.obtenerReclamos());
     }
 }

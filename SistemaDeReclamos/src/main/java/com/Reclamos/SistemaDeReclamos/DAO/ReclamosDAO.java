@@ -57,6 +57,29 @@ public class ReclamosDAO {
         }
     }
 
+    static public List<Reclamos> obtenerReclamosAdminFiltro(String tipo) throws SQLException, SinConexionException {
+        if (conn == null){
+            conn = Conexion.obtenerConexion();
+        }
+        List<Reclamos> reclamosArrayList = new ArrayList<>();
+        String query = "select num_reclamo, rut_usuario, tipo_problema, fecha, texto_reclamo, estado, SLA_reclamo, fecha_tope from Reclamos where estado = 'PENDIENTE', '"+tipo+"' order by fecha_tope";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()){
+            int num_reclamo = rs.getInt("num_reclamo");
+            int rut = rs.getInt("rut_usuario");
+            String tipo_problema = rs.getString("tipo_problema");
+            String fecha = rs.getString("fecha");
+            String texto_reclamo = rs.getString("texto_reclamo");
+            String estado = rs.getString("estado");
+            int SLA_reclamo = rs.getInt("SLA_reclamo");
+            String fecha_tope = rs.getString("fecha_tope");
+            Reclamos r = new Reclamos(num_reclamo, rut, tipo_problema, fecha, texto_reclamo, estado, SLA_reclamo, fecha_tope);
+            reclamosArrayList.add(r);
+        }
+        return reclamosArrayList;
+    }
+
     static public List<Reclamos> obtenerReclamosAdmin() throws SinConexionException, SQLException {
         if (conn == null){
             conn = Conexion.obtenerConexion();
