@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 export class BusquedareclamoejecutivoComponent implements OnInit {
   reclamos: Reclamos[];
   @Input() reclamo: Reclamos;
-  displayedColumns: string[] = ['num_reclamo','rut_usuario','tipo_problema','fecha','detalle', 'responder'];
+  displayedColumns: string[] = ['num_reclamo','rut_usuario','tipo_problema','fecha','detalle', 'responder', 'estado'];
   mySubscripcion: any;
     constructor(private ubicacion: Location,private router: Router, private reclamosService: ReclamosService, private ruta: ActivatedRoute) { 
       this.router.routeReuseStrategy.shouldReuseRoute = function () {

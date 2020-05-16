@@ -1,36 +1,34 @@
-<div class="contenedor">
-<div>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <table mat-table [dataSource]="reclamos" style="width: 100%; height: 250px;">
+<div class="contenedor" >
+    <!--Contenido de Reporte--><br><br>
+    <h2>RECLAMO FILTRADO NUMERO {{reclamo.num_reclamo}}</h2><br><br>
     
-    <ng-container matColumnDef="num_reclamo">
-      <th mat-header-cell *matHeaderCellDef>Numero de Reclamo</th>
-      <td mat-cell *matCellDef="let element">{{element.num_reclamo}}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="rut_usuario">
-      <th mat-header-cell *matHeaderCellDef>Rut del Usuario</th>
-      <td mat-cell *matCellDef="let element">{{element.rut_usuario}}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="tipo_problema">
-      <th mat-header-cell *matHeaderCellDef>Tipo de Problema</th>
-      <td mat-cell *matCellDef="let element">{{element.tipo_problema}}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="fecha">
-      <th mat-header-cell *matHeaderCellDef>Fecha</th>
-      <td mat-cell *matCellDef="let element">{{element.fecha}}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="detalle">
-      <th mat-header-cell *matHeaderCellDef>Detalle de Reclamo</th>
-      <td mat-cell *matCellDef="let element"> <a routerLink="/detalleAdmin/{{element.num_reclamo}}">detalle</a></td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-  </table>
-  <br>
-</div>
+    <div>
+        <mat-form-field style="width: 40%;height: 10%;margin-right: 20px;" >
+            <mat-label>Numero de reclamo</mat-label>
+            <input matInput #num_reclamo value="{{reclamo.num_reclamo}}" disabled="true">
+        </mat-form-field>
+        <mat-form-field style="width: 40%; height: 10%; ">
+            <mat-label>RUT del Usuario</mat-label>
+            <input matInput #rut_usuario value="{{reclamo.rut_usuario}}" disabled="true">
+        </mat-form-field>
+        <mat-form-field style="width: 40%;height: 7%;margin-right: 20px;">
+            <mat-label>Tipo problema</mat-label>
+            <input matInput #tipo_problema value="{{reclamo.tipo_problema}}" disabled="true">
+        </mat-form-field>
+        <mat-form-field style="width: 40%;height: 7%;">
+            <mat-label>Texto del Reclamo</mat-label>
+            <input matInput #texto_reclamo value="{{reclamo.texto_reclamo}}"disabled="true">
+        </mat-form-field>
+        <mat-form-field style="width: 40%;height: 12%;margin-right: 20px;">
+            <mat-label>Fecha del reclamo</mat-label>
+            <input matInput #fecha value="{{reclamo.fecha}}" disabled="true">
+        </mat-form-field>
+        <mat-form-field style="width: 40%;height: 13%;">
+            <mat-label>Fecha tope para responder reclamo</mat-label>
+            <input matInput #fechaTope value="{{reclamo.estado}}" disabled="true">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="volver()" style="margin: 0em;">Volver Atras</button>
+    
+  
+        </div>
+      </div>

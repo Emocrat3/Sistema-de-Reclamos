@@ -2,31 +2,27 @@
    
     <h3>Detalles Reclamo {{reclamos.num_reclamo}}</h3>
     <hr>
-    <mat-form-field style="width: 100%;height: 12%;" >
+    <mat-form-field style="width: 100%;height: 14%;" >
         <mat-label>Numero de reclamo</mat-label>
         <input matInput #num_reclamo value="{{reclamos.num_reclamo}}" disabled="true">
     </mat-form-field>
-    <mat-form-field style="width: 100%; height: 12%;">
+    <mat-form-field style="width: 100%; height: 14%;">
         <mat-label>RUT del Usuario</mat-label>
         <input matInput #rut_usuario value="{{reclamos.rut_usuario}}" disabled="true">
     </mat-form-field>
-    <mat-form-field style="width: 100%;height: 12%;">
+    <mat-form-field style="width: 100%;height: 14%;">
         <mat-label>Tipo problema</mat-label>
         <input matInput #tipo_problema value="{{reclamos.tipo_problema}}" disabled="true">
     </mat-form-field>
-    <mat-form-field style="width: 100%;height: 12%;">
+    <mat-form-field style="width: 100%;height: 14%;">
         <mat-label>Texto del Reclamo</mat-label>
         <input matInput #texto_reclamo value="{{reclamos.texto_reclamo}}"disabled="true">
     </mat-form-field>
-    <mat-form-field style="width: 100%;height: 12%;">
+    <mat-form-field style="width: 100%;height: 14%;">
         <mat-label>Fecha del reclamo</mat-label>
         <input matInput #fecha value="{{reclamos.fecha}}" disabled="true">
     </mat-form-field>
-    <mat-form-field style="width: 100%;height: 12%;">
-        <mat-label>SLA del Reclamo</mat-label>
-        <input matInput #SLA value="{{reclamos.SLA_reclamo}}" disabled="true">
-    </mat-form-field>
-    <mat-form-field style="width: 100%;height: 13%;">
+    <mat-form-field style="width: 100%;height: 14%;">
         <mat-label>Fecha tope para responder reclamo</mat-label>
         <input matInput #fechaTope value="{{reclamos.fecha_tope}}" disabled="true">
     </mat-form-field>

@@ -9,30 +9,47 @@ import { Location } from '@angular/common';
   styleUrls: ['./filtrado-usuario.component.css']
 })
 export class FiltradoUsuarioComponent implements OnInit {
-  @Input() reclamos: Reclamos;
-  reclamoss: Reclamos[];
-  displayedColumns: string[] = ['num_reclamo','rut_usuario','tipo_problema','fecha','detalle'];
-  constructor(
-    private reclamosService:ReclamosService,
-    private ruta: ActivatedRoute,
-    private ubicacion: Location
-    ) {}
-
+  reclamos: Reclamos[];
+  @Input() reclamo: Reclamos;
+  displayedColumns: string[] = ['num_reclamo','rut_usuario','tipo_problema','fecha'];
+  mySubscripcion: any;
+    constructor(private ubicacion: Location,private router: Router, private reclamosService: ReclamosService, private ruta: ActivatedRoute) { 
+      this.router.routeReuseStrategy.shouldReuseRoute = function () {
+  
+        return false;
+      
+    }
+    this.mySubscripcion = this.router.events.subscribe((event) => {
+        
+      if (event instanceof NavigationEnd) {
+      
+          // Trick the Router into believing it's last link wasn't previously loaded
+      
+          this.router.navigated = false;
+             
+      }
+      
+      });
+  
+    }
+    ngOnDestroy(): void {
+      if (this.mySubscripcion) {
+        this.mySubscripcion.unsubscribe();
+  
+      }
+    }
     ngOnInit(){  
       this.obtenerReclamos();
     }
     obtenerReclamos() {
-      this.reclamosService.obtenerReclamos()
-      .subscribe(reclamos => this.reclamoss = reclamos); 
+      const num_reclamo = +this.ruta.snapshot.paramMap.get('num_reclamo');
+      this.reclamosService.obtenerReclamoPorIDAdmin(num_reclamo)
+        .subscribe(reclamos => this.reclamo=reclamos);
     }
     
       volver(){
         this.ubicacion.back();
       }
-  
-      buscar(num_reclamo: number){
-        this.reclamosService.obtenerReclamosPorIDAdmin(num_reclamo)
-          .subscribe(_=> this.obtenerReclamos());
-      }
+
 
 }

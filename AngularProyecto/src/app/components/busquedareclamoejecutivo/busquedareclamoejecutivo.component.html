@@ -40,7 +40,12 @@
 
     <ng-container matColumnDef="detalle">
       <th mat-header-cell *matHeaderCellDef>Detalle de Reclamo</th>
-      <td mat-cell *matCellDef="let element"> <a routerLink="/detalleAdmin/{{element.num_reclamo}}">detalle</a></td>
+      <td mat-cell *matCellDef="let element"> <a routerLink="/detalleAdmin/{{element.num_reclamo}}">Detalle</a></td>
+    </ng-container>
+
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef>Estado del reclamo</th>
+      <td mat-cell *matCellDef="let element">{{element.estado}}</td>
     </ng-container>
 
     <ng-container matColumnDef="responder">
@@ -56,7 +61,7 @@
 
   </table>
   <br>
-  <button class= "botones" mat-raised-button color="primary" style="margin-right: 10px;"(click)="buscar(num_reclamo.value)" routerLink="/filtrado-usuario/{{num_reclamo}}">Buscar</button> 
+  <button class= "botones" mat-raised-button color="primary"  style="margin-right: 10px;"(click)="buscar(num_reclamo.value)" routerLink="/filtrado-usuario/{{num_reclamo.value}}">Buscar</button> 
   <button class= "botones" mat-raised-button color="warn" (click)="volver()">Volver atras</button> 
   
         </div>
