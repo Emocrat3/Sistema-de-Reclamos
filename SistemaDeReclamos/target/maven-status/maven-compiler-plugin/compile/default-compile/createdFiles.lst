@@ -1,8 +1,10 @@
 com\Reclamos\SistemaDeReclamos\API\SendMailController.class
+com\Reclamos\SistemaDeReclamos\Servicios\SendMailService.class
 com\Reclamos\SistemaDeReclamos\DAO\Conexion.class
 com\Reclamos\SistemaDeReclamos\DAO\SLADAO.class
 com\Reclamos\SistemaDeReclamos\DAO\extraerFechaTopeDAO.class
 com\Reclamos\SistemaDeReclamos\DTO\Reclamos.class
+com\Reclamos\SistemaDeReclamos\DTO\Mail.class
 com\Reclamos\SistemaDeReclamos\API\ReclamoController.class
 com\Reclamos\SistemaDeReclamos\DAO\AdminDAO.class
 com\Reclamos\SistemaDeReclamos\DAO\SinConexionException.class
