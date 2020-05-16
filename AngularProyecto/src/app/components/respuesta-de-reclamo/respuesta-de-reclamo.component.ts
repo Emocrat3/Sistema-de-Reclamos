@@ -50,8 +50,8 @@ export class RespuestaDeReclamoComponent implements OnInit {
     this.ubicacion.back();
   }
 
-  responder(num_reclamo:number, rut_admin:number, texto_respuesta:string, fecha_respuesta:string, SLA_respuesta: string){
-    this.reclamosService.insertarRespuesta({num_reclamo, rut_admin, texto_respuesta, fecha_respuesta, SLA_respuesta} as Respuesta)
+  responder(num_reclamo:number, rut_admin:number, texto_respuesta:string, fecha_respuesta:string){
+    this.reclamosService.insertarRespuesta({num_reclamo, rut_admin, texto_respuesta, fecha_respuesta} as Respuesta)
       .subscribe(_=>this.volver());
       alert("Se confirmaron los datos donde se estara enviaran detalles del reclamo")
   }

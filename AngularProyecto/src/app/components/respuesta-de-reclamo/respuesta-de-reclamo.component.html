@@ -23,11 +23,8 @@
                 <mat-label>Fecha de Respuesta YYYY/MM/DD</mat-label>
                 <input matInput #fecha_respuesta >
             </mat-form-field>
-            <mat-form-field style="width: 100%;">
-                <mat-label>SLA Respuesta</mat-label>
-                <input matInput disabled="true" #SLA_respuesta value="{{reclamos.SLA_reclamo}}" >
-            </mat-form-field>
+
         <button mat-raised-button color="primary" (click)="volver()" style="margin: 1em;">Volver Atras</button>
-        <button mat-raised-button color="warn" (click)="responder(num_reclamo.value, rut_admin.value, texto_respuesta.value, fecha_respuesta.value, SLA_respuesta.value)">Responder</button>
+        <button mat-raised-button color="warn" (click)="responder(num_reclamo.value, rut_admin.value, texto_respuesta.value, fecha_respuesta.value)">Responder</button>
         
         </div>

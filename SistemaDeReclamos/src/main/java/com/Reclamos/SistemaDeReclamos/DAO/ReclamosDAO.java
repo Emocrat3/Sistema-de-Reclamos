@@ -57,6 +57,8 @@ public class ReclamosDAO {
         }
     }
 
+
+
     static public List<Reclamos> obtenerReclamosAdminFiltro(String tipo) throws SQLException, SinConexionException {
         if (conn == null){
             conn = Conexion.obtenerConexion();

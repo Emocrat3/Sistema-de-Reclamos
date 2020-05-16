@@ -53,6 +53,7 @@ public class ReclamoController {
         String slarespuesta = fecha.compararFechas(respuesta);
         respuesta.setSLA_respuesta(slarespuesta);
         RespuestaDAO.insertarRespuesta(respuesta);
+        RespuestaDAO.cambiarEstado(ReclamosDAO.obtenerReclamosPorID((int) respuesta.getNum_reclamo()));
     }
 
     @RequestMapping(method = RequestMethod.GET,  value = "/ADMIN/pendientes/")

@@ -1,5 +1,6 @@
 package com.Reclamos.SistemaDeReclamos.DAO;
 
+import com.Reclamos.SistemaDeReclamos.DTO.Reclamos;
 import com.Reclamos.SistemaDeReclamos.DTO.Respuesta;
 
 import java.sql.Connection;
@@ -21,6 +22,17 @@ public class RespuestaDAO {
         ps.setString(5, respuesta.getSLA_respuesta());
         int resultado = ps.executeUpdate();
         return resultado;
+    }
+    static public void cambiarEstado(Reclamos r) throws SQLException{
+        try {
+            Connection conn = Conexion.obtenerConexion();
+            String estadoReclamo = "RESPONDIDO";
+            PreparedStatement ps = conn.prepareStatement("update Reclamos set estado = '" + estadoReclamo + "' where num_reclamo = ?");
+            ps.setInt(1, r.getNum_reclamo());
+            ps.executeUpdate();
+        }catch (SQLException | SinConexionException e){
+            e.printStackTrace();
+        }
     }
 
 }

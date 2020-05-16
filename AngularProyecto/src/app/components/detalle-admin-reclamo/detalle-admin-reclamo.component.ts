@@ -3,6 +3,7 @@ import { Reclamos } from 'src/models/Reclamos';
 import { ActivatedRoute } from '@angular/router';
 import { ReclamosService } from 'src/app/services/reclamos-service.service';
 import { Location } from '@angular/common';
+import { Respuesta } from 'src/models/Respuesta';
 
 @Component({
   selector: 'app-detalle-admin-reclamo',
@@ -11,6 +12,7 @@ import { Location } from '@angular/common';
 })
 export class DetalleAdminReclamoComponent implements OnInit {
   @Input() reclamos: Reclamos;
+  @Input() respuesta: Respuesta;
   
   constructor(
     private reclamosService:ReclamosService,
