@@ -5,6 +5,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Usuarios } from 'src/models/Usuarios';
 import { UsuariosService } from 'src/app/services/usuarios-service.service'
+import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'app-busqueda-reclamo',
   templateUrl: './busqueda-reclamo.component.html',
@@ -13,6 +14,7 @@ import { UsuariosService } from 'src/app/services/usuarios-service.service'
 export class BusquedaReclamoComponent implements OnInit, OnDestroy {
 
 reclamos: Reclamos[];
+dataSource;
 @Input() usuario: Usuarios;
 displayedColumns: string[] = ['num_reclamo','rut_usuario','tipo_problema','fecha','detalle'];
 mySubscripcion: any;
@@ -39,7 +41,7 @@ mySubscripcion: any;
     });
 
   }
-  filtroReclamos='';
+  
   ngOnDestroy(): void {
     if (this.mySubscripcion) {
       this.mySubscripcion.unsubscribe();
@@ -49,11 +51,17 @@ mySubscripcion: any;
 ngOnInit(){
   this.obtenerDatosUsuario();
   this.obtenerReclamos();
+
 }
 obtenerReclamos() {
-  this.reclamosService.obtenerReclamos()
-  .subscribe(reclamos => this.reclamos = reclamos); 
+  const rut = +this.ruta.snapshot.paramMap.get('rut_usuario');
+  this.reclamosService.obtenerReclamosPorRut(rut)
+  .subscribe(reclamos => {this.dataSource = new MatTableDataSource(reclamos);
+    
+    console.log(this.dataSource);
+     }); 
 }
+
   obtenerDatosUsuario() {
     const rut = +this.ruta.snapshot.paramMap.get('rut');
     this.usuariosService.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuario= usuario);;

@@ -5,7 +5,7 @@
     
     <div class="minicontenedor" ><button ><Strong><a routerLink="/reporte/{{usuario.rut}}" style="text-decoration: none; color: black;">Accede al portal de Reclamos</a></Strong></button></div>
     <div class="minicontenedor" ><button ><Strong ><a routerLink="/editarc/{{usuario.rut}}" style="text-decoration: none;color: black; ">Editar Datos de Cuenta</a></Strong></button></div>
-    <div class="minicontenedor" ><button><Strong><a routerLink="/busqueda-reclamo/{{usuario.rut}}" style="text-decoration: none;color: black;">Rastreo de Reclamos</a></Strong></button></div><br>
+    <div class="minicontenedor" ><button (click)="buscar(usuario.rut)"><Strong><a routerLink="/busqueda-reclamo/{{usuario.rut}}" style="text-decoration: none;color: black;">Rastreo de Reclamos</a></Strong></button></div><br>
     
     <button class="boton_personalizado" id="botonrightuser"  [routerLink]="['/bienvenido']">Cerrar Sesion</button>
 

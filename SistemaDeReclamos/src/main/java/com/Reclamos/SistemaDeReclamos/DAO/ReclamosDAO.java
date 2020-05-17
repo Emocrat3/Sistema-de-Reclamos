@@ -32,6 +32,20 @@ public class ReclamosDAO {
         return resultado;
     }
 
+    public static int obtenerID(Reclamos r) throws SQLException{
+        try {
+            Connection conn = Conexion.obtenerConexion();
+            PreparedStatement ps = conn.prepareStatement("select top 1 * from Reclamos where rut_usuario = "+r.getRut_usuario()+" order by num_reclamo desc");
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            int numReclamo = rs.getInt("num_reclamo");
+            return numReclamo;
+        }catch (SQLException | SinConexionException e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
     static public List<Reclamos> obtenerReclamos() throws Exception, SQLException {
         try {
             Connection conn = Conexion.obtenerConexion();
@@ -125,6 +139,31 @@ public class ReclamosDAO {
             e.printStackTrace();
             return null;
         }
+    }
+
+    static public List<Reclamos> obtenerReclamosPorRut(int rut_usuario) throws SinConexionException, SQLException {
+        if (conn == null){
+            conn = Conexion.obtenerConexion();
+        }
+        List<Reclamos> reclamosArrayList = new ArrayList<>();
+        String query = ("select tipo_problema, texto_reclamo, num_reclamo, rut_usuario, fecha, estado, SLA_reclamo, fecha_tope from Reclamos where rut_usuario = ?");
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setInt(1, rut_usuario);
+        ResultSet rs = ps.executeQuery();
+        while(rs.next()){
+            int rutU = rs.getInt("rut_usuario");
+            int numReclamo = rs.getInt("num_reclamo");
+            String tipoProblema = rs.getString("tipo_problema");
+            String textoReclamo = rs.getString("texto_reclamo");
+            String fechaReclamo = rs.getString("fecha");
+            String estadoReclamo = rs.getString("estado");
+            int SLA_reclamo = rs.getInt("SLA_reclamo");
+            String fechaTopeReclamo = rs.getString("fecha_tope");
+            Reclamos r = new Reclamos(numReclamo, rutU, tipoProblema, fechaReclamo, textoReclamo,  estadoReclamo, SLA_reclamo,fechaTopeReclamo);
+            reclamosArrayList.add(r);
+        }
+        return reclamosArrayList;
+
     }
 
     static public List<Reclamos> obtenerReclamosPorRutUsuarioADMIN(int rut_usuario) throws SinConexionException, SQLException {

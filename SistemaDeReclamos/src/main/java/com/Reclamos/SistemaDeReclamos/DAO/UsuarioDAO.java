@@ -85,6 +85,20 @@ public class UsuarioDAO {
         return u;
     }
 
+    static public String obtenerCorreoPorRut(int rut) throws SQLException{
+        try {
+            Connection conn = Conexion.obtenerConexion();
+            PreparedStatement ps = conn.prepareStatement("select correo from Usuario where rut = "+rut);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            String correo = rs.getString("correo");
+            return correo;
+        } catch (SQLException | SinConexionException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     static public Usuarios darBajaUsuario(Usuarios u) throws SinConexionException, SQLException {
         try {
             Connection conn = Conexion.obtenerConexion();

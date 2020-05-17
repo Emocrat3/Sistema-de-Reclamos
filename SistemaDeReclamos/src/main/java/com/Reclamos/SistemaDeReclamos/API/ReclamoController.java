@@ -1,12 +1,11 @@
 package com.Reclamos.SistemaDeReclamos.API;
 
-import com.Reclamos.SistemaDeReclamos.DAO.ReclamosDAO;
-import com.Reclamos.SistemaDeReclamos.DAO.RespuestaDAO;
-import com.Reclamos.SistemaDeReclamos.DAO.SLADAO;
-import com.Reclamos.SistemaDeReclamos.DAO.SinConexionException;
+import com.Reclamos.SistemaDeReclamos.DAO.*;
 import com.Reclamos.SistemaDeReclamos.DTO.Reclamos;
 import com.Reclamos.SistemaDeReclamos.DTO.Respuesta;
 import com.Reclamos.SistemaDeReclamos.Servicios.Fecha;
+import com.Reclamos.SistemaDeReclamos.Servicios.SendMailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -16,6 +15,8 @@ import java.util.List;
 @RequestMapping("/api")
 @CrossOrigin (origins = "http://localhost:4200")
 public class ReclamoController {
+    @Autowired
+    private SendMailService sendMailService;
 
     @RequestMapping(method = RequestMethod.POST, value = "/insertarReclamo/Usuario")
     public void insertarReclamo(@RequestBody Reclamos reclamos) throws Exception {
@@ -25,11 +26,21 @@ public class ReclamoController {
         String fechaTope = fecha.obtenerFechaTope(reclamos);
         reclamos.setFecha_tope(fechaTope);
         ReclamosDAO.insertarReclamo(reclamos);
+
+        int numRecl = ReclamosDAO.obtenerID(reclamos);
+        String correoUser = UsuarioDAO.obtenerCorreoPorRut(reclamos.getRut_usuario());
+        String body = "El reclamo numero: #"+numRecl+" Ha sido ingresado con exito con fecha: "+reclamos.getFecha();
+        sendMailService.sendEmail("reclamosdajkym@gmail.com",correoUser,"Reclamo ",body);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/reclamos/usuario")
     public List<Reclamos> obtenerReclamos() throws Exception {
         return ReclamosDAO.obtenerReclamos();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/reclamos/usuarioRut/{rut_usuario}")
+    public List<Reclamos>  obtenerReclamosPorRut(@PathVariable("rut_usuario") int rut_usuario) throws SinConexionException, SQLException {
+        return ReclamosDAO.obtenerReclamosPorRut(rut_usuario);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/reclamos/usuario/{num_reclamo}")
