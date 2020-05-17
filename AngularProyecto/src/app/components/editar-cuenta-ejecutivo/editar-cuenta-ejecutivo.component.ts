@@ -38,4 +38,5 @@ export class EditarCuentaEjecutivoComponent implements OnInit {
       .subscribe(_=>this.volver());
   }
 
+
 }

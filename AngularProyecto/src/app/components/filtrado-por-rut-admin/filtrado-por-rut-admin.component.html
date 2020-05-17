@@ -6,9 +6,11 @@
         <p>
      
         <select name="nombre">
-            <option value="porNumReclamo">Número de Reclamo</option>
+            <option value="opcion">Seleccione una opción</option>
+            <option value="porRut">Busqueda N° Reclamo</option>
+            <option value="porNumReclamo">Busqueda...</option>
         </select>
-        <input type="text" name="filtroReclamos" #num_reclamo placeholder="Ingrese N° Reclamo o ..." >
+        <input type="text" name="filtroReclamos" placeholder="Ingrese N° Reclamo o ..." >
         </p>	
     </form>
     </div>
@@ -38,8 +40,21 @@
 
     <ng-container matColumnDef="detalle">
       <th mat-header-cell *matHeaderCellDef>  Detalle de Reclamo  </th>
-      <td mat-cell *matCellDef="let element"> <a routerLink="/detalle/{{element.num_reclamo}}">detalle</a></td>
+      <td mat-cell *matCellDef="let element"> <a routerLink="/detalleAdmin/{{element.num_reclamo}}">Detalle</a></td>
     </ng-container>
+
+    <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef>Estado del reclamo</th>
+        <td mat-cell *matCellDef="let element">{{element.estado}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="responder">
+        <th mat-header-cell *matHeaderCellDef>Responder Reclamo</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="black" class="material-icons" (click)="responderReclamo(element.num_reclamo)" routerLink="/respuesta/{{element.num_reclamo}}">
+            <mat-icon>comment</mat-icon>
+          </button></td>
+      </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -47,7 +62,7 @@
   </table>
   <br>
   <button class= "botones" mat-raised-button color="primary" routerLink="/reporte/{{usuario.rut}}" style="text-decoration: none;color: white;margin-right: 10px;" >Agregar</button>
-  <button class= "botones" mat-raised-button color="primary"  style="margin-right: 10px;"(click)="buscar(num_reclamo.value)" routerLink="/detalle/{{num_reclamo.value}}">Buscar numero de reclamo</button>  
+  <button style="margin-right: 10px;" class= "botones" mat-raised-button color="primary" >Buscar</button> 
   <button class= "botones" mat-raised-button color="warn" (click)="volver()">Volver atras</button> 
 
         </div>

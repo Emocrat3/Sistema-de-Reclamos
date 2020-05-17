@@ -54,6 +54,7 @@ ngOnInit(){
   this.obtenerReclamos();
 
 }
+
 obtenerReclamos() {
   const rut = +this.ruta.snapshot.paramMap.get('rut');
   this.reclamosService.obtenerReclamosPorRut(rut)
@@ -64,7 +65,10 @@ obtenerReclamos() {
     console.log(this.dataSource);
      }); 
 }
-
+buscar(num_reclamo: number){
+  this.reclamosService.obtenerReclamoPorIDAdmin(num_reclamo)
+    .subscribe(_=> this.obtenerReclamos());
+}
   obtenerDatosUsuario() {
     const rut = +this.ruta.snapshot.paramMap.get('rut');
     this.usuariosService.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuario= usuario);;

@@ -26,6 +26,7 @@ import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscan
 import { DetalleAdminReclamoComponent } from './components/detalle-admin-reclamo/detalle-admin-reclamo.component';
 import { AuthGuard } from './guards/auth.guard';
 import { FiltradoUsuarioComponent } from './components/filtrado-usuario/filtrado-usuario.component';
+import { FiltradoPorRutAdminComponent } from './components/filtrado-por-rut-admin/filtrado-por-rut-admin.component';
 
 // Array de rutas (Configuracion de todas las rutas al crear)
 
@@ -51,7 +52,8 @@ const appRoutes: Routes = [
     {path:'detalle/:num_reclamo', component:DetalleReclamoComponent},
     {path:'detalleAdmin/:num_reclamo', component:DetalleAdminReclamoComponent, canActivate: [AuthGuard]},
     {path:'buscando-reclamos' , component:BuscandoReclamosComponent},
-    {path:'filtrado-usuario/:num_reclamo', component:FiltradoUsuarioComponent},
+    {path:'filtrado-usuario/:num_reclamo', component:FiltradoUsuarioComponent, canActivate: [AuthGuard]},
+    {path:'filtrado-por-rut-admin/:rut', component: FiltradoPorRutAdminComponent, canActivate: [AuthGuard]},
     {path:'**', component:ErrorComponent}
 
 

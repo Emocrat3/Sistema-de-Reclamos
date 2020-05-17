@@ -45,7 +45,7 @@ export class BusquedareclamoejecutivoComponent implements OnInit {
       this.reclamosService.obtenerReclamos()
       .subscribe(reclamos => this.reclamos = reclamos); 
     }
-  
+    
     responderReclamo(num_reclamo: number){
       this.reclamosService.responderReclamo(num_reclamo)
         .subscribe(_=>this.obtenerReclamos());
@@ -56,6 +56,11 @@ export class BusquedareclamoejecutivoComponent implements OnInit {
 
     buscar(num_reclamo: number){
       this.reclamosService.obtenerReclamoPorIDAdmin(num_reclamo)
+        .subscribe(_=> this.obtenerReclamos());
+    }
+
+    buscarRut(rut_usuario: number){
+      this.reclamosService.obtenerReclamosPorRut(rut_usuario)
         .subscribe(_=> this.obtenerReclamos());
     }
 }
