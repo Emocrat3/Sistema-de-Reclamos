@@ -6,11 +6,11 @@
         <p>
      
         <select name="nombre">
-            <option value="opcion">Seleccione una opción</option>
+
             <option value="porRut">Busqueda N° Reclamo</option>
-            <option value="porNumReclamo">Busqueda...</option>
+          
         </select>
-        <input type="text" name="filtroReclamos" placeholder="Ingrese N° Reclamo o ..." >
+        <input type="text" name="filtroReclamos" #num_reclamo placeholder="Ingrese N° Reclamo" >
         </p>	
     </form>
     </div>
@@ -61,8 +61,7 @@
 
   </table>
   <br>
-  <button class= "botones" mat-raised-button color="primary" routerLink="/reporte/{{usuario.rut}}" style="text-decoration: none;color: white;margin-right: 10px;" >Agregar</button>
-  <button style="margin-right: 10px;" class= "botones" mat-raised-button color="primary" >Buscar</button> 
+  <button class= "botones" mat-raised-button color="primary"  style="margin-right: 10px;"(click)="buscar(num_reclamo.value)" routerLink="/filtrado-usuario/{{num_reclamo.value}}">Buscar numero de reclamo</button> 
   <button class= "botones" mat-raised-button color="warn" (click)="volver()">Volver atras</button> 
 
         </div>

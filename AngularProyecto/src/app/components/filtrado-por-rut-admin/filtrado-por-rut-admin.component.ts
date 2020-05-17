@@ -81,5 +81,9 @@ responderReclamo(num_reclamo: number){
   volver(){
     this.ubicacion.back();
   }
+  buscar(num_reclamo: number){
+    this.reclamosService.obtenerReclamoPorIDAdmin(num_reclamo)
+      .subscribe(_=> this.obtenerReclamos());
+  }
 }
 
