@@ -16,30 +16,30 @@
     </div>
     <div>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <table mat-table [dataSource]="reclamos" style="width: 100%; height: 250px;">
+    <table mat-table [dataSource]="dataSource" style="width: 100%; height: 250px;">
     
     <ng-container matColumnDef="num_reclamo">
-      <th mat-header-cell *matHeaderCellDef>Numero de Reclamo</th>
-      <td mat-cell *matCellDef="let element" #num_reclamo>{{element.num_reclamo}}</td>
+      <th mat-header-cell *matHeaderCellDef style="padding-right: 10px; padding-left: 10px;">  Numero de Reclamo  </th>
+      <td mat-cell *matCellDef="let element">{{element.num_reclamo}}</td>
     </ng-container>
 
     <ng-container matColumnDef="rut_usuario">
-      <th mat-header-cell *matHeaderCellDef>Rut del Usuario</th>
+      <th mat-header-cell *matHeaderCellDef style="padding-right: 10px;">  RUT del Usuario  </th>
       <td mat-cell *matCellDef="let element">{{element.rut_usuario}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="tipo_problema">
-      <th mat-header-cell *matHeaderCellDef>Tipo de Problema</th>
+    <ng-container matColumnDef="tipo_problema" style="padding-right: 10px;">
+      <th mat-header-cell *matHeaderCellDef>  Tipo de Problema  </th>
       <td mat-cell *matCellDef="let element">{{element.tipo_problema}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="fecha">
-      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+    <ng-container matColumnDef="fecha" >
+      <th mat-header-cell *matHeaderCellDef style="padding-right: 10px; padding-left: 10px;">  Fecha  </th>
       <td mat-cell *matCellDef="let element">{{element.fecha}}</td>
     </ng-container>
 
     <ng-container matColumnDef="detalle">
-      <th mat-header-cell *matHeaderCellDef>Detalle de Reclamo</th>
+      <th mat-header-cell *matHeaderCellDef>  Detalle de Reclamo  </th>
       <td mat-cell *matCellDef="let element"> <a routerLink="/detalle/{{element.num_reclamo}}">detalle</a></td>
     </ng-container>
 
@@ -48,7 +48,7 @@
 
   </table>
   <br>
-  <button class= "botones" mat-raised-button color="primary" routerLink="/reporte/{{usuario.rut}}" style="text-decoration: none;color: white;margin-right: 10px;" >Agregar</button> 
+  <button class= "botones" mat-raised-button color="primary" routerLink="/reporte/{{usuario.rut}}" style="text-decoration: none;color: white;margin-right: 10px;" >Agregar</button>
   <button style="margin-right: 10px;" class= "botones" mat-raised-button color="primary" >Buscar</button> 
   <button class= "botones" mat-raised-button color="warn" (click)="volver()">Volver atras</button> 
 

@@ -14,7 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class BusquedaReclamoComponent implements OnInit, OnDestroy {
 
 reclamos: Reclamos[];
-dataSource;
+dataSource: MatTableDataSource<Reclamos> | null;
 @Input() usuario: Usuarios;
 displayedColumns: string[] = ['num_reclamo','rut_usuario','tipo_problema','fecha','detalle'];
 mySubscripcion: any;
@@ -49,6 +49,7 @@ mySubscripcion: any;
     }
   }
 ngOnInit(){
+  this.dataSource = new MatTableDataSource();
   this.obtenerDatosUsuario();
   this.obtenerReclamos();
 
@@ -56,8 +57,10 @@ ngOnInit(){
 obtenerReclamos() {
   const rut = +this.ruta.snapshot.paramMap.get('rut');
   this.reclamosService.obtenerReclamosPorRut(rut)
-  .subscribe(reclamos => {this.dataSource = new MatTableDataSource(reclamos);
-    
+  .subscribe(reclamos => {
+    console.log(reclamos);
+    this.dataSource.data = reclamos;
+    //this.dataSource = new MatTableDataSource(reclamos);
     console.log(this.dataSource);
      }); 
 }

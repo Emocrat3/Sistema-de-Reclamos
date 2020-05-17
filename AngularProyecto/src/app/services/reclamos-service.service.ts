@@ -28,9 +28,9 @@ export class ReclamosService {
     return this.http.get<Reclamos>(this.URL+suffix+num_reclamo);
   }
 
-  obtenerReclamosPorRut(rut:number): Observable<Reclamos[]> {
-    const suffix = '/reclamos/usuarioRut'
-    return this.http.post<Reclamos[]>(this.URL+suffix, rut, this.httpOptions);
+  obtenerReclamosPorRut(rut_usuario:number): Observable<Reclamos[]> {
+    const suffix = '/reclamos/usuarioRut/'
+    return this.http.post<Reclamos[]>(this.URL+suffix, rut_usuario, this.httpOptions);
   }
 
   insertarReclamo(recl: Reclamos) {

@@ -71,13 +71,11 @@ import { FiltradoUsuarioComponent } from './components/filtrado-usuario/filtrado
   ],
   imports: [
     BrowserModule,
-    routing,  
     HttpClientModule,
     AppMaterialModule,
     FormsModule,
     BrowserAnimationsModule,
-
-
+    routing,
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

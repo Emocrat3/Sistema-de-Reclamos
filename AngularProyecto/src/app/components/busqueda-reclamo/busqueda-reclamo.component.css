@@ -1,6 +1,6 @@
 
 table {
-    width: 100%;
+    width: 80%;
     position: relative;
     height: 400px;
     overflow: auto;
@@ -8,6 +8,8 @@ table {
     border-radius: 10px;
     text-align: center;
   }
-
-
-  .material-icons.md-24 { font-size: 24px; } 
+table td{
+margin-right: 10px;
+margin-left: 10px;
+  }
+  

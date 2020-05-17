@@ -5,8 +5,11 @@ C:\Users\Usuario\Desktop\Integracion front y back\SistemaDeReclamos\src\main\jav
 C:\Users\Usuario\Desktop\Integracion front y back\SistemaDeReclamos\src\main\java\com\Reclamos\SistemaDeReclamos\Servicios\Fecha.java
 C:\Users\Usuario\Desktop\Integracion front y back\SistemaDeReclamos\src\main\java\com\Reclamos\SistemaDeReclamos\DAO\AdminDAO.java
 C:\Users\Usuario\Desktop\Integracion front y back\SistemaDeReclamos\src\main\java\com\Reclamos\SistemaDeReclamos\API\UsuarioController.java
+C:\Users\Usuario\Desktop\Integracion front y back\SistemaDeReclamos\src\main\java\com\Reclamos\SistemaDeReclamos\Servicios\SendMailService.java
 C:\Users\Usuario\Desktop\Integracion front y back\SistemaDeReclamos\src\main\java\com\Reclamos\SistemaDeReclamos\DAO\ReclamosDAO.java
+C:\Users\Usuario\Desktop\Integracion front y back\SistemaDeReclamos\src\main\java\com\Reclamos\SistemaDeReclamos\DTO\Mail.java
 C:\Users\Usuario\Desktop\Integracion front y back\SistemaDeReclamos\src\main\java\com\Reclamos\SistemaDeReclamos\DTO\Reclamos.java
+C:\Users\Usuario\Desktop\Integracion front y back\SistemaDeReclamos\src\main\java\com\Reclamos\SistemaDeReclamos\API\SendMailController.java
 C:\Users\Usuario\Desktop\Integracion front y back\SistemaDeReclamos\src\main\java\com\Reclamos\SistemaDeReclamos\API\AdminController.java
 C:\Users\Usuario\Desktop\Integracion front y back\SistemaDeReclamos\src\main\java\com\Reclamos\SistemaDeReclamos\DTO\Usuarios.java
 C:\Users\Usuario\Desktop\Integracion front y back\SistemaDeReclamos\src\main\java\com\Reclamos\SistemaDeReclamos\DTO\Respuesta.java
