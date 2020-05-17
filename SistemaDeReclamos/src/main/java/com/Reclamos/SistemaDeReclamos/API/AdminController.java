@@ -7,6 +7,8 @@ import com.Reclamos.SistemaDeReclamos.DAO.UsuarioDAO;
 import com.Reclamos.SistemaDeReclamos.DTO.Admin;
 
 import com.Reclamos.SistemaDeReclamos.DTO.Usuarios;
+import com.Reclamos.SistemaDeReclamos.Servicios.SendMailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -15,6 +17,9 @@ import java.sql.SQLException;
 @RequestMapping("/api")
 @CrossOrigin (origins = "http://localhost:4200")
 public class AdminController {
+    @Autowired
+    private SendMailService sendMailService;
+
     @RequestMapping(method = RequestMethod.POST, value = "/registrarEjecutivo")
     public void registrarAdmin(@RequestBody Admin admin) throws Exception {
         AdminDAO.registrarAdmin(admin);
@@ -30,7 +35,9 @@ public class AdminController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/editarContraseñaAdmin/")
-    public Admin editarContraseñaAdmin(@RequestBody Admin admin) throws SinConexionException, SQLException {
+    public Admin editarContraseñaAdmin(@RequestBody Admin admin) throws SQLException, SinConexionException {
+        String body = "Sr.(a) "+admin.getNombre()+" Su contraseña ha sido actualizada correctamente";
+        sendMailService.sendEmail("reclamosdajkym@gmail.com",admin.getCorreo(),"Cambio Contraseña",body);
         return AdminDAO.editarContraseñaAdmin(admin);
     }
 

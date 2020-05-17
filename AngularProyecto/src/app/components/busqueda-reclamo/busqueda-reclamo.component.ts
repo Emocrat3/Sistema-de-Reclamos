@@ -54,7 +54,7 @@ ngOnInit(){
 
 }
 obtenerReclamos() {
-  const rut = +this.ruta.snapshot.paramMap.get('rut_usuario');
+  const rut = +this.ruta.snapshot.paramMap.get('rut');
   this.reclamosService.obtenerReclamosPorRut(rut)
   .subscribe(reclamos => {this.dataSource = new MatTableDataSource(reclamos);
     

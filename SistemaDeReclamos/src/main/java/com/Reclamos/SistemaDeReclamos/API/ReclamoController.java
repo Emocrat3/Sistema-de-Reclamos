@@ -3,12 +3,14 @@ package com.Reclamos.SistemaDeReclamos.API;
 import com.Reclamos.SistemaDeReclamos.DAO.*;
 import com.Reclamos.SistemaDeReclamos.DTO.Reclamos;
 import com.Reclamos.SistemaDeReclamos.DTO.Respuesta;
+import com.Reclamos.SistemaDeReclamos.DTO.Usuarios;
 import com.Reclamos.SistemaDeReclamos.Servicios.Fecha;
 import com.Reclamos.SistemaDeReclamos.Servicios.SendMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -30,7 +32,7 @@ public class ReclamoController {
         int numRecl = ReclamosDAO.obtenerID(reclamos);
         String correoUser = UsuarioDAO.obtenerCorreoPorRut(reclamos.getRut_usuario());
         String body = "El reclamo numero: #"+numRecl+" Ha sido ingresado con exito con fecha: "+reclamos.getFecha();
-        sendMailService.sendEmail("reclamosdajkym@gmail.com",correoUser,"Reclamo ",body);
+        sendMailService.sendEmail("reclamosdajkym@gmail.com",correoUser,"Reclamo Ingresado",body);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/reclamos/usuario")
@@ -38,9 +40,12 @@ public class ReclamoController {
         return ReclamosDAO.obtenerReclamos();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/reclamos/usuarioRut/{rut_usuario}")
-    public List<Reclamos>  obtenerReclamosPorRut(@PathVariable("rut_usuario") int rut_usuario) throws SinConexionException, SQLException {
-        return ReclamosDAO.obtenerReclamosPorRut(rut_usuario);
+    @RequestMapping(method = RequestMethod.POST, value = "/reclamos/usuarioRut")
+    public ArrayList<Reclamos> obtenerReclamosPorRutGuardados(@RequestBody int rut_usuario) throws SinConexionException, SQLException {
+        Usuarios usuario = UsuarioDAO.obtenerUsuariosPorID(rut_usuario);
+        ArrayList<Integer> numReclamos = ReclamosDAO.obtenerReclamosPorRutGuardados(usuario.getRut());
+        ArrayList<Reclamos> reclamosUsuario = ReclamosDAO.obtenerReclamosPorRut(numReclamos);
+        return reclamosUsuario;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/reclamos/usuario/{num_reclamo}")
@@ -54,7 +59,10 @@ public class ReclamoController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/editarReclamo/")
-    public Reclamos editarReclamos(@RequestBody Reclamos reclamos) throws SinConexionException, SQLException {
+    public Reclamos editarReclamos(@RequestBody Reclamos reclamos) throws SQLException, SinConexionException {
+        String correoUser = UsuarioDAO.obtenerCorreoPorRut(reclamos.getRut_usuario());
+        String body = "El reclamo numero: #"+reclamos.getNum_reclamo()+" Ha sido actualizado con exito!";
+        sendMailService.sendEmail("reclamosdajkym@gmail.com",correoUser,"Reclamo Actualizado",body);
         return ReclamosDAO.editarReclamoPorID(reclamos);
     }
 
@@ -65,6 +73,12 @@ public class ReclamoController {
         respuesta.setSLA_respuesta(slarespuesta);
         RespuestaDAO.insertarRespuesta(respuesta);
         RespuestaDAO.cambiarEstado(ReclamosDAO.obtenerReclamosPorID((int) respuesta.getNum_reclamo()));
+        Reclamos reclamos = ReclamosDAO.obtenerReclamosPorID((int) respuesta.getNum_reclamo());
+        String correoUser = UsuarioDAO.obtenerCorreoPorRut(reclamos.getRut_usuario());
+        String body = "El reclamo numero: #"+reclamos.getNum_reclamo()+" Ha sido respondido con exito! \n\n" +
+                "Texto respuesta: \n" +
+                respuesta.getTexto_respuesta();
+        sendMailService.sendEmail("reclamosdajkym@gmail.com",correoUser,"Respuesta reclamo",body);
     }
 
     @RequestMapping(method = RequestMethod.GET,  value = "/ADMIN/pendientes/")

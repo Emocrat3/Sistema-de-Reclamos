@@ -3,6 +3,8 @@ package com.Reclamos.SistemaDeReclamos.API;
 import com.Reclamos.SistemaDeReclamos.DAO.SinConexionException;
 import com.Reclamos.SistemaDeReclamos.DAO.UsuarioDAO;
 import com.Reclamos.SistemaDeReclamos.DTO.Usuarios;
+import com.Reclamos.SistemaDeReclamos.Servicios.SendMailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -11,6 +13,9 @@ import java.sql.SQLException;
 @RequestMapping("/api")
 @CrossOrigin (origins = "http://localhost:4200")
 public class UsuarioController {
+
+    @Autowired
+    private SendMailService sendMailService;
 
     @RequestMapping(method = RequestMethod.POST, value = "/registrarUsuario")
     public void registrarUsuario(@RequestBody Usuarios usuarios) throws Exception {
@@ -28,10 +33,11 @@ public class UsuarioController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/editarContraseñaUsuario/")
-    public Usuarios editarContraseñaUsuario(@RequestBody Usuarios usuarios) throws SinConexionException, SQLException {
+    public Usuarios editarContraseñaUsuario(@RequestBody Usuarios usuarios) throws SQLException, SinConexionException {
+        String body = "Sr.(a) "+usuarios.getNombre()+" Su contraseña ha sido actualizada correctamente";
+        sendMailService.sendEmail("reclamosdajkym@gmail.com",usuarios.getCorreo(),"Cambio Contraseña",body);
         return UsuarioDAO.editarContraseñaUsuario(usuarios);
     }
-
     @RequestMapping(method = RequestMethod.DELETE, value = "/DarDeBajaUsuario/")
     public Usuarios darBajaUsuarios(@RequestBody Usuarios usuarios) throws SinConexionException, SQLException {
         return UsuarioDAO.darBajaUsuario(usuarios);

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30e47489-f1ae-42af-88c8-633e7491090b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/busqueda-reclamo/busqueda-reclamo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/busqueda-reclamo/busqueda-reclamo.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/services/reclamos-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/services/reclamos-service.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,10 +76,10 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2056" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1588269849344" />
-    <state x="487" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1588444297602">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="2051" y="67" key="#com.intellij.ide.util.MemberChooser" timestamp="1589684512825">
+      <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2051" y="67" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1588291259321" />
+    <state x="2051" y="67" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1589684512825" />
     <state x="487" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1588444297602" />
     <state x="2056" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588262710334">
       <screen x="1366" y="0" width="1920" height="1040" />

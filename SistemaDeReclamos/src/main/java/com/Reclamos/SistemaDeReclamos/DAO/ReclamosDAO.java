@@ -2,10 +2,7 @@ package com.Reclamos.SistemaDeReclamos.DAO;
 
 import com.Reclamos.SistemaDeReclamos.DTO.Reclamos;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -141,26 +138,47 @@ public class ReclamosDAO {
         }
     }
 
-    static public List<Reclamos> obtenerReclamosPorRut(int rut_usuario) throws SinConexionException, SQLException {
+    public static ArrayList<Integer> obtenerReclamosPorRutGuardados (int rut) throws SinConexionException, SQLException {
+        if (conn == null) {
+            conn = Conexion.obtenerConexion();
+        }
+        ArrayList<Integer> numReclamos = new ArrayList<>();
+        String query = "select num_reclamo from Reclamos where rut_usuario = '" + rut + "'";
+
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+
+        while (rs.next()) {
+            numReclamos.add(rs.getInt("num_reclamo"));
+        }
+        return numReclamos;
+    }
+
+    static public ArrayList<Reclamos> obtenerReclamosPorRut(ArrayList<Integer> rut_usuario) throws SinConexionException, SQLException {
         if (conn == null){
             conn = Conexion.obtenerConexion();
         }
-        List<Reclamos> reclamosArrayList = new ArrayList<>();
-        String query = ("select tipo_problema, texto_reclamo, num_reclamo, rut_usuario, fecha, estado, SLA_reclamo, fecha_tope from Reclamos where rut_usuario = ?");
-        PreparedStatement ps = conn.prepareStatement(query);
-        ps.setInt(1, rut_usuario);
-        ResultSet rs = ps.executeQuery();
-        while(rs.next()){
-            int rutU = rs.getInt("rut_usuario");
-            int numReclamo = rs.getInt("num_reclamo");
-            String tipoProblema = rs.getString("tipo_problema");
-            String textoReclamo = rs.getString("texto_reclamo");
-            String fechaReclamo = rs.getString("fecha");
-            String estadoReclamo = rs.getString("estado");
-            int SLA_reclamo = rs.getInt("SLA_reclamo");
-            String fechaTopeReclamo = rs.getString("fecha_tope");
-            Reclamos r = new Reclamos(numReclamo, rutU, tipoProblema, fechaReclamo, textoReclamo,  estadoReclamo, SLA_reclamo,fechaTopeReclamo);
-            reclamosArrayList.add(r);
+        ArrayList<Reclamos> reclamosArrayList = new ArrayList<>();
+
+        for(Integer rut : rut_usuario) {
+            String query = ("select tipo_problema, texto_reclamo, num_reclamo, rut_usuario, fecha, estado, SLA_reclamo, fecha_tope from Reclamos where rut_usuario = '" + rut + "' ");
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                rs.getInt("num_reclamo");
+                rs.getInt("rut_usuario");
+                rs.getString("tipo_problema");
+                rs.getString("texto_reclamo");
+                rs.getString("fecha");
+                rs.getString("estado");
+                rs.getInt("SLA_reclamo");
+                rs.getString("fecha_tope");
+                Reclamos r = new Reclamos(rs.getInt("num_reclamo"), rs.getInt("rut_usuario"), rs.getString("tipo_problema"),
+                        rs.getString("fecha"), rs.getString("texto_reclamo"), rs.getString("estado"),
+                        rs.getInt("SLA_reclamo"), rs.getNString("fecha_tope"));
+                reclamosArrayList.add(r);
+            }
+            rs.beforeFirst();
         }
         return reclamosArrayList;
 
