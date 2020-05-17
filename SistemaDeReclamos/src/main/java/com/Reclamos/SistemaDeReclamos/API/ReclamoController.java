@@ -5,10 +5,12 @@ import com.Reclamos.SistemaDeReclamos.DTO.Reclamos;
 import com.Reclamos.SistemaDeReclamos.DTO.Respuesta;
 import com.Reclamos.SistemaDeReclamos.DTO.Usuarios;
 import com.Reclamos.SistemaDeReclamos.Servicios.Fecha;
+import com.Reclamos.SistemaDeReclamos.Servicios.GenerarPDF;
 import com.Reclamos.SistemaDeReclamos.Servicios.SendMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +80,11 @@ public class ReclamoController {
         String body = "El reclamo numero: #"+reclamos.getNum_reclamo()+" Ha sido respondido con exito! \n\n" +
                 "Texto respuesta: \n" +
                 respuesta.getTexto_respuesta();
-        sendMailService.sendEmail("reclamosdajkym@gmail.com",correoUser,"Respuesta reclamo",body);
+        GenerarPDF pdf = new GenerarPDF();
+        pdf.pdfGenerar(body,respuesta);
+        File f = new File("Informe reclamo N° #"+respuesta.getNum_reclamo()+".pdf");
+        sendMailService.sendEmailAttachment("reclamosdajkym@gmail.com",correoUser,"Respuesta reclamo N° #"+respuesta.getNum_reclamo(),
+                body,respuesta,f.getAbsolutePath());
     }
 
     @RequestMapping(method = RequestMethod.GET,  value = "/ADMIN/pendientes/")

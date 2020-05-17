@@ -47,7 +47,7 @@ export class UsuariosService {
     return this.http.put<Usuarios>(this.URL+suffix, usuario, this.httpOptions);
   }
   darBajaUsuario(rut: number) {
-    const suffix = '/editarCuentaUsuario/'
+    const suffix = '/DarDeBajaUsuario/'
     return this.http.delete(this.URL+suffix+rut, this.httpOptions);
   }
 }

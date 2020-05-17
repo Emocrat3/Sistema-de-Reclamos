@@ -99,17 +99,16 @@ public class UsuarioDAO {
         return null;
     }
 
-    static public Usuarios darBajaUsuario(Usuarios u) throws SinConexionException, SQLException {
+    static public Usuarios darBajaUsuario(int rut) throws SinConexionException, SQLException {
         try {
             Connection conn = Conexion.obtenerConexion();
-            PreparedStatement ps = conn.prepareStatement("delete from Usuario where rut = ?");
-            ps.setInt(1, u.getRut());
+            PreparedStatement ps = conn.prepareStatement("delete from Usuario where rut = " + rut);
             ps.executeUpdate();
         } catch (SQLException | SinConexionException e) {
             e.printStackTrace();
             return null;
         }
-        return u;
+        return ;
     }
 
     static public Usuarios loginUsuario(Usuarios u) {
