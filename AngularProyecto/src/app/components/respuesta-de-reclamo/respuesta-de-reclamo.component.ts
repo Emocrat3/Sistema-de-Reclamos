@@ -6,26 +6,31 @@ import { Respuesta } from 'src/models/Respuesta';
 import { Reclamos } from 'src/models/Reclamos';
 import {RespuestaService} from 'src/app/services/respuesta-service.service'
 import { RouterLink, Router } from '@angular/router';
+import { Admin } from 'src/models/Admin';
+import { AdminService } from 'src/app/services/admin-service.service';
+
 @Component({
   selector: 'app-respuesta-de-reclamo',
   templateUrl: './respuesta-de-reclamo.component.html',
   styleUrls: ['./respuesta-de-reclamo.component.css']
 })
 export class RespuestaDeReclamoComponent implements OnInit {
-
+  @Input() admin: Admin;
   @Input() respuesta: Respuesta;
   @Input() reclamos: Reclamos;
   
   constructor(
     private reclamosService:ReclamosService,
     private respuestaService:RespuestaService,
+    private adminService: AdminService, 
     private ruta: ActivatedRoute,
     private ubicacion: Location, 
     public router: Router
     ) {}
 
-    ngOnInit(){
+    ngOnInit(): void {
       this.obtenerReclamos();
+      this.obtenerDatosAdmin();
     }
 
     insertarRespuesta(num_reclamo: number, rut_admin: number, texto_respuesta: string, fecha_respuesta: string, SLA_respuesta: string): void{
@@ -44,6 +49,10 @@ export class RespuestaDeReclamoComponent implements OnInit {
     const num_reclamo = +this.ruta.snapshot.paramMap.get('num_reclamo');
     this.reclamosService.obtenerReclamoPorID(num_reclamo)
       .subscribe(reclamos => this.reclamos=reclamos);
+  }
+  obtenerDatosAdmin() {
+    const rut = +this.ruta.snapshot.paramMap.get('rut');
+    this.adminService.obtenerAdminPorId(rut).subscribe(admin => this.admin= admin);;
   }
 
   volver(){
