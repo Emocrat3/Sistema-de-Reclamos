@@ -29,7 +29,7 @@ export class ReclamosService {
   }
 
   obtenerReclamosPorRut(rut:number): Observable<Reclamos[]> {
-    const suffix = '/reclamos/usuarioRut/'
+    const suffix = '/reclamos/usuarioRut'
     return this.http.post<Reclamos[]>(this.URL+suffix, rut, this.httpOptions);
   }
 

@@ -143,43 +143,41 @@ public class ReclamosDAO {
             conn = Conexion.obtenerConexion();
         }
         ArrayList<Integer> numReclamos = new ArrayList<>();
+        System.out.println(rut);
         String query = "select num_reclamo from Reclamos where rut_usuario = '" + rut + "'";
-
+        System.out.println(rut);
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(query);
-
+        System.out.println(numReclamos);
         while (rs.next()) {
             numReclamos.add(rs.getInt("num_reclamo"));
         }
+        System.out.println(numReclamos);
         return numReclamos;
     }
 
-    static public ArrayList<Reclamos> obtenerReclamosPorRut(ArrayList<Integer> rut_usuario) throws SinConexionException, SQLException {
+    static public ArrayList<Reclamos> obtenerReclamosPorRut(ArrayList<Integer> num_reclamo) throws SinConexionException, SQLException {
         if (conn == null){
             conn = Conexion.obtenerConexion();
         }
         ArrayList<Reclamos> reclamosArrayList = new ArrayList<>();
-
-        for(Integer rut : rut_usuario) {
-            String query = ("select tipo_problema, texto_reclamo, num_reclamo, rut_usuario, fecha, estado, SLA_reclamo, fecha_tope from Reclamos where rut_usuario = '" + rut + "' ");
+        System.out.println(reclamosArrayList);
+        System.out.println(num_reclamo);
+        for(Integer numR : num_reclamo) {
+            String query = ("select tipo_problema, texto_reclamo, num_reclamo, rut_usuario, fecha, estado, SLA_reclamo, fecha_tope" +
+                    " from Reclamos where num_reclamo = '" + numR + "' ");
+            System.out.println(numR);
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
-                rs.getInt("num_reclamo");
-                rs.getInt("rut_usuario");
-                rs.getString("tipo_problema");
-                rs.getString("texto_reclamo");
-                rs.getString("fecha");
-                rs.getString("estado");
-                rs.getInt("SLA_reclamo");
-                rs.getString("fecha_tope");
-                Reclamos r = new Reclamos(rs.getInt("num_reclamo"), rs.getInt("rut_usuario"), rs.getString("tipo_problema"),
+                Reclamos r = new Reclamos( rs.getInt("num_reclamo"), rs.getInt("rut_usuario"), rs.getString("tipo_problema"),
                         rs.getString("fecha"), rs.getString("texto_reclamo"), rs.getString("estado"),
-                        rs.getInt("SLA_reclamo"), rs.getNString("fecha_tope"));
+                        rs.getInt("SLA_reclamo"),rs.getString("fecha_tope"));
                 reclamosArrayList.add(r);
             }
-            rs.beforeFirst();
+
         }
+        System.out.println(reclamosArrayList);
         return reclamosArrayList;
 
     }

@@ -40,7 +40,7 @@ public class ReclamoController {
         return ReclamosDAO.obtenerReclamos();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/reclamos/usuarioRut")
+    @RequestMapping(method = RequestMethod.POST, value = "/reclamos/usuarioRut/")
     public ArrayList<Reclamos> obtenerReclamosPorRutGuardados(@RequestBody int rut_usuario) throws SinConexionException, SQLException {
         Usuarios usuario = UsuarioDAO.obtenerUsuariosPorID(rut_usuario);
         ArrayList<Integer> numReclamos = ReclamosDAO.obtenerReclamosPorRutGuardados(usuario.getRut());
