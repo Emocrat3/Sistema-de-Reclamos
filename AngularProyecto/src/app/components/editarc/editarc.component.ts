@@ -34,14 +34,21 @@ export class EditarcComponent implements OnInit {
       });
   
     }
+    ngOnDestroy(): void {
+      if (this.mySubscription) {
+        this.mySubscription.unsubscribe();
+  
+      }
+    } 
      
-  ngOnInit(): void {
+  ngOnInit() {
     this.obtenerDatosUsuario();
   }
   obtenerDatosUsuario() {
     const rut = +this.ruta.snapshot.paramMap.get('rut');
     this.usuariosService.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuario= usuario);;
   }
+  
 
   volver(){
     this.ubicacion.back();
@@ -52,7 +59,7 @@ export class EditarcComponent implements OnInit {
 
     if (confirm("¿Estas seguro que te quieres dar de baja?")) {
       alert("Esperamos verte por acá pronto");
-      this.usuariosService.darBajaUsuario(rut)
+      return this.usuariosService.darBajaUsuario(rut)
       .subscribe(_=>this.volver());
     } else { 
       alert("Estamos agradecidos que te hayas quedado con nosotros :D");

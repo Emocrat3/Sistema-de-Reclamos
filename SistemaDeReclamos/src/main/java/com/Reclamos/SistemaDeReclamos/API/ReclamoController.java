@@ -81,7 +81,7 @@ public class ReclamoController {
                 "Texto respuesta: \n" +
                 respuesta.getTexto_respuesta();
         GenerarPDF pdf = new GenerarPDF();
-        pdf.pdfGenerar(body,respuesta);
+        pdf.pdfGenerar(respuesta.getTexto_respuesta(),respuesta,UsuarioDAO.obtenerNombreByRut(reclamos.getRut_usuario()));
         File f = new File("Informe reclamo N° #"+respuesta.getNum_reclamo()+".pdf");
         sendMailService.sendEmailAttachment("reclamosdajkym@gmail.com",correoUser,"Respuesta reclamo N° #"+respuesta.getNum_reclamo(),
                 body,respuesta,f.getAbsolutePath());

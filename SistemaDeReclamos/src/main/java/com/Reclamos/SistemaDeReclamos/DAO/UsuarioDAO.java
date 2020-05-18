@@ -116,7 +116,19 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
     }
-
+    public static String obtenerNombreByRut(int rut){
+        try {
+            Connection conn = Conexion.obtenerConexion();
+            PreparedStatement ps = conn.prepareStatement("select nombre from Usuario where  rut = "+rut);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            String nombre = rs.getString("nombre");
+            return nombre;
+        } catch (SQLException | SinConexionException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
     static public void darBajaUsuario(int rut) throws SQLException {
         try {
             Connection conn = Conexion.obtenerConexion();
