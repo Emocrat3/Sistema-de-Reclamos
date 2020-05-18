@@ -41,9 +41,11 @@ public class AdminController {
         return AdminDAO.editarContraseñaAdmin(admin);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/DarDeBajaAdmin/{rut}/{permiso}")
-    public Usuarios darBajaAdmin(@PathVariable("rut") int rut, @PathVariable("permiso") String permiso) throws SinConexionException, SQLException {
-        return AdminDAO.darBajaAdmin(rut,permiso);
+    @RequestMapping(method = RequestMethod.POST, value = "/DarDeBajaAdmin/{rut}")
+    public void darBajaAdmin(@PathVariable("rut") int rut) throws SinConexionException, SQLException {
+        AdminDAO.setRutRespuestaVacio(rut);
+        AdminDAO.setRutReclamosVacio(rut);
+        AdminDAO.darBajaAdmin(rut);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/loginAdmin/")

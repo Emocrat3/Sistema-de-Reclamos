@@ -28,9 +28,15 @@ export class EditarCuentaEjecutivoComponent implements OnInit {
     this.ubicacion.back();
   }
  
-
   borrar(rut: number){
-    this.adminService.darBajaAdmin(rut)
+
+    if (confirm("¿Estas seguro que te quieres dar de baja?")) {
+      alert("Fue un placer haber trabajado contigo.");
+      this.adminService.darBajaAdmin(rut)
+      .subscribe();
+    } else { 
+      alert("Estamos agradecidos en que sigas prestando servicio a nuestro sistema.");
+    }
   }
 
   guardar(rut:number, nombre: string, apellido: string, correo: string, telefono: number, direccion: string, cargo: string){

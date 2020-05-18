@@ -116,6 +116,16 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
     }
+
+    static public void darBajaUsuario(int rut) throws SQLException {
+        try {
+            Connection conn = Conexion.obtenerConexion();
+            PreparedStatement ps = conn.prepareStatement("delete from Usuario where rut = " + rut);
+            ps.executeUpdate();
+        } catch (SQLException | SinConexionException e) {
+            e.printStackTrace();
+        }
+    }
     public static String obtenerNombreByRut(int rut){
         try {
             Connection conn = Conexion.obtenerConexion();
@@ -129,15 +139,7 @@ public class UsuarioDAO {
         }
         return null;
     }
-    static public void darBajaUsuario(int rut) throws SQLException {
-        try {
-            Connection conn = Conexion.obtenerConexion();
-            PreparedStatement ps = conn.prepareStatement("delete from Usuario where rut = " + rut);
-            ps.executeUpdate();
-        } catch (SQLException | SinConexionException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     static public Usuarios loginUsuario(Usuarios u) {
         try {

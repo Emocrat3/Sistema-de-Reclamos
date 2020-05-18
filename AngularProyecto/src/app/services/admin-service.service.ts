@@ -42,7 +42,7 @@ export class AdminService {
     return this.http.put<Admin>(this.URL+suffix, admin, this.httpOptions);
   }
   darBajaAdmin(rut: number) {
-    const suffix = '/editar-cuenta-ejecutivo/'
-    return this.http.delete(this.URL+suffix+rut, this.httpOptions);
+    const suffix = '/DarDeBajaAdmin/'
+    return this.http.post(this.URL+suffix+rut, this.httpOptions);
   }
 }

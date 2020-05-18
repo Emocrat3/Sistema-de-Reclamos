@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30e47489-f1ae-42af-88c8-633e7491090b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/components/editarc/editarc.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/components/editarc/editarc.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularProyecto/src/app/services/usuarios-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularProyecto/src/app/services/usuarios-service.service.ts" afterDir="false" />
-    </list>
+    <list default="true" id="30e47489-f1ae-42af-88c8-633e7491090b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

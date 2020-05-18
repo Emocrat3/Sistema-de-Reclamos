@@ -38,8 +38,9 @@
 	</mat-form-field>
 
 	</div>
-	<button mat-raised-button style="margin-right: 10px;" color="warn" (click)="guardar(rut.value, nombre.value, apellido.value, correo.value, telefono.value,direccion.value, cargo.value)">Guardar</button>
-	<button class= "botones" mat-raised-button color="warn" (click)="volver()">Volver atras</button> 
+	<button mat-raised-button color="warn" style="margin-right: 10px;" (click)="borrar(rut.value)" routerLink="/bienvenido/">Dar de Baja</button>
+	<button mat-raised-button style="margin-right: 10px;" color="primary" (click)="guardar(rut.value, nombre.value, apellido.value, correo.value, telefono.value,direccion.value, cargo.value)">Guardar</button>
+	<button class= "botones" mat-raised-button color="primary" (click)="volver()">Volver atras</button> 
 </form>
 
 

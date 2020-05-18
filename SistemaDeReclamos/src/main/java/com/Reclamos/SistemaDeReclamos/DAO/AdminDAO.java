@@ -84,18 +84,33 @@ public class AdminDAO {
         }
         return admin;
     }
-    static public Usuarios darBajaAdmin(int rut, String permiso) throws SinConexionException, SQLException {
-        try {
-            Connection conn = Conexion.obtenerConexion();
-            PreparedStatement ps = conn.prepareStatement("delete from Usuario where rut = ? and permiso = ?");
-            ps.setInt(1, rut);
-            ps.setString(2, permiso);
-            ps.executeUpdate();
 
+    static public void setRutReclamosVacio(int rut) throws SQLException{
+        try{
+            Connection conn = Conexion.obtenerConexion();
+            PreparedStatement ps = conn.prepareStatement("update Reclamos set rut_usuario = 9999 where rut_usuario = " + rut);
+            ps.executeUpdate();
         } catch (SQLException | SinConexionException e) {
             e.printStackTrace();
         }
-        return null;
+    }
+    static public void setRutRespuestaVacio(int rut) throws SQLException{
+        try{
+            Connection conn = Conexion.obtenerConexion();
+            PreparedStatement ps = conn.prepareStatement("update Respuesta set rut_admin = 9999  where rut_admin = " + rut);
+            ps.executeUpdate();
+        } catch (SQLException | SinConexionException e) {
+            e.printStackTrace();
+        }
+    }
+    static public void darBajaAdmin(int rut) throws SinConexionException, SQLException {
+        try {
+            Connection conn = Conexion.obtenerConexion();
+            PreparedStatement ps = conn.prepareStatement("delete from Usuario where rut = " + rut);
+            ps.executeUpdate();
+        } catch (SQLException | SinConexionException e) {
+            e.printStackTrace();
+        }
     }
 
     static public Admin loginAdmin(Usuarios a) throws SinConexionException, SQLException {
