@@ -39,11 +39,11 @@ public class UsuarioController {
         return UsuarioDAO.editarContraseñaUsuario(usuarios);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/DarDeBajaUsuario/")
-    public void darBajaUsuarios(@RequestBody Usuarios usuarios) throws SQLException {
-        UsuarioDAO.setRutRespuestaVacio(usuarios.getRut());
-        UsuarioDAO.setRutReclamosVacio(usuarios.getRut());
-        UsuarioDAO.darBajaUsuario(usuarios.getRut());
+    @RequestMapping(method = RequestMethod.POST, value = "/DarDeBajaUsuario/{rut}")
+    public void darBajaUsuarios(@PathVariable("rut") int rut) throws SQLException {
+        UsuarioDAO.setRutRespuestaVacio(rut);
+        UsuarioDAO.setRutReclamosVacio(rut);
+        UsuarioDAO.darBajaUsuario(rut);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/loginUsuario/")

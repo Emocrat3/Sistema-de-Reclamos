@@ -59,8 +59,8 @@ export class EditarcComponent implements OnInit {
 
     if (confirm("¿Estas seguro que te quieres dar de baja?")) {
       alert("Esperamos verte por acá pronto");
-      return this.usuariosService.darBajaUsuario(rut)
-      .subscribe(_=>this.volver());
+      this.usuariosService.darBajaUsuarios(rut)
+      .subscribe();
     } else { 
       alert("Estamos agradecidos que te hayas quedado con nosotros :D");
     }
