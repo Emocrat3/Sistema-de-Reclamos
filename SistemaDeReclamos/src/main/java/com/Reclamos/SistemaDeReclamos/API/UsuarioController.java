@@ -38,9 +38,12 @@ public class UsuarioController {
         sendMailService.sendEmail("reclamosdajkym@gmail.com",usuarios.getCorreo(),"Cambio Contraseña",body);
         return UsuarioDAO.editarContraseñaUsuario(usuarios);
     }
+
     @RequestMapping(method = RequestMethod.POST, value = "/DarDeBajaUsuario/")
-    public Usuarios darBajaUsuarios(@RequestBody Usuarios usuarios) throws SinConexionException, SQLException {
-        return UsuarioDAO.darBajaUsuario(usuarios.getRut());
+    public void darBajaUsuarios(@RequestBody Usuarios usuarios) throws SQLException {
+        UsuarioDAO.setRutRespuestaVacio(usuarios.getRut());
+        UsuarioDAO.setRutReclamosVacio(usuarios.getRut());
+        UsuarioDAO.darBajaUsuario(usuarios.getRut());
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/loginUsuario/")

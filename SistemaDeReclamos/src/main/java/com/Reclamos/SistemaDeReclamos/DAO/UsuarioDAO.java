@@ -1,6 +1,5 @@
 package com.Reclamos.SistemaDeReclamos.DAO;
 
-import com.Reclamos.SistemaDeReclamos.DTO.Reclamos;
 import com.Reclamos.SistemaDeReclamos.DTO.Usuarios;
 
 
@@ -99,16 +98,33 @@ public class UsuarioDAO {
         return null;
     }
 
-    static public Usuarios darBajaUsuario(int rut) throws SinConexionException, SQLException {
+    static public void setRutReclamosVacio(int rut) throws SQLException{
+        try{
+            Connection conn = Conexion.obtenerConexion();
+            PreparedStatement ps = conn.prepareStatement("update Reclamos set rut_usuario = 0 where rut_usuario = " + rut);
+            ps.executeUpdate();
+        } catch (SQLException | SinConexionException e) {
+            e.printStackTrace();
+        }
+    }
+    static public void setRutRespuestaVacio(int rut) throws SQLException{
+        try{
+            Connection conn = Conexion.obtenerConexion();
+            PreparedStatement ps = conn.prepareStatement("update Respuesta set rut_admin = 0  where rut_admin = " + rut);
+            ps.executeUpdate();
+        } catch (SQLException | SinConexionException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static public void darBajaUsuario(int rut) throws SQLException {
         try {
             Connection conn = Conexion.obtenerConexion();
             PreparedStatement ps = conn.prepareStatement("delete from Usuario where rut = " + rut);
             ps.executeUpdate();
         } catch (SQLException | SinConexionException e) {
             e.printStackTrace();
-            return null;
         }
-        return ;
     }
 
     static public Usuarios loginUsuario(Usuarios u) {

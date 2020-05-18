@@ -13,6 +13,7 @@ com\Reclamos\SistemaDeReclamos\API\UsuarioController.class
 com\Reclamos\SistemaDeReclamos\DTO\Respuesta.class
 com\Reclamos\SistemaDeReclamos\DAO\RespuestaDAO.class
 com\Reclamos\SistemaDeReclamos\DTO\Usuarios.class
+com\Reclamos\SistemaDeReclamos\Servicios\GenerarPDF.class
 com\Reclamos\SistemaDeReclamos\DAO\UsuarioDAO.class
 com\Reclamos\SistemaDeReclamos\Servicios\Fecha.class
 com\Reclamos\SistemaDeReclamos\API\AdminController.class
