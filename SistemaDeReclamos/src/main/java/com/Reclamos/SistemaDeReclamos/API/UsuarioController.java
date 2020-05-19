@@ -20,6 +20,10 @@ public class UsuarioController {
     @RequestMapping(method = RequestMethod.POST, value = "/registrarUsuario")
     public void registrarUsuario(@RequestBody Usuarios usuarios) throws Exception {
         UsuarioDAO.registrarUsuario(usuarios);
+        String correoUser = UsuarioDAO.obtenerCorreoPorRut(usuarios.getRut());
+        String body = "Sr.(a) "+usuarios.getNombre() +"\nSu cuenta ha sido creada exitosamente.\nEsperamos ser de mucha ayuda para usted." +
+                "\n\nAtentamente el equipo de DAJKYM.";
+        sendMailService.sendEmail("reclamosdajkym@gmail.com",correoUser,"Registro DAJKYM",body);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/editarc/{rut}")
