@@ -1,6 +1,6 @@
 <div class="contenedor" >
    
-    <h3>Detalles Reclamo {{reclamos.num_reclamo}}</h3>
+    <h3>Detalles Reclamo {{reclamos.num_reclamo}}, Estado: {{reclamos.estado}}</h3>
     <hr>
     <mat-form-field style="width: 100%;height: 14%;" >
         <mat-label>Numero de reclamo</mat-label>
@@ -25,10 +25,6 @@
     <mat-form-field style="width: 100%;height: 14%;">
         <mat-label>Fecha tope para responder reclamo</mat-label>
         <input matInput #fechaTope value="{{reclamos.fecha_tope}}" disabled="true">
-    </mat-form-field>
-    <mat-form-field style="width: 100%; height:10%">
-        <mat-label>SLA Respuesta</mat-label>
-        <input matInput disabled="true" #SLA_respuesta  >
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="volver()" style="margin: 0em;">Volver Atras</button>
 

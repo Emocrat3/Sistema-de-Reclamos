@@ -62,6 +62,6 @@ export class RespuestaDeReclamoComponent implements OnInit {
   responder(num_reclamo:number, rut_admin:number, texto_respuesta:string, fecha_respuesta:string){
     this.reclamosService.insertarRespuesta({num_reclamo, rut_admin, texto_respuesta, fecha_respuesta} as Respuesta)
       .subscribe(_=>this.volver());
-      alert("Se confirmaron los datos donde se estara enviaran detalles del reclamo")
+      alert("Se ha respondido correctamente el reclamo, le llegara un correo al usuario, con los detalles de la respuesta")
   }
 }

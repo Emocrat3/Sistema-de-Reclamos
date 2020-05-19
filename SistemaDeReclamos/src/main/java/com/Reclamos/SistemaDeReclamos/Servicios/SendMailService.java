@@ -28,7 +28,7 @@ public class SendMailService {
         javaMailSender.send(mailMessage);
     }
 
-    public void sendEmailAttachment(String from, String to, String subject, String Body, Respuesta respuesta, String path) {
+    public void sendEmailAttachment(String from, String to, String subject, String Body, Respuesta respuesta,String path) {
         MimeMessage message = javaMailSender.createMimeMessage();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -36,7 +36,7 @@ public class SendMailService {
             helper.setTo(to);
             helper.setSubject(subject);
             helper.setText(Body);
-            helper.addAttachment("Informe Reclamo #" + respuesta.getNum_reclamo(), new File(path));
+            helper.addAttachment("Informe Reclamo #" + respuesta.getNum_reclamo()+".pdf", new File(path));
 
             javaMailSender.send(message);
         } catch (MessagingException e) {

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
         @RequestMapping(method = RequestMethod.POST, value = "/reportarproblema")
         public void registrarAdmin(@RequestBody Mail mail) throws Exception {
-            sendMailService.sendEmail("reclamosdajkym@gmail.com","jordi.lf.cb@gmail.com",mail.getAsunto()
+            sendMailService.sendEmail("reclamosdajkym@gmail.com","reclamosdajkym@gmail.com",mail.getAsunto()
                     ,mail.getMensaje());
         }
     }

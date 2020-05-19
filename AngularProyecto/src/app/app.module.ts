@@ -35,6 +35,7 @@ import { BuscandoReclamosComponent } from './components/buscando-reclamos/buscan
 import { DetalleAdminReclamoComponent } from './components/detalle-admin-reclamo/detalle-admin-reclamo.component';
 import { FiltradoUsuarioComponent } from './components/filtrado-usuario/filtrado-usuario.component';
 import { FiltradoPorRutAdminComponent } from './components/filtrado-por-rut-admin/filtrado-por-rut-admin.component';
+import { ReportarproblemaComponent } from './components/reportarproblema/reportarproblema.component';
 
 
 
@@ -69,6 +70,7 @@ import { FiltradoPorRutAdminComponent } from './components/filtrado-por-rut-admi
     DetalleAdminReclamoComponent,
     FiltradoUsuarioComponent,
     FiltradoPorRutAdminComponent,
+    ReportarproblemaComponent,
     
    
   ],

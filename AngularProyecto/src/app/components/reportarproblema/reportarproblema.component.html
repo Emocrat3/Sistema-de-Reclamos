@@ -1,0 +1,37 @@
+<div class="contenedor" id="contrep">
+    <!--Contenido de Reporte-->
+    <div class="minicontenedor" id="contrep1">
+        <div>
+            <form>
+                <p>
+                    <label for="nombre">REPORTAR PROBLEMA </label> <br/>
+
+                </p>
+                <p>
+                    <label for="inquietud">Indique el asunto</label> <br/>
+                    <mat-form-field style="width: 80%;">
+                        
+                        <input matInput  #asunto >
+                    </mat-form-field>
+                </p>
+                
+                <p>
+                    <label for="inquietud">Indique el mensaje</label> <br/>
+                    <mat-form-field>
+                        <textarea matInput
+                                  cdkTextareaAutosize
+                                  #autosize="cdkTextareaAutosize"
+                                  cdkAutosizeMinRows="1"
+                                  cdkAutosizeMaxRows="2"
+                                  #mensaje></textarea>
+                    </mat-form-field>
+                </p>
+
+            </form>
+        </div>
+    
+
+        <input class="boton_personalizado" (click)="confirmar(asunto.value, mensaje.value)" id="butrep1" type="submit" value="Confirmar"/>
+        <input class="boton_personalizado"  id="butrep4" type="submit" value="volver atras" (click)="volver()"/>
+    </div>
+</div>

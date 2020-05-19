@@ -45,4 +45,6 @@ export class AdminService {
     const suffix = '/DarDeBajaAdmin/'
     return this.http.post(this.URL+suffix+rut, this.httpOptions);
   }
+
+
 }
